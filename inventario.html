@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventario | AgroEstructura V.2 PRO</title>
+<meta name="theme-color" content="#0b1326">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/tailwind.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary">
+<div id="shell"></div>
+
+<div class="lg:pl-64">
+<main class="relative w-full pt-16 bg-background min-h-screen">
+<div class="px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-6 max-w-[1540px] mx-auto">
+
+  <!-- Banner -->
+  <section class="relative overflow-hidden rounded-xl bg-surface-card border border-border-grid p-6 shadow-xl">
+    <div class="absolute -right-20 -top-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div class="flex flex-col gap-2 max-w-3xl">
+        <span class="px-2.5 py-1 rounded-full bg-surface-container-highest border border-border-grid font-label-sm text-label-sm text-on-surface-variant self-start">Memoria local del navegador</span>
+        <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Gestor de Almacén y Precios Base</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">Los precios que guardes aquí se usan en el cotizador para calcular los presupuestos.</p>
+      </div>
+      <div class="grid grid-cols-3 gap-4 bg-surface-container-lowest/80 border border-border-grid p-4 rounded-xl min-w-[300px]">
+        <div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Mat. base</span><span class="font-metric-display text-headline-lg text-primary font-bold">4</span><span class="font-body-sm text-body-sm text-spring-lime">Fijos</span></div>
+        <div class="flex flex-col border-l border-border-grid pl-4"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Insumos libres</span><span id="contadorInsumos" class="font-metric-display text-headline-lg text-wireframe-blue font-bold">0</span><span class="font-body-sm text-body-sm text-wireframe-blue">Editables</span></div>
+        <div class="flex flex-col border-l border-border-grid pl-4"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Estado</span><span id="estadoGuardado" class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">Al día</span><span id="estadoGuardadoDet" class="font-label-sm text-label-sm text-outline">Sin cambios</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Crear insumo -->
+  <section class="bg-surface-card border border-border-grid rounded-xl p-6 shadow-lg">
+    <div class="flex items-center gap-3 border-b border-border-grid pb-3 mb-4">
+      <div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary border border-border-grid"><span class="material-symbols-outlined text-[20px]">add_circle</span></div>
+      <div><h2 class="font-headline-sm text-headline-sm text-on-surface">Crear nuevo registro libre / insumo</h2><span class="font-body-sm text-body-sm text-on-surface-variant">Añade componentes complementarios para incluirlos en tus cotizaciones</span></div>
+    </div>
+    <form id="formInsumo" class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end" novalidate>
+      <div class="md:col-span-6 flex flex-col gap-1.5">
+        <label for="insNombre" class="font-label-md text-label-md text-on-surface">Nombre del insumo</label>
+        <div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-input-affordance text-[18px]">inventory</span>
+          <input id="insNombre" type="text" maxlength="80" placeholder="Ej: Bulto de cemento 50 kg" class="w-full bg-surface-container-lowest text-on-surface pl-10 pr-4 py-2.5 rounded-lg border border-border-grid focus:border-wireframe-blue focus:outline-none placeholder:text-input-affordance"></div>
+      </div>
+      <div class="md:col-span-3 flex flex-col gap-1.5">
+        <label for="insPrecio" class="font-label-md text-label-md text-on-surface">Precio unitario (COP)</label>
+        <div class="flex items-center rounded-lg border border-border-grid bg-surface-container-lowest focus-within:border-wireframe-blue">
+          <span class="px-3 py-2.5 font-label-md text-label-md text-wireframe-blue font-bold border-r border-border-grid bg-surface-container-low">$</span>
+          <input id="insPrecio" type="number" min="1" step="50" placeholder="0" class="w-full bg-transparent text-on-surface px-3 py-2 focus:outline-none text-right tabular"></div>
+      </div>
+      <div class="md:col-span-3"><button type="submit" class="w-full h-[46px] rounded-lg bg-primary-container text-on-primary-container hover:bg-spring-lime hover:text-canvas-void font-label-lg text-label-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98]"><span class="material-symbols-outlined text-[20px]">post_add</span>Crear insumo</button></div>
+      <p id="errInsumo" class="md:col-span-12 hidden text-sm text-danger-alert" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- Materiales base -->
+  <section class="flex flex-col gap-4">
+    <div class="flex items-center gap-3"><span class="material-symbols-outlined text-spring-lime text-[24px]">construction</span>
+      <div><h2 class="font-headline-md text-headline-md text-on-surface">Materiales base de construcción</h2><p class="font-body-sm text-body-sm text-on-surface-variant">Componentes principales que el cotizador usa en todos los cálculos.</p></div></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div class="bg-surface-card rounded-xl p-4 border border-border-grid border-l-4 border-l-wireframe-blue flex flex-col justify-between gap-4 shadow-md">
+        <div class="flex flex-col gap-2"><div class="flex items-center justify-between"><span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-wireframe-blue/15 text-wireframe-blue border border-wireframe-blue/30 uppercase">Acero tubular</span><span class="material-symbols-outlined text-wireframe-blue text-[20px]">architecture</span></div>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Tubo Galvanizado 2"×6 m</h3><span class="font-body-sm text-body-sm text-on-surface-variant">Arcos, columnas y cordones de la estructura tubular</span></div>
+        <div class="flex flex-col gap-1.5 pt-2 border-t border-border-grid"><label for="p_tubo" class="font-label-sm text-label-sm text-on-surface-variant">Precio actual</label>
+          <div class="flex items-center rounded-lg border border-border-grid bg-surface-container-lowest focus-within:border-wireframe-blue"><span class="px-3 py-2 font-label-md text-label-md text-wireframe-blue font-bold border-r border-border-grid">$</span><input id="p_tubo" data-key="tubo" class="base-input w-full bg-transparent text-spring-lime font-metric-display text-headline-sm px-3 py-1.5 focus:outline-none text-right tabular" type="number" min="1" step="500"></div></div>
+      </div>
+      <div class="bg-surface-card rounded-xl p-4 border border-border-grid border-l-4 border-l-amber-structural flex flex-col justify-between gap-4 shadow-md">
+        <div class="flex flex-col gap-2"><div class="flex items-center justify-between"><span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-amber-structural/15 text-tertiary border border-amber-structural/30 uppercase">Bioestructura</span><span class="material-symbols-outlined text-tertiary text-[20px]">forest</span></div>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Poste de Guadua Tratada 6 m</h3><span class="font-body-sm text-body-sm text-on-surface-variant">Postes laterales y centrales de la capilla de guadua</span></div>
+        <div class="flex flex-col gap-1.5 pt-2 border-t border-border-grid"><label for="p_guadua" class="font-label-sm text-label-sm text-on-surface-variant">Precio actual</label>
+          <div class="flex items-center rounded-lg border border-border-grid bg-surface-container-lowest focus-within:border-amber-structural"><span class="px-3 py-2 font-label-md text-label-md text-tertiary font-bold border-r border-border-grid">$</span><input id="p_guadua" data-key="guadua" class="base-input w-full bg-transparent text-tertiary font-metric-display text-headline-sm px-3 py-1.5 focus:outline-none text-right tabular" type="number" min="1" step="500"></div></div>
+      </div>
+      <div class="bg-surface-card rounded-xl p-4 border border-border-grid border-l-4 border-l-secondary flex flex-col justify-between gap-4 shadow-md">
+        <div class="flex flex-col gap-2"><div class="flex items-center justify-between"><span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary/10 text-secondary border border-secondary/30 uppercase">Conector simple</span><span class="material-symbols-outlined text-secondary text-[20px]">hardware</span></div>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Carevaca Sencilla</h3><span class="font-body-sm text-body-sm text-on-surface-variant">Herraje de fijación estándar</span></div>
+        <div class="flex flex-col gap-1.5 pt-2 border-t border-border-grid"><label for="p_carevaca_s" class="font-label-sm text-label-sm text-on-surface-variant">Precio actual</label>
+          <div class="flex items-center rounded-lg border border-border-grid bg-surface-container-lowest focus-within:border-secondary"><span class="px-3 py-2 font-label-md text-label-md text-secondary font-bold border-r border-border-grid">$</span><input id="p_carevaca_s" data-key="carevaca_s" class="base-input w-full bg-transparent text-secondary font-metric-display text-headline-sm px-3 py-1.5 focus:outline-none text-right tabular" type="number" min="1" step="500"></div></div>
+      </div>
+      <div class="bg-surface-card rounded-xl p-4 border border-amber-structural/50 border-l-4 border-l-tertiary flex flex-col justify-between gap-4 shadow-[0_0_20px_rgba(217,119,6,0.15)]">
+        <div class="flex flex-col gap-2"><div class="flex items-center justify-between"><span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-tertiary-container/20 text-tertiary border border-tertiary/40 uppercase">Acople pesado</span><span class="material-symbols-outlined text-tertiary text-[20px]">shield</span></div>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Carevaca Reforzada</h3><span class="font-body-sm text-body-sm text-on-surface-variant">Herraje de calibre grueso para mayor esfuerzo</span></div>
+        <div class="flex flex-col gap-1.5 pt-2 border-t border-border-grid"><label for="p_carevaca_r" class="font-label-sm text-label-sm text-tertiary font-bold">Precio calibre grueso</label>
+          <div class="flex items-center rounded-lg border border-amber-structural/60 bg-surface-container-lowest focus-within:border-tertiary"><span class="px-3 py-2 font-label-md text-label-md text-tertiary font-bold border-r border-amber-structural/40">$</span><input id="p_carevaca_r" data-key="carevaca_r" class="base-input w-full bg-transparent text-tertiary font-metric-display text-headline-sm px-3 py-1.5 focus:outline-none text-right tabular font-bold" type="number" min="1" step="500"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insumos libres -->
+  <section class="flex flex-col gap-4">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-3"><span class="material-symbols-outlined text-wireframe-blue text-[24px]">dataset</span>
+        <div><h2 class="font-headline-md text-headline-md text-on-surface">Insumos libres registrados</h2><p class="font-body-sm text-body-sm text-on-surface-variant">Edita el precio o elimina los que ya no uses. Los cambios de precio se guardan al instante.</p></div></div>
+      <span class="px-3 py-1 rounded-full bg-surface-container-high border border-border-grid font-label-sm text-label-sm text-wireframe-blue">Memoria persistente local</span>
+    </div>
+    <div id="gridInsumos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </section>
+
+  <!-- Barra de guardado -->
+  <section class="rounded-xl bg-surface-card border border-border-grid p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xl">
+    <div id="avisoGuardado" class="w-full md:w-auto flex items-center gap-3 px-4 py-3 rounded-lg bg-surface-container-lowest border border-border-grid text-on-surface-variant" role="status">
+      <span id="iconoAviso" class="material-symbols-outlined text-[20px]">info</span>
+      <div class="flex flex-col"><span id="txtAviso" class="font-label-md text-label-md text-on-surface">Los precios base están al día.</span><span class="font-body-sm text-body-sm text-on-surface-variant">Se aplican a los nuevos cálculos del cotizador.</span></div>
+    </div>
+    <div class="w-full md:w-auto flex flex-wrap sm:flex-nowrap items-center gap-3 justify-end">
+      <button type="button" id="btnReset" class="w-full sm:w-auto px-4 py-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface border border-border-grid font-label-md text-label-md flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">restart_alt</span>Restablecer precios base</button>
+      <button type="button" id="btnGuardar" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-primary-container hover:bg-spring-lime text-on-primary-container hover:text-canvas-void font-label-lg text-label-lg font-bold shadow-[0_8px_24px_-4px_rgba(34,197,94,0.3)] flex items-center justify-center gap-2 active:scale-[0.98]"><span class="material-symbols-outlined text-[22px]">save</span>Guardar todo el almacén</button>
+    </div>
+  </section>
+
+</div>
+</main>
+</div>
+
+<script src="js/calculo.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/inventario.js"></script>
+</body>
+</html>

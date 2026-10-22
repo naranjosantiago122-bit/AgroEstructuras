@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio | AgroEstructura V.2 PRO</title>
+<meta name="theme-color" content="#0b1326">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/tailwind.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary">
+<div id="shell"></div>
+
+<div class="lg:pl-64">
+<main class="relative w-full pt-16 bg-background min-h-screen">
+<div class="px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-6 max-w-[1540px] mx-auto">
+
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+    <div class="flex flex-col gap-1">
+      <div class="flex items-center gap-1.5 font-label-sm text-label-sm uppercase tracking-widest"><span class="text-on-surface-variant">Catálogo</span><span class="text-on-surface-variant">/</span><span class="text-primary font-semibold">Obras ejecutadas</span></div>
+      <div class="flex items-center gap-3 flex-wrap"><div class="w-1.5 h-8 bg-primary rounded-full"></div>
+        <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Portafolio de Estructuras</h1>
+        <span id="chipTotal" class="px-3 py-1 rounded-full bg-forest-deep/60 text-spring-lime font-label-sm text-label-sm uppercase tracking-wider font-bold">0 obras</span></div>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">Registro visual de los invernaderos y estructuras que has construido. Agrega cada obra con su foto y datos.</p>
+    </div>
+    <button type="button" id="btnNueva" class="self-start md:self-auto flex items-center gap-2 px-4 py-2.5 bg-primary-container hover:bg-spring-lime text-on-primary-container hover:text-canvas-void font-label-lg text-label-lg rounded-lg shadow-md transition-all"><span class="material-symbols-outlined text-[20px]">add_circle</span>Añadir nueva obra</button>
+  </div>
+
+  <div class="p-2 bg-surface-container-low rounded-xl"><div id="filtros" class="flex items-center gap-1.5 overflow-x-auto" role="tablist" aria-label="Filtrar por tipo"></div></div>
+
+  <div id="grilla" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"></div>
+
+  <div id="vacio" class="hidden py-16 text-center flex flex-col items-center gap-3 border border-dashed border-border-grid rounded-xl">
+    <span class="material-symbols-outlined text-[44px] text-on-surface-variant">add_photo_alternate</span>
+    <p class="font-headline-sm text-headline-sm text-on-surface">Tu portafolio está vacío</p>
+    <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Añade tu primera obra con su fotografía, ubicación y medidas.</p>
+    <button type="button" id="btnNueva2" class="px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold hover:bg-spring-lime">Añadir obra</button>
+  </div>
+
+  <section id="distribucion" class="hidden bg-surface-card p-6 rounded-xl max-w-2xl border border-border-grid">
+    <div class="flex items-center justify-between mb-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[22px]">bar_chart</span><h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Distribución estructural</h2></div><span id="totalDistrib" class="font-label-sm text-label-sm text-on-surface-variant"></span></div>
+    <div class="flex items-center gap-6 py-2">
+      <div class="relative w-28 h-28 shrink-0 flex items-center justify-center"><svg id="donut" class="w-full h-full -rotate-90" viewBox="0 0 36 36" role="img" aria-label="Gráfico de distribución por tipo"></svg><div class="absolute flex flex-col items-center"><span id="donutN" class="font-headline-md text-headline-md text-on-surface font-bold leading-none">0</span><span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Obras</span></div></div>
+      <div id="leyenda" class="flex flex-col gap-2 w-full font-label-sm text-label-sm"></div>
+    </div>
+  </section>
+</div>
+</main>
+</div>
+
+<!-- Modal: ficha técnica -->
+<div id="modalFicha" class="fixed inset-0 z-[85] hidden items-center justify-center p-4 bg-canvas-void/80 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="fichaTitulo">
+  <div class="w-full max-w-2xl bg-surface-card rounded-xl shadow-2xl overflow-hidden border border-border-grid max-h-[92vh] flex flex-col">
+    <div class="p-5 bg-surface-container-high flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">fact_check</span></div>
+        <div><h3 id="fichaTitulo" class="font-headline-sm text-headline-sm text-on-surface font-bold"></h3><span id="fichaSub" class="font-label-sm text-label-sm text-on-surface-variant"></span></div></div>
+      <button type="button" data-cerrar class="text-on-surface-variant hover:text-on-surface p-1 rounded-lg hover:bg-surface-container" aria-label="Cerrar"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div id="fichaCuerpo" class="p-5 flex flex-col gap-4 overflow-y-auto"></div>
+  </div>
+</div>
+
+<!-- Modal: nueva obra -->
+<div id="modalNueva" class="fixed inset-0 z-[85] hidden items-center justify-center p-4 bg-canvas-void/80 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="nuevaTitulo">
+  <div class="w-full max-w-xl bg-surface-card rounded-xl shadow-2xl overflow-hidden border border-border-grid max-h-[92vh] flex flex-col">
+    <div class="p-5 bg-surface-container-high flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">add_a_photo</span></div>
+        <div><h3 id="nuevaTitulo" class="font-headline-sm text-headline-sm text-on-surface font-bold">Añadir obra al portafolio</h3><span class="font-label-sm text-label-sm text-on-surface-variant">Registro fotográfico y técnico</span></div></div>
+      <button type="button" data-cerrar class="text-on-surface-variant hover:text-on-surface p-1 rounded-lg hover:bg-surface-container" aria-label="Cerrar"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <form id="formObra" class="p-5 flex flex-col gap-4 overflow-y-auto" novalidate>
+      <div class="flex flex-col gap-1"><label for="oNombre" class="font-label-sm text-label-sm text-on-surface-variant uppercase">Nombre de la obra</label>
+        <input id="oNombre" type="text" maxlength="80" placeholder="Ej: Invernadero bloque C" class="px-4 py-2 bg-surface-container-lowest text-on-surface rounded-lg border border-border-grid focus:outline-none focus:border-primary placeholder:text-input-affordance"></div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="flex flex-col gap-1"><label for="oTipo" class="font-label-sm text-label-sm text-on-surface-variant uppercase">Tipo de estructura</label>
+          <select id="oTipo" class="px-3 py-2 bg-surface-container-lowest text-on-surface rounded-lg border border-border-grid focus:outline-none focus:border-primary"><option value="tubular">Metálico Tubular</option><option value="guadua">Capilla de Guadua</option><option value="tunel">Cubierta tipo túnel</option><option value="riego">Sistema de riego / ventilación</option></select></div>
+        <div class="flex flex-col gap-1"><label for="oUbicacion" class="font-label-sm text-label-sm text-on-surface-variant uppercase">Ubicación (municipio)</label>
+          <input id="oUbicacion" type="text" maxlength="60" placeholder="Ej: Marinilla" class="px-4 py-2 bg-surface-container-lowest text-on-surface rounded-lg border border-border-grid focus:outline-none focus:border-primary placeholder:text-input-affordance"></div>
+      </div>
+      <div class="grid grid-cols-3 gap-4">
+        <div class="flex flex-col gap-1"><label for="oLargo" class="font-label-sm text-label-sm text-on-surface-variant uppercase">Largo (m)</label><input id="oLargo" type="number" min="1" step="any" class="px-3 py-2 bg-surface-container-lowest text-on-surface rounded-lg border border-border-grid focus:outline-none focus:border-primary"></div>
+        <div class="flex flex-col gap-1"><label for="oAncho" class="font-label-sm text-label-sm text-on-surface-variant uppercase">Ancho (m)</label><input id="oAncho" type="number" min="1" step="any" class="px-3 py-2 bg-surface-container-lowest text-on-surface rounded-lg border border-border-grid focus:outline-none focus:border-primary"></div>
+        <div class="flex flex-col gap-1"><label for="oAnio" class="font-label-sm text-label-sm text-on-surface-variant uppercase">Año</label><input id="oAnio" type="number" min="1990" step="1" class="px-3 py-2 bg-surface-container-lowest text-on-surface rounded-lg border border-border-grid focus:outline-none focus:border-primary"></div>
+      </div>
+      <div class="flex flex-col gap-1"><label for="oNotas" class="font-label-sm text-label-sm text-on-surface-variant uppercase">Descripción (opcional)</label>
+        <textarea id="oNotas" rows="3" maxlength="400" placeholder="Materiales, cubierta, detalles de la obra…" class="px-4 py-2 bg-surface-container-lowest text-on-surface rounded-lg border border-border-grid focus:outline-none focus:border-primary placeholder:text-input-affordance resize-none"></textarea></div>
+      <div class="flex flex-col gap-1">
+        <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Fotografía (opcional)</span>
+        <label for="oFoto" class="p-5 rounded-lg bg-surface-container-lowest border border-dashed border-border-grid flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-surface-container transition-colors text-center">
+          <span id="oFotoIcono" class="material-symbols-outlined text-3xl text-primary">cloud_upload</span>
+          <img id="oFotoPrevia" alt="Vista previa de la foto" class="hidden max-h-32 rounded-lg">
+          <span id="oFotoTexto" class="font-body-sm text-body-sm text-on-surface-variant">Haz clic para elegir una imagen (JPG o PNG)</span></label>
+        <input id="oFoto" type="file" accept="image/*" class="sr-only">
+      </div>
+      <p id="errObra" class="hidden text-sm text-danger-alert" role="alert"></p>
+      <div class="flex items-center justify-end gap-3 pt-1">
+        <button type="button" data-cerrar class="px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md">Cancelar</button>
+        <button type="submit" class="px-6 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold hover:bg-spring-lime">Guardar en portafolio</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/calculo.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/portafolio.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceso y Registro | AgroEstructura V.2 PRO</title>
+<meta name="theme-color" content="#0b1326">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/tailwind.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body class="bg-background fondo-malla font-body-md text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
+
+<header class="w-full border-b border-border-grid/80 bg-background/90 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3" title="Ir al inicio">
+      <img src="img/logo.png" alt="AgroEstructuras" class="h-12 w-auto">
+      <span class="hidden sm:flex flex-col leading-tight"><span class="text-xs uppercase tracking-widest text-primary font-semibold">Software Agrícola</span><span class="text-sm font-bold text-on-surface-variant tracking-wider">V.2 PRO</span></span>
+    </a>
+    <nav class="flex items-center gap-1 sm:gap-6" aria-label="Principal">
+      <a href="index.html" class="text-on-surface-variant hover:text-primary px-3 py-2 text-sm font-medium border-b-2 border-transparent hover:border-primary transition-colors">Inicio</a>
+      <a href="nuevo-proyecto.html" class="text-on-surface-variant hover:text-primary px-3 py-2 text-sm font-medium border-b-2 border-transparent hover:border-primary transition-colors">Cotizar</a>
+      <a href="portafolio.html" class="text-on-surface-variant hover:text-primary px-3 py-2 text-sm font-medium border-b-2 border-transparent hover:border-primary transition-colors">Galería</a>
+    </nav>
+  </div>
+</header>
+
+<main class="flex-grow flex items-center justify-center py-10 sm:py-14 px-4 sm:px-6 lg:px-8">
+  <div class="w-full max-w-6xl">
+
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-semibold uppercase tracking-wider mb-3"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>Acceso V.2 PRO</div>
+      <h1 class="font-headline-xl text-headline-xl text-on-surface">Gestión y cálculo de invernaderos</h1>
+      <p class="text-sm text-on-surface-variant max-w-lg mx-auto mt-2">Crea tu cuenta o ingresa para guardar tus cotizaciones y administrar tus precios.</p>
+    </div>
+
+    <div id="avisoSesion" class="hidden max-w-xl mx-auto mb-6 p-4 rounded-xl bg-surface-card border border-primary/30 flex items-center justify-between gap-4 flex-wrap">
+      <span class="text-sm text-on-surface">Ya tienes una sesión abierta como <b id="nombreSesion"></b>.</span>
+      <span class="flex gap-2">
+        <a id="btnContinuar" href="centro-principal.html" class="px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold hover:bg-spring-lime">Continuar</a>
+        <button id="btnCambiar" type="button" class="px-4 py-2 rounded-lg border border-border-grid text-on-surface-variant hover:text-on-surface font-label-md text-label-md">Cambiar de cuenta</button>
+      </span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- Registro -->
+      <section class="lg:col-span-7 bg-surface-card border border-border-grid rounded-2xl p-6 sm:p-8 shadow-2xl">
+        <div class="mb-6 pb-4 border-b border-border-grid">
+          <h2 class="text-2xl font-bold tracking-tight text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-primary">person_add</span>REGISTRARSE</h2>
+          <p class="text-sm text-on-surface-variant mt-1">Guarda tus presupuestos y consúltalos cuando quieras.</p>
+        </div>
+        <form id="formRegistro" class="space-y-4" novalidate>
+          <div>
+            <label for="regNombre" class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1.5">Nombre completo</label>
+            <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-input-affordance text-[20px]">person</span>
+              <input id="regNombre" type="text" autocomplete="name" placeholder="Tu nombre y apellido" class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-surface-container-lowest border border-border-grid text-on-surface placeholder:text-input-affordance text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"></div>
+            <p class="err hidden text-xs text-danger-alert mt-1" data-for="regNombre"></p>
+          </div>
+          <div>
+            <label for="regCorreo" class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1.5">Correo electrónico</label>
+            <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-input-affordance text-[20px]">mail</span>
+              <input id="regCorreo" type="email" autocomplete="email" placeholder="correo@ejemplo.com" class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-surface-container-lowest border border-border-grid text-on-surface placeholder:text-input-affordance text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"></div>
+            <p class="err hidden text-xs text-danger-alert mt-1" data-for="regCorreo"></p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="regTel" class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1.5">Teléfono</label>
+              <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-input-affordance text-[20px]">call</span>
+                <input id="regTel" type="tel" autocomplete="tel" placeholder="3__ ___ ____" class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-surface-container-lowest border border-border-grid text-on-surface placeholder:text-input-affordance text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"></div>
+            </div>
+            <div>
+              <label for="regCiudad" class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1.5">Ciudad / municipio</label>
+              <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-input-affordance text-[20px]">location_on</span>
+                <input id="regCiudad" type="text" autocomplete="address-level2" placeholder="Tu ciudad" class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-surface-container-lowest border border-border-grid text-on-surface placeholder:text-input-affordance text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"></div>
+            </div>
+          </div>
+          <div>
+            <label for="regClave" class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1.5">Contraseña</label>
+            <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-input-affordance text-[20px]">lock</span>
+              <input id="regClave" type="password" autocomplete="new-password" placeholder="Mínimo 8 caracteres, con letras y números" class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-surface-container-lowest border border-border-grid text-on-surface placeholder:text-input-affordance text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"></div>
+            <p class="err hidden text-xs text-danger-alert mt-1" data-for="regClave"></p>
+          </div>
+          <p id="errRegistro" class="hidden text-sm text-danger-alert bg-danger-alert/10 border border-danger-alert/30 rounded-lg px-3 py-2" role="alert"></p>
+          <button type="submit" class="w-full py-3.5 px-6 rounded-lg bg-primary hover:bg-spring-lime text-on-primary font-bold tracking-wide uppercase transition-all active:scale-[0.99] shadow-lg shadow-primary/20 flex items-center justify-center gap-2"><span>CREAR CUENTA</span><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+        </form>
+      </section>
+
+      <!-- Inicio de sesión -->
+      <section class="lg:col-span-5 bg-surface-container-low border border-border-grid rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col justify-between">
+        <div>
+          <div class="mb-6 pb-4 border-b border-border-grid">
+            <h2 class="text-2xl font-bold tracking-tight text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-primary">login</span>INICIAR SESIÓN</h2>
+            <p class="text-sm text-on-surface-variant mt-1">Ingresa con el correo y la contraseña de tu cuenta.</p>
+          </div>
+          <form id="formLogin" class="space-y-4" novalidate>
+            <div>
+              <label for="logCorreo" class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1.5">Correo</label>
+              <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-input-affordance text-[20px]">alternate_email</span>
+                <input id="logCorreo" type="email" autocomplete="email" placeholder="correo@ejemplo.com" class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-surface-container-lowest border border-border-grid text-on-surface placeholder:text-input-affordance text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary"></div>
+            </div>
+            <div>
+              <label for="logClave" class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1.5">Contraseña</label>
+              <div class="relative"><span class="material-symbols-outlined absolute left-3 top-2.5 text-input-affordance text-[20px]">key</span>
+                <input id="logClave" type="password" autocomplete="current-password" placeholder="••••••••••" class="w-full pl-10 pr-11 py-2.5 rounded-lg bg-surface-container-lowest border border-border-grid text-on-surface placeholder:text-input-affordance text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary">
+                <button type="button" id="btnVer" aria-label="Mostrar u ocultar contraseña" class="absolute right-2 top-1.5 p-1.5 text-on-surface-variant hover:text-primary"><span id="iconoVer" class="material-symbols-outlined text-[20px]">visibility</span></button></div>
+            </div>
+            <p id="errLogin" class="hidden text-sm text-danger-alert bg-danger-alert/10 border border-danger-alert/30 rounded-lg px-3 py-2" role="alert"></p>
+            <button type="submit" class="w-full py-3.5 px-6 rounded-lg bg-surface-bright hover:bg-on-surface hover:text-background text-on-surface font-bold tracking-wide uppercase transition-all active:scale-[0.99] flex items-center justify-center gap-2 border border-border-grid"><span class="material-symbols-outlined text-[18px]">lock_open</span><span>INGRESAR</span></button>
+            <div class="text-center pt-1"><button type="button" id="btnOlvido" class="text-sm text-on-surface-variant hover:text-primary underline decoration-border-grid underline-offset-4">¿Olvidaste tu contraseña?</button></div>
+            <p id="msgOlvido" class="hidden text-xs text-on-surface-variant bg-surface-container rounded-lg px-3 py-2">La recuperación de contraseña estará disponible cuando el sitio tenga servidor. Por ahora puedes crear una cuenta nueva con otro correo.</p>
+          </form>
+        </div>
+        <div class="mt-8 pt-6 border-t border-border-grid/60 space-y-3">
+          <button type="button" id="btnInvitado" class="w-full py-2.5 rounded-lg border border-border-grid text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">visibility</span>Continuar como invitado</button>
+          <p class="text-[11px] text-on-surface-variant flex items-start gap-1.5"><span class="material-symbols-outlined text-[14px] text-primary">info</span>Modo demostración: tus datos se guardan solo en este navegador.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="w-full border-t border-border-grid/80 py-6 text-center text-xs text-on-surface-variant">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <span>© AgroEstructuras · Software Agrícola V.2 PRO</span>
+    <a href="index.html" class="hover:text-primary">Volver al inicio</a>
+  </div>
+</footer>
+
+<script src="js/calculo.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/acceso.js"></script>
+</body>
+</html>

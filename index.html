@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroEstructuras V.2 PRO | Cotiza tu invernadero</title>
+<meta name="description" content="Cotizador en línea de invernaderos y estructuras agrícolas: lista de materiales, mano de obra y total del presupuesto.">
+<meta name="theme-color" content="#0b1326">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/tailwind.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body class="bg-background fondo-malla font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary">
+
+<header class="w-full border-b border-border-grid/80 bg-background/90 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+    <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="AgroEstructuras - inicio">
+      <img src="img/logo.png" alt="AgroEstructuras" class="h-12 w-auto">
+      <span class="hidden md:flex flex-col leading-tight"><span class="text-xs uppercase tracking-widest text-primary font-semibold">Software Agrícola</span><span class="text-sm font-bold text-on-surface-variant tracking-wider">V.2 PRO</span></span>
+    </a>
+    <nav class="hidden sm:flex items-center gap-1 lg:gap-6" aria-label="Principal">
+      <a href="index.html" aria-current="page" class="text-primary px-3 py-2 text-sm font-semibold border-b-2 border-primary">Inicio</a>
+      <a href="nuevo-proyecto.html" class="text-on-surface-variant hover:text-primary px-3 py-2 text-sm font-medium border-b-2 border-transparent hover:border-primary transition-colors">Cotizar</a>
+      <a href="portafolio.html" class="text-on-surface-variant hover:text-primary px-3 py-2 text-sm font-medium border-b-2 border-transparent hover:border-primary transition-colors">Galería</a>
+      <a href="#servicios" class="text-on-surface-variant hover:text-primary px-3 py-2 text-sm font-medium border-b-2 border-transparent hover:border-primary transition-colors">Servicios</a>
+    </nav>
+    <a id="btnIngreso" href="acceso.html" class="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border-grid text-on-surface hover:border-primary hover:text-primary text-sm font-semibold transition-colors"><span class="material-symbols-outlined text-[18px]">lock</span><span id="txtIngreso">Ingresar</span></a>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12">
+    <div class="relative overflow-hidden rounded-2xl border border-border-grid bg-surface-card shadow-2xl">
+      <div class="absolute -right-24 -top-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-24 -bottom-24 w-96 h-96 bg-wireframe-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative grid lg:grid-cols-2 gap-6 items-center p-6 sm:p-10">
+        <div class="flex flex-col gap-5">
+          <span class="self-start inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-semibold uppercase tracking-wider"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>Cotizador V.2 PRO</span>
+          <h1 class="font-headline-xl text-4xl sm:text-5xl font-extrabold leading-tight text-on-surface">Cotiza tu invernadero <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-wireframe-blue">en minutos</span></h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Elige el tipo de estructura, las medidas y la cubierta. Te mostramos la lista de materiales, la mano de obra y el <b class="text-on-surface">total del presupuesto</b>, con una vista previa de la estructura.</p>
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="nuevo-proyecto.html" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-primary hover:bg-spring-lime text-on-primary font-label-lg text-label-lg font-bold uppercase tracking-wider shadow-[0_8px_24px_-4px_rgba(75,226,119,0.4)] transition-all active:scale-[0.98]"><span class="material-symbols-outlined">calculate</span>Cotizar ahora<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+            <button type="button" id="btnChatHero" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-border-grid text-on-surface hover:border-primary hover:text-primary font-label-lg text-label-lg font-semibold transition-colors"><span class="material-symbols-outlined">forum</span>Cotizar por chat</button>
+          </div>
+          <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-on-surface-variant">
+            <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Sin compromiso</li>
+            <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Lista de materiales</li>
+            <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Exportación en PDF</li>
+          </ul>
+        </div>
+        <!-- Ilustración de la estructura -->
+        <div class="relative rounded-xl bg-canvas-void border border-border-grid overflow-hidden p-4" aria-hidden="true">
+          <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:24px_24px]"></div>
+          <svg viewBox="0 0 800 320" class="relative w-full h-auto" fill="none" stroke-linecap="round">
+            <path d="M 60 270 L 520 270 L 740 180 L 280 180 Z" fill="#060e20" fill-opacity="0.5" stroke="#1e293b" stroke-dasharray="4 4" stroke-width="1.5"/>
+            <path d="M 280 195 L 500 135" stroke="#4ade80" stroke-width="3"/>
+            <path d="M 100 250 L 100 180 Q 190 80 280 150 L 280 195" stroke="#60a5fa" stroke-width="2.5"/>
+            <path d="M 320 190 L 320 120 Q 410 20 500 90 L 500 135" stroke="#3b82f6" stroke-opacity="0.7" stroke-width="1.5"/>
+            <path d="M 280 195 L 280 150 Q 370 70 460 170 L 460 250" stroke="#60a5fa" stroke-width="2.5"/>
+            <path d="M 500 135 L 500 90 Q 590 10 680 110 L 680 190" stroke="#3b82f6" stroke-opacity="0.7" stroke-width="1.5"/>
+            <line x1="100" y1="180" x2="320" y2="120" stroke="#38bdf8" stroke-dasharray="3 3" stroke-width="1.5"/>
+            <line x1="190" y1="126" x2="410" y2="66" stroke="#38bdf8" stroke-width="2"/>
+            <line x1="370" y1="110" x2="590" y2="50" stroke="#38bdf8" stroke-width="2"/>
+            <line x1="460" y1="170" x2="680" y2="110" stroke="#38bdf8" stroke-dasharray="3 3" stroke-width="1.5"/>
+            <circle cx="100" cy="250" r="3" fill="#4ade80"/><circle cx="280" cy="250" r="3" fill="#4ade80"/><circle cx="460" cy="250" r="3" fill="#4ade80"/>
+            <circle cx="280" cy="150" r="5" fill="#4ade80"/><circle cx="100" cy="180" r="4" fill="#38bdf8"/><circle cx="460" cy="170" r="4" fill="#38bdf8"/>
+          </svg>
+          <div class="relative flex items-center justify-between mt-2 text-[11px] font-label-sm text-on-surface-variant"><span class="flex items-center gap-1.5 text-spring-lime"><span class="material-symbols-outlined text-[15px]">check_circle</span>Luz libre, naves acopladas</span><span>Vista previa en el cotizador</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14">
+    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-6 flex items-center gap-3"><span class="w-1.5 h-7 bg-primary rounded-full"></span>Nuestros servicios</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="bg-surface-card border border-border-grid rounded-xl p-6 flex flex-col gap-4 hover:border-primary/50 transition-colors">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center"><span class="material-symbols-outlined">warehouse</span></div>
+        <div><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Estructuras</span><h3 class="font-headline-md text-headline-md text-on-surface">Invernaderos</h3></div>
+        <p class="text-on-surface-variant text-sm flex-1">Invernaderos con cubierta de polietileno, en estructura metálica tubular o en capilla de guadua, con el número de naves que necesites.</p>
+        <a href="nuevo-proyecto.html?tipo=tubular" class="inline-flex items-center gap-1.5 text-primary font-label-lg text-label-lg hover:underline">Configurar invernadero<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+      </article>
+      <article class="bg-surface-card border border-border-grid rounded-xl p-6 flex flex-col gap-4 hover:border-wireframe-blue/50 transition-colors">
+        <div class="w-12 h-12 rounded-xl bg-wireframe-blue/10 text-wireframe-blue flex items-center justify-center"><span class="material-symbols-outlined">shield</span></div>
+        <div><span class="font-label-sm text-label-sm text-wireframe-blue uppercase tracking-wider">Protección de cultivos</span><h3 class="font-headline-md text-headline-md text-on-surface">Sarán / Polisombra</h3></div>
+        <p class="text-on-surface-variant text-sm flex-1">Estructuras para casa malla, sarán o polisombra. Consulta con nuestro asistente; el cálculo automático de esta línea llegará en una próxima versión.</p>
+        <button type="button" data-abrir-chat class="self-start inline-flex items-center gap-1.5 text-wireframe-blue font-label-lg text-label-lg hover:underline">Consultar por el chat<span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+      </article>
+      <article class="bg-surface-card border border-border-grid rounded-xl p-6 flex flex-col gap-4 hover:border-tertiary/50 transition-colors">
+        <div class="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center"><span class="material-symbols-outlined">engineering</span></div>
+        <div><span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Instalación en campo</span><h3 class="font-headline-md text-headline-md text-on-surface">Mano de obra</h3></div>
+        <p class="text-on-surface-variant text-sm flex-1">Cotiza solo la instalación y el armado de la estructura. Los materiales los aporta el cliente.</p>
+        <a href="nuevo-proyecto.html?tipo=mano-obra" class="inline-flex items-center gap-1.5 text-tertiary font-label-lg text-label-lg hover:underline">Cotizar solo mano de obra<span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+      </article>
+    </div>
+
+    <div class="mt-8 bg-surface-card border border-border-grid rounded-xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined">view_in_ar</span></div>
+        <div><h3 class="font-headline-sm text-headline-sm text-on-surface">Mira nuestros trabajos</h3><p class="text-sm text-on-surface-variant">Obras ejecutadas, con fotos y medidas.</p></div></div>
+      <a href="portafolio.html" class="self-start sm:self-auto px-5 py-2.5 rounded-lg border border-border-grid hover:border-primary hover:text-primary font-label-md text-label-md font-semibold transition-colors">Ver portafolio de proyectos</a>
+    </div>
+  </section>
+</main>
+
+<footer class="mt-16 border-t border-border-grid/80 bg-background">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-on-surface-variant">
+    <div class="flex items-center gap-3"><img src="img/logo.png" alt="" class="h-10 w-auto"><span>© AgroEstructuras · Software Agrícola V.2 PRO</span></div>
+    <nav class="flex items-center gap-5" aria-label="Pie de página"><a href="nuevo-proyecto.html" class="hover:text-primary">Cotizar</a><a href="portafolio.html" class="hover:text-primary">Galería</a><a href="acceso.html" class="hover:text-primary">Acceso</a></nav>
+  </div>
+</footer>
+
+<script src="js/calculo.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/chat.js"></script>
+<script>
+  AgroChat.iniciar();
+  document.getElementById('btnChatHero').addEventListener('click', () => AgroChat.abrir());
+  document.querySelectorAll('[data-abrir-chat]').forEach((b) => b.addEventListener('click', () => AgroChat.abrir()));
+  const ses = AgroDatos.getSesion();
+  if (ses) { document.getElementById('btnIngreso').href = 'centro-principal.html'; document.getElementById('txtIngreso').textContent = ses.invitado ? 'Mi panel' : ('Hola, ' + ses.nombre.split(' ')[0]); }
+</script>
+</body>
+</html>

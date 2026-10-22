@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuevo Proyecto | AgroEstructura V.2 PRO</title>
+<meta name="theme-color" content="#0b1326">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/tailwind.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary">
+<div id="shell"></div>
+
+<div class="lg:pl-64">
+<main class="relative w-full pt-16 bg-background min-h-screen">
+<div class="flex flex-col w-full p-4 lg:p-6 gap-6">
+
+  <!-- Encabezado del módulo -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface-card rounded-xl p-4 shadow-md">
+    <div class="flex items-center gap-3">
+      <div class="w-2.5 h-8 bg-primary rounded-full"></div>
+      <div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="font-label-sm text-label-sm uppercase text-wireframe-blue">Módulo de cotización</span>
+          <span class="w-1 h-1 rounded-full bg-border-grid"></span>
+          <span id="chipEstado" class="font-label-sm text-label-sm text-tertiary font-bold">ESTADO: PENDIENTE DE CÁLCULO</span>
+        </div>
+        <h1 class="font-headline-lg text-headline-lg text-on-surface">Cotizador Estructural y Simulación</h1>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 self-start sm:self-center">
+      <span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm" id="chipId">BORRADOR</span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+
+    <!-- Columna izquierda: configuración -->
+    <div class="xl:col-span-4 flex flex-col gap-5">
+      <div class="bg-surface-card rounded-xl p-5 shadow-lg flex flex-col gap-5">
+        <div class="flex items-center justify-between bg-surface-container-low -mx-5 -mt-5 p-4 rounded-t-xl">
+          <div class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-primary text-[22px]">tune</span>
+            <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">1. Configuración Estructural</h2>
+          </div>
+          <button type="button" id="btnLimpiar" class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">restart_alt</span>Limpiar</button>
+        </div>
+
+        <form class="flex flex-col gap-4" id="formCalculo" novalidate>
+          <div class="flex flex-col gap-1.5">
+            <label for="cliente" class="font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between"><span>CLIENTE / PROYECTO</span><span class="text-secondary text-[10px]">REQUERIDO</span></label>
+            <div class="relative flex items-center">
+              <span class="material-symbols-outlined absolute left-3 text-input-affordance text-[18px]">business</span>
+              <input id="cliente" type="text" placeholder="Ej: Inversiones Agrícolas" class="w-full bg-surface-container-lowest text-on-surface pl-10 pr-3 py-2.5 rounded-lg font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary transition-all">
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label for="tipo" class="font-label-sm text-label-sm text-on-surface-variant">TIPO DE ESTRUCTURA</label>
+            <div class="relative flex items-center">
+              <select id="tipo" class="w-full bg-surface-container-lowest text-on-surface pl-3 pr-10 py-2.5 rounded-lg font-body-md text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-secondary cursor-pointer">
+                <option value="Tubular">Metálico Tubular (sin postes centrales)</option>
+                <option value="Guadua">Capilla de Guadua (con postes centrales)</option>
+              </select>
+              <span class="material-symbols-outlined absolute right-3 text-input-affordance pointer-events-none text-[20px]">expand_more</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex flex-col gap-1.5">
+              <label for="largo" class="font-label-sm text-label-sm text-on-surface-variant">LARGO TOTAL</label>
+              <div class="flex rounded-lg overflow-hidden bg-surface-container-lowest">
+                <input id="largo" type="number" min="1" step="any" value="50" class="w-full bg-transparent px-3 py-2 text-on-surface font-label-md text-label-md focus:outline-none">
+                <span class="bg-surface-container-high px-2.5 py-2 font-label-sm text-label-sm text-on-surface-variant flex items-center">m</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label for="ancho" class="font-label-sm text-label-sm text-on-surface-variant">ANCHO TOTAL</label>
+              <div class="flex rounded-lg overflow-hidden bg-surface-container-lowest">
+                <input id="ancho" type="number" min="1" step="any" value="24" class="w-full bg-transparent px-3 py-2 text-on-surface font-label-md text-label-md focus:outline-none">
+                <span class="bg-surface-container-high px-2.5 py-2 font-label-sm text-label-sm text-on-surface-variant flex items-center">m</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex flex-col gap-1.5">
+              <label for="distancia" class="font-label-sm text-label-sm text-on-surface-variant">DIST. POSTES</label>
+              <div class="flex rounded-lg overflow-hidden bg-surface-container-lowest">
+                <input id="distancia" type="number" min="0.5" step="0.5" value="2.5" class="w-full bg-transparent px-3 py-2 text-on-surface font-label-md text-label-md focus:outline-none">
+                <span class="bg-surface-container-high px-2.5 py-2 font-label-sm text-label-sm text-on-surface-variant flex items-center">m</span>
+              </div>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <div class="flex items-center justify-between">
+                <label for="naves" class="font-label-sm text-label-sm text-on-surface-variant">NRO. NAVES</label>
+                <span class="px-1.5 rounded bg-secondary-container/20 text-wireframe-blue text-[10px] font-bold uppercase">Acopladas</span>
+              </div>
+              <div class="flex rounded-lg overflow-hidden bg-surface-container-lowest">
+                <input id="naves" type="number" min="1" max="20" step="1" value="2" class="w-full bg-transparent px-3 py-2 font-label-md text-label-md focus:outline-none font-bold text-wireframe-blue">
+                <span class="bg-surface-container-high px-2.5 py-2 font-label-sm text-label-sm text-on-surface-variant flex items-center">nvs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col gap-3 shadow-inner">
+            <span class="font-label-sm text-label-sm font-bold text-wireframe-blue flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">roofing</span>CUBIERTA Y DESAGÜE</span>
+            <div class="grid grid-cols-2 gap-2.5">
+              <div class="flex flex-col gap-1">
+                <label for="calPlastico" class="font-label-sm text-label-sm text-on-surface-variant">Calibre Plástico</label>
+                <select id="calPlastico" class="w-full bg-surface-card text-on-surface text-label-sm font-label-sm px-2.5 py-1.5 rounded-lg"><option value="6">Calibre 6</option><option value="7">Calibre 7</option><option value="10">Calibre 10</option></select>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="anchoPlastico" class="font-label-sm text-label-sm text-on-surface-variant">Ancho Plástico</label>
+                <select id="anchoPlastico" class="w-full bg-surface-card text-on-surface text-label-sm font-label-sm px-2.5 py-1.5 rounded-lg"><option value="5.80">5.80 m</option><option value="6.00">6.00 m</option><option value="6.50">6.50 m</option><option value="8.00">8.00 m</option><option value="10.00">10.00 m</option></select>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="anchoCanal" class="font-label-sm text-label-sm text-on-surface-variant">Ancho de Canal</label>
+                <select id="anchoCanal" class="w-full bg-surface-card text-on-surface text-label-sm font-label-sm px-2.5 py-1.5 rounded-lg"><option value="0">No requiere</option><option value="0.90">0.90 m</option><option value="1.20">1.20 m</option><option value="1.50">1.50 m</option><option value="2.00">2.00 m</option></select>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="calCanal" class="font-label-sm text-label-sm text-on-surface-variant">Calibre Canal</label>
+                <select id="calCanal" class="w-full bg-surface-card text-on-surface text-label-sm font-label-sm px-2.5 py-1.5 rounded-lg"><option value="6">Calibre 6</option><option value="10">Calibre 10</option></select>
+              </div>
+            </div>
+          </div>
+
+          <fieldset class="flex flex-col gap-1.5">
+            <legend class="font-label-sm text-label-sm text-on-surface-variant mb-1.5">MODALIDAD DE COTIZACIÓN</legend>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-lowest cursor-pointer hover:bg-surface-container transition-colors"><input type="radio" name="modalidad" value="Todo Costo" checked class="accent-primary"><span class="font-body-sm text-body-sm text-on-surface font-medium">A Todo Costo</span></label>
+              <label class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-lowest cursor-pointer hover:bg-surface-container transition-colors"><input type="radio" name="modalidad" value="Mano de Obra" class="accent-primary"><span class="font-body-sm text-body-sm text-on-surface font-medium">Solo Mano Obra</span></label>
+            </div>
+          </fieldset>
+
+          <div class="flex flex-col gap-2 pt-1">
+            <label for="selInsumo" class="font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between"><span>AÑADIR INSUMOS LIBRES</span><a href="inventario.html" class="text-tertiary text-[10px] uppercase font-bold hover:underline">+ Crear en inventario</a></label>
+            <div class="flex items-center gap-2">
+              <div class="relative flex-1">
+                <select id="selInsumo" class="w-full bg-surface-container-lowest text-on-surface pl-2.5 pr-7 py-2 rounded-lg font-body-sm text-body-sm appearance-none"></select>
+                <span class="material-symbols-outlined absolute right-2 top-2.5 text-input-affordance pointer-events-none text-[16px]">expand_more</span>
+              </div>
+              <input id="cantInsumo" type="number" min="1" step="1" value="10" aria-label="Cantidad" class="w-16 bg-surface-container-lowest text-center py-2 rounded-lg font-label-md text-label-md text-on-surface">
+              <button type="button" id="btnAddInsumo" aria-label="Añadir insumo" class="w-10 h-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-all"><span class="material-symbols-outlined text-[20px]">add</span></button>
+            </div>
+            <div id="chipsInsumos" class="flex flex-wrap gap-1.5 pt-1"></div>
+          </div>
+
+          <p id="msgError" class="hidden text-danger-alert font-body-sm text-body-sm bg-danger-alert/10 border border-danger-alert/30 rounded-lg px-3 py-2" role="alert"></p>
+
+          <div class="pt-2">
+            <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-primary hover:bg-spring-lime text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-[0_8px_20px_-4px_rgba(75,226,119,0.35)] transition-all active:scale-[0.98]">
+              <span class="material-symbols-outlined text-[22px]">bolt</span><span>CALCULAR PROYECTO</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Columna derecha: simulador y BOM -->
+    <div class="xl:col-span-8 flex flex-col gap-6">
+
+      <div class="bg-surface-card rounded-xl p-5 shadow-lg flex flex-col gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-wireframe-blue"></div>
+            <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Simulador de Estructura e Ingeniería</h2>
+          </div>
+          <span id="badgeModelo" class="px-3 py-1 rounded-full bg-secondary-container/20 text-wireframe-blue font-label-sm text-label-sm flex items-center gap-1.5 self-start"><span class="material-symbols-outlined text-[14px]">view_in_ar</span><span id="txtModelo">Modelo: Tubular</span></span>
+        </div>
+        <div class="relative w-full rounded-xl bg-canvas-void overflow-hidden flex items-center justify-center shadow-inner p-2" style="min-height:280px">
+          <div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:24px_24px]"></div>
+          <canvas id="lienzo" width="600" height="260" class="relative w-full max-w-2xl" style="aspect-ratio:600/260" role="img" aria-label="Dibujo de la estructura configurada"></canvas>
+        </div>
+        <div class="p-3 bg-surface-container-low rounded-lg flex items-start gap-3 text-body-sm font-body-sm text-on-surface-variant">
+          <span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">info</span>
+          <p id="txtSimulador"></p>
+        </div>
+      </div>
+
+      <div id="tarjetaBom" class="bg-surface-card rounded-xl p-5 shadow-lg flex flex-col gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+            <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Desglose de Materiales y Costos (BOM)</h2>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="font-label-sm text-label-sm text-on-surface-variant">FECHA: <span id="txtFecha" class="text-on-surface font-bold"></span></span>
+            <span class="px-2 py-0.5 rounded bg-surface-container-highest text-spring-lime font-label-sm text-label-sm">PRECIOS DEL INVENTARIO</span>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto rounded-lg">
+          <table class="w-full text-left font-body-md text-body-md">
+            <thead>
+              <tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+                <th class="py-3 px-4">Ítem / Componente</th>
+                <th class="py-3 px-3 text-center">Cant.</th>
+                <th class="py-3 px-4 text-right">Vr. Unitario</th>
+                <th class="py-3 px-4 text-right">Subtotal (COP)</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpoBom" class="divide-y divide-surface-container-high/40">
+              <tr><td colspan="4" class="py-8 px-4 text-center text-on-surface-variant italic">Ingresa los parámetros y pulsa «Calcular proyecto».</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4 pt-3 bg-surface-container-low p-4 rounded-xl border border-border-grid/50">
+          <div class="flex items-center gap-2.5 w-full md:w-auto flex-wrap sm:flex-nowrap">
+            <button type="button" id="btnGuardar" class="flex-1 md:flex-none px-4 py-2 rounded-lg bg-surface-card hover:bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-2 transition-colors border border-border-grid"><span class="material-symbols-outlined text-[18px]">history</span>Historial</button>
+            <button type="button" id="btnPdf" class="flex-1 md:flex-none px-4 py-2 rounded-lg bg-secondary-container/20 text-wireframe-blue hover:bg-secondary-container/30 font-label-sm text-label-sm flex items-center justify-center gap-2 transition-colors border border-wireframe-blue/20"><span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>Exportar PDF</button>
+          </div>
+          <div class="flex flex-col gap-1.5 text-right w-full md:w-auto min-w-[280px]">
+            <div class="flex items-center justify-between md:justify-end gap-6 text-on-surface-variant">
+              <span class="font-label-sm text-label-sm uppercase text-[11px]">Costo Materiales:</span>
+              <span id="txtMateriales" class="font-headline-sm text-headline-sm text-on-surface tabular">—</span>
+            </div>
+            <div class="flex items-center justify-between md:justify-end gap-6 text-on-surface-variant">
+              <span class="font-label-sm text-label-sm uppercase text-[11px]">Mano de Obra:</span>
+              <span id="txtManoObra" class="font-headline-sm text-headline-sm text-on-surface tabular">—</span>
+            </div>
+            <div class="mt-1 bg-surface-card px-3.5 py-2 rounded-lg flex items-center justify-between md:justify-end gap-4 shadow-md border border-border-grid">
+              <span class="font-label-md text-label-md uppercase text-on-surface font-bold tracking-wider text-[12px]">TOTAL PRESUPUESTO:</span>
+              <span id="txtTotal" class="font-headline-lg text-headline-lg text-spring-lime font-bold tracking-tight tabular">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</main>
+</div>
+
+<script src="js/calculo.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/simulador.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/cotizador.js"></script>
+</body>
+</html>
