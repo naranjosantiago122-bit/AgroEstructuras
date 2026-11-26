@@ -1,0 +1,161 @@
+/* AgroEstructura - estilos comunes (el resto de estilos son clases de Tailwind) */
+html, body { margin: 0; padding: 0; }
+body { overscroll-behavior: none; }
+
+/* Barras de desplazamiento discretas */
+* { scrollbar-width: thin; scrollbar-color: #334155 transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #4be277; }
+
+/* Íconos Material Symbols */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal; font-style: normal; line-height: 1; letter-spacing: normal;
+  text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal;
+  -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Fondo de cuadrícula técnica */
+.fondo-malla {
+  background-size: 36px 36px;
+  background-image:
+    linear-gradient(to right, rgba(75, 226, 119, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(75, 226, 119, 0.04) 1px, transparent 1px);
+}
+
+/* Cifras con ancho fijo (tablas de costos) */
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Avisos emergentes */
+#toastContenedor { position: fixed; right: 1.5rem; bottom: 5.5rem; z-index: 90; display: flex; flex-direction: column; gap: .5rem; pointer-events: none; }
+.toast { transform: translateY(1rem); opacity: 0; transition: all .25s ease; }
+.toast.visible { transform: translateY(0); opacity: 1; }
+
+/* Foco visible para teclado */
+:focus-visible { outline: 2px solid #adc6ff; outline-offset: 2px; }
+
+/* Entrada suave de módulos */
+@keyframes aparecer { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.aparece { animation: aparecer .3s ease both; }
+
+/* Respeta a quien pide menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* ===== Mejoras de UX (auditoría 12 claves) ===== */
+
+/* Campos del cotizador: borde visible y foco claro también con teclado (claves 4 y 11) */
+.campo { border: 1px solid #334155; transition: border-color .15s, box-shadow .15s; }
+.campo:focus-within { border-color: #adc6ff; box-shadow: 0 0 0 2px rgba(173, 198, 255, .55); }
+.campo.con-error, input.con-error, select.con-error { border-color: #ef4444; box-shadow: 0 0 0 1px #ef4444; }
+.msg-campo { font-size: 13px; line-height: 18px; color: #fca5a5; margin-top: 2px; }
+
+/* Texto de ayuda bajo los campos (clave 10) */
+.ayuda { font-size: 13px; line-height: 18px; color: #bccbb9; }
+
+/* Áreas táctiles de al menos 44 px para uso en obra (clave 11) */
+.btn-icono { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.btn-chip { min-width: 28px; min-height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; }
+
+/* Bloque desplegable "¿Cómo leer este resultado?" */
+.guia summary { cursor: pointer; list-style: none; }
+.guia summary::-webkit-details-marker { display: none; }
+.guia[open] .guia-flecha { transform: rotate(90deg); }
+.guia-flecha { transition: transform .15s; }
+
+/* Avisos con botón (Deshacer / cerrar) */
+.toast { pointer-events: auto; }
+.toast-accion { font-weight: 700; color: #4be277; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
+.toast-accion:hover { background: rgba(75, 226, 119, .12); }
+.toast-cerrar { color: #bccbb9; padding: 4px; border-radius: 6px; }
+.toast-cerrar:hover { color: #dae2fd; }
+
+/* Selector de estado en la tabla de presupuestos */
+.sel-estado { appearance: none; -webkit-appearance: none; padding: 4px 26px 4px 10px; border-radius: 9999px; border-width: 1px; font-size: 12px; font-weight: 600; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 12px center, right 8px center; background-size: 4px 4px; background-repeat: no-repeat; min-height: 32px; }
+.sel-estado option { background: #1e293b; color: #dae2fd; }
+
+/* Clases que no están en el Tailwind compilado */
+.min-h-\[44px\] { min-height: 44px; }
+.min-h-\[32px\] { min-height: 32px; }
+.guia-lista { list-style: disc; padding: 4px 0 4px 1.5rem; }
+.guia-lista li + li { margin-top: 4px; }
+
+/* Clases usadas por la separación de roles que no están en el Tailwind compilado */
+.max-w-5xl { max-width: 64rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.pb-1 { padding-bottom: .25rem; }
+.ml-0\.5 { margin-left: .125rem; }
+.w-4 { width: 1rem; } .h-4 { height: 1rem; }
+.min-w-\[22px\] { min-width: 22px; } .h-\[22px\] { height: 22px; }
+.text-on-tertiary { color: #472a00; }
+.bg-tertiary\/15 { background-color: rgba(255, 186, 97, .15); }
+.hover\:bg-tertiary\/25:hover { background-color: rgba(255, 186, 97, .25); }
+.hover\:bg-primary\/10:hover { background-color: rgba(75, 226, 119, .10); }
+.hover\:text-secondary:hover { color: #adc6ff; }
+@media (min-width: 640px) { .sm\:self-end { align-self: flex-end; } }
+@media (min-width: 1024px) { .lg\:items-start { align-items: flex-start; } }
+
+/* Clases del back-end (aviso sin servidor y botones ocupados) */
+.z-\[95\] { z-index: 95; }
+.p-8 { padding: 2rem; }
+.border-danger-alert\/40 { border-color: rgba(239, 68, 68, .4); }
+.opacity-60 { opacity: .6; }
+.cursor-wait { cursor: wait; }
+
+/* Registro: elegir tipo de cuenta (usuario / administrador) */
+.opcion-cuenta { display: flex; align-items: flex-start; gap: .75rem; min-height: 44px; padding: .875rem 1rem; border-radius: .75rem;
+  border: 1px solid #334155; background: #060e20; cursor: pointer; transition: border-color .15s, background .15s, box-shadow .15s; }
+.opcion-cuenta:hover { border-color: #4be27799; }
+.opcion-cuenta .opcion-icono { color: #bccbb9; font-size: 24px; }
+.opcion-cuenta:has(input:checked) { border-color: #4be277; background: rgba(75, 226, 119, .08); box-shadow: 0 0 0 1px #4be277; }
+.opcion-cuenta:has(input:checked) .opcion-icono { color: #4be277; }
+.opcion-cuenta:has(input:focus-visible) { outline: 2px solid #adc6ff; outline-offset: 2px; }
+.top-0\.5 { top: .125rem; }
+.right-1 { right: .25rem; }
+
+/* Vista 3D: botones y avisos encima del dibujo */
+.bg-surface-card\/85 { background-color: rgba(30, 41, 59, .88); }
+.bg-danger-alert\/90 { background-color: rgba(239, 68, 68, .92); }
+.mr-24 { margin-right: 6rem; }
+.inset-x-3 { left: .75rem; right: .75rem; }
+#marco3d .btn-icono { box-shadow: 0 1px 4px rgba(0, 0, 0, .35); }
+
+/* ===== Diseñador «a mi medida» (js/disenador.js) ===== */
+html.dis-abierto, html.dis-abierto body { overflow: hidden; }
+.dis-capa { position: fixed; inset: 0; z-index: 95; background: #0b1326; overflow-y: auto; display: flex; flex-direction: column; }
+.dis-capa.hidden { display: none; }
+.dis-cabecera { position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem;
+  padding: .75rem 1rem; background: rgba(19, 27, 46, .96); border-bottom: 1px solid #334155; }
+.dis-cuerpo { display: grid; grid-template-columns: 1fr; gap: 1rem; padding: 1rem; }
+@media (min-width: 1280px) { .dis-cuerpo { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
+  .dis-plano-tarjeta { position: sticky; top: 5rem; } }
+.dis-lateral { display: flex; flex-direction: column; gap: 1rem; }
+.dis-tarjeta { background: #1e293b; border: 1px solid #334155; border-radius: .75rem; padding: 1rem; display: flex; flex-direction: column; gap: .75rem; }
+.dis-plano { width: 100%; height: clamp(320px, 62vh, 720px); border-radius: .5rem; touch-action: none; user-select: none; background: #0f172a; }
+.dis-3d { width: 100%; height: clamp(240px, 34vh, 380px); border-radius: .5rem; overflow: hidden; background: #dfe8ef; }
+.dis-boton { display: inline-flex; align-items: center; gap: .375rem; min-height: 44px; padding: 0 .875rem; border-radius: .5rem; border: 1px solid #334155;
+  color: #dae2fd; background: #131b2e; font-size: 13px; font-weight: 600; }
+.dis-boton:hover:not(:disabled) { border-color: #4be277; color: #4be277; }
+.dis-boton:disabled { opacity: .45; cursor: not-allowed; }
+.dis-principal { background: #4be277; color: #003915; border-color: #4be277; }
+.dis-principal:hover:not(:disabled) { background: #4ade80; color: #003915; }
+.dis-peligro:hover:not(:disabled) { border-color: #ef4444; color: #fca5a5; }
+.dis-check { display: flex; align-items: center; gap: .5rem; min-height: 36px; font-size: 14px; color: #dae2fd; cursor: pointer; }
+.dis-check input { width: 1.1rem; height: 1.1rem; accent-color: #4be277; }
+.dis-check:has(input:disabled) { opacity: .45; cursor: not-allowed; }
+.dis-puerta { display: grid; grid-template-columns: 1fr 1fr 4.5rem 4.5rem 44px; gap: .375rem; align-items: center; }
+.dis-lista { list-style: none; padding: 0; display: flex; flex-direction: column; gap: .25rem; }
+.dis-aviso { display: flex; gap: .375rem; align-items: center; margin-top: .5rem; padding: .5rem .75rem; border-radius: .5rem;
+  background: rgba(250, 204, 21, .12); border: 1px solid rgba(250, 204, 21, .4); color: #fde68a; font-size: 13px; }
+.dis-estado { display: flex; gap: .5rem; align-items: flex-start; margin-top: .5rem; padding: .625rem .75rem; border-radius: .5rem; font-size: 13px; line-height: 1.4; }
+.dis-ok { background: rgba(75, 226, 119, .1); border: 1px solid rgba(75, 226, 119, .4); color: #bbf7d0; }
+.dis-pendiente { background: rgba(255, 186, 97, .12); border: 1px solid rgba(255, 186, 97, .45); color: #fed7aa; }
+/* Plano pequeño en la tarjeta del cotizador */
+.plano-mini svg { width: 100%; height: 220px; display: block; border-radius: .5rem; }
+.bottom-2 { bottom: .5rem; } .left-2 { left: .5rem; } .text-white { color: #fff; }

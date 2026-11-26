@@ -8,6 +8,17 @@ Proyecto formativo del programa **Tecnología en Análisis y Desarrollo de Softw
 
 **Integrantes:** Santiago Naranjo · Valentina Arias · Samuel Muñoz
 
+## Ver la demostración en el navegador
+
+**https://naranjosantiago122-bit.github.io/AgroEstructuras/** (GitHub Pages)
+
+Es la interfaz actual (carpeta `demo/`) funcionando sin servidor: los datos se guardan en el navegador de cada persona.
+- Para entrar como **dueño**, crea una cuenta eligiendo «Administrador» con la clave **AGRO-DEMO**.
+- Para entrar como **cliente**, crea una cuenta «Cliente» (o «Continuar como invitado»).
+- El enlace «reiniciar datos» del aviso verde borra todo y empieza de cero.
+
+> En la demo los precios quedan en el navegador. La versión real (`frontend/` + `backend/`) los guarda en el servidor y el cliente nunca los recibe.
+
 ## Qué hace (versión actual: AgroEstructura V.2 PRO)
 
 | Usuario | Qué puede hacer |
@@ -28,6 +39,7 @@ Tipos de estructura: metálico tubular, capilla de guadua, capilla en cercha, un
 
 ```
 AgroEstructuras/
+├── demo/                  Copia de frontend/ que funciona sin servidor (GitHub Pages)
 ├── frontend/              Páginas, estilos, scripts y vista 3D
 ├── backend/               API en Python (Flask) + pruebas
 ├── base_de_datos/         Scripts SQL y modelos entidad-relación (v1, v2, v3)
@@ -36,7 +48,7 @@ AgroEstructuras/
 ├── figma/                 Pantallas SVG para Figma
 ├── referencia_estructuras/  Videos y fotogramas de las estructuras reales
 ├── referencia_stitch/     Diseños de referencia generados con Stitch
-├── prototipo_sin_servidor/  Versión anterior que funciona sin back-end
+├── prototipo_sin_servidor/  Versión anterior (octubre), sin 3D ni diseñador
 ├── BITACORA.md            Registro de avances
 └── CLAUDE.md              Resumen técnico del proyecto
 ```
