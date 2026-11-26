@@ -1,0 +1,22 @@
+# Secretos: NUNCA subir (clave de administrador, datos del correo)
+.env
+backend/.env
+
+# Entorno de Python y archivos temporales
+.venv/
+backend/.venv/
+__pycache__/
+*.pyc
+
+# Copias internas de MySQL y correos de prueba
+respaldos/
+backend/correos_salida/
+
+# Fotos que suben los usuarios desde la página
+backend/uploads/
+
+# Node y sistema
+node_modules/
+Thumbs.db
+desktop.ini
+.DS_Store

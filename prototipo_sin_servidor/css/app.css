@@ -1,0 +1,102 @@
+/* AgroEstructura - estilos comunes (el resto de estilos son clases de Tailwind) */
+html, body { margin: 0; padding: 0; }
+body { overscroll-behavior: none; }
+
+/* Barras de desplazamiento discretas */
+* { scrollbar-width: thin; scrollbar-color: #334155 transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #4be277; }
+
+/* Íconos Material Symbols */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal; font-style: normal; line-height: 1; letter-spacing: normal;
+  text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal;
+  -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Fondo de cuadrícula técnica */
+.fondo-malla {
+  background-size: 36px 36px;
+  background-image:
+    linear-gradient(to right, rgba(75, 226, 119, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(75, 226, 119, 0.04) 1px, transparent 1px);
+}
+
+/* Cifras con ancho fijo (tablas de costos) */
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Avisos emergentes */
+#toastContenedor { position: fixed; right: 1.5rem; bottom: 5.5rem; z-index: 90; display: flex; flex-direction: column; gap: .5rem; pointer-events: none; }
+.toast { transform: translateY(1rem); opacity: 0; transition: all .25s ease; }
+.toast.visible { transform: translateY(0); opacity: 1; }
+
+/* Foco visible para teclado */
+:focus-visible { outline: 2px solid #adc6ff; outline-offset: 2px; }
+
+/* Entrada suave de módulos */
+@keyframes aparecer { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.aparece { animation: aparecer .3s ease both; }
+
+/* Respeta a quien pide menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* ===== Mejoras de UX (auditoría 12 claves) ===== */
+
+/* Campos del cotizador: borde visible y foco claro también con teclado (claves 4 y 11) */
+.campo { border: 1px solid #334155; transition: border-color .15s, box-shadow .15s; }
+.campo:focus-within { border-color: #adc6ff; box-shadow: 0 0 0 2px rgba(173, 198, 255, .55); }
+.campo.con-error, input.con-error, select.con-error { border-color: #ef4444; box-shadow: 0 0 0 1px #ef4444; }
+.msg-campo { font-size: 13px; line-height: 18px; color: #fca5a5; margin-top: 2px; }
+
+/* Texto de ayuda bajo los campos (clave 10) */
+.ayuda { font-size: 13px; line-height: 18px; color: #bccbb9; }
+
+/* Áreas táctiles de al menos 44 px para uso en obra (clave 11) */
+.btn-icono { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.btn-chip { min-width: 28px; min-height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; }
+
+/* Bloque desplegable "¿Cómo leer este resultado?" */
+.guia summary { cursor: pointer; list-style: none; }
+.guia summary::-webkit-details-marker { display: none; }
+.guia[open] .guia-flecha { transform: rotate(90deg); }
+.guia-flecha { transition: transform .15s; }
+
+/* Avisos con botón (Deshacer / cerrar) */
+.toast { pointer-events: auto; }
+.toast-accion { font-weight: 700; color: #4be277; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
+.toast-accion:hover { background: rgba(75, 226, 119, .12); }
+.toast-cerrar { color: #bccbb9; padding: 4px; border-radius: 6px; }
+.toast-cerrar:hover { color: #dae2fd; }
+
+/* Selector de estado en la tabla de presupuestos */
+.sel-estado { appearance: none; -webkit-appearance: none; padding: 4px 26px 4px 10px; border-radius: 9999px; border-width: 1px; font-size: 12px; font-weight: 600; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 12px center, right 8px center; background-size: 4px 4px; background-repeat: no-repeat; min-height: 32px; }
+.sel-estado option { background: #1e293b; color: #dae2fd; }
+
+/* Clases que no están en el Tailwind compilado */
+.min-h-\[44px\] { min-height: 44px; }
+.min-h-\[32px\] { min-height: 32px; }
+.guia-lista { list-style: disc; padding: 4px 0 4px 1.5rem; }
+.guia-lista li + li { margin-top: 4px; }
+
+/* Clases usadas por la separación de roles que no están en el Tailwind compilado */
+.max-w-5xl { max-width: 64rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.pb-1 { padding-bottom: .25rem; }
+.ml-0\.5 { margin-left: .125rem; }
+.w-4 { width: 1rem; } .h-4 { height: 1rem; }
+.min-w-\[22px\] { min-width: 22px; } .h-\[22px\] { height: 22px; }
+.text-on-tertiary { color: #472a00; }
+.bg-tertiary\/15 { background-color: rgba(255, 186, 97, .15); }
+.hover\:bg-tertiary\/25:hover { background-color: rgba(255, 186, 97, .25); }
+.hover\:bg-primary\/10:hover { background-color: rgba(75, 226, 119, .10); }
+.hover\:text-secondary:hover { color: #adc6ff; }
+@media (min-width: 640px) { .sm\:self-end { align-self: flex-end; } }
+@media (min-width: 1024px) { .lg\:items-start { align-items: flex-start; } }

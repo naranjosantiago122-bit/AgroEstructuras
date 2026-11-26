@@ -1,0 +1,3 @@
+Copia del front-end ANTES de conectar el back-end (2026-11-23).
+Funciona sin servidor: guarda todo en el navegador (localStorage) y sirve para GitHub Pages o para una demo sin internet.
+Ojo: aquí los precios están en js/calculo.js y se ven con F12. La versión real es ../frontend + ../backend.

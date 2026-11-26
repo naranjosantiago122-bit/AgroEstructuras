@@ -1,0 +1,437 @@
+<!DOCTYPE html><html class="dark" lang="es" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#e6ecff", "on-tertiary-fixed": "#2a1700", "inverse-surface": "#dae2fd", "spring-lime": "#4ade80", "surface-tint": "#4ae176", "on-secondary": "#002e6a", "primary-fixed-dim": "#4ae176", "canvas-void": "#020617", "primary-fixed": "#6bff8f", "surface-container-lowest": "#060e20", "on-error-container": "#ffdad6", "input-affordance": "#475569", "secondary-container": "#0566d9", "on-surface": "#dae2fd", "on-primary-fixed-variant": "#005321", "tertiary-fixed": "#ffddb8", "on-secondary-fixed-variant": "#004395", "surface-card": "#1e293b", "surface-dim": "#0b1326", "border-grid": "#334155", "tertiary-container": "#ef9900", "surface-container-highest": "#2d3449", "on-background": "#dae2fd", "on-tertiary-container": "#5c3800", "inverse-primary": "#006e2f", "surface-variant": "#2d3449", "on-tertiary": "#472a00", "error": "#ffb4ab", "error-container": "#93000a", "surface": "#0b1326", "secondary": "#adc6ff", "amber-structural": "#d97706", "outline-variant": "#3d4a3d", "primary": "#4be277", "on-primary-fixed": "#002109", "on-secondary-fixed": "#001a42", "on-tertiary-fixed-variant": "#653e00", "secondary-fixed-dim": "#adc6ff", "danger-alert": "#ef4444", "primary-container": "#22c55e", "forest-deep": "#14532d", "surface-container-high": "#222a3d", "wireframe-blue": "#60a5fa", "on-surface-variant": "#bccbb9", "inverse-on-surface": "#283044", "tertiary-fixed-dim": "#ffb95f", "surface-container": "#171f33", "background": "#0b1326", "secondary-fixed": "#d8e2ff", "surface-bright": "#31394d", "outline": "#869585", "on-primary": "#003915", "on-primary-container": "#004b1e", "tertiary": "#ffba61", "on-error": "#690005", "surface-container-low": "#131b2e" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-mobile": "1rem", "margin-mobile": "1rem", "space-lg": "1.5rem", "space-xl": "2rem", "space-xs": "0.25rem", "margin": "2rem", "space-md": "1rem", "gutter": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "label-md": [ "Space Grotesk" ], "label-sm": [ "Space Grotesk" ], "metric-display": [ "Space Grotesk" ], "headline-sm": [ "Space Grotesk" ], "headline-xl-mobile": [ "Space Grotesk" ], "headline-md": [ "Space Grotesk" ], "headline-lg": [ "Space Grotesk" ], "body-sm": [ "Work Sans" ], "headline-xl": [ "Space Grotesk" ], "body-md": [ "Work Sans" ], "label-lg": [ "Space Grotesk" ], "body-lg": [ "Work Sans" ] }, "fontSize": { "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" } ], "metric-display": [ "32px", { "lineHeight": "36px", "fontWeight": "700" } ], "headline-sm": [ "18px", { "lineHeight": "24px", "fontWeight": "600" } ], "headline-xl-mobile": [ "24px", { "lineHeight": "32px", "fontWeight": "800" } ], "headline-md": [ "20px", { "lineHeight": "28px", "fontWeight": "700" } ], "headline-lg": [ "24px", { "lineHeight": "32px", "fontWeight": "700" } ], "body-sm": [ "13px", { "lineHeight": "18px", "fontWeight": "400" } ], "headline-xl": [ "30px", { "lineHeight": "38px", "fontWeight": "800" } ], "body-md": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "label-lg": [ "14px", { "lineHeight": "20px", "fontWeight": "600" } ], "body-lg": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 left-0 right-0 h-16 z-50 bg-surface-card/90 backdrop-blur-xl border-b border-border-grid shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="w-full h-16 px-gutter flex items-center justify-between gap-space-md"><div class="hidden sm:flex w-8"></div><div class="flex items-center gap-space-sm mx-auto"><div class="flex items-center justify-center w-9 h-9 rounded-lg bg-surface-container-highest border border-border-grid text-primary"><span class="material-symbols-outlined text-[20px]">grid_view</span></div><div class="flex flex-col text-center"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase">AgroEstructura</span><span class="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/30 font-label-sm text-label-sm text-primary">V.2 PRO</span></div><span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline">Software Agrícola y Estructural</span></div></div><div class="flex items-center gap-space-sm"><div class="hidden lg:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface">Ing. Agrónomo Senior</span><span class="font-body-sm text-body-sm text-wireframe-blue">Cálculo &amp; Estructuras</span></div><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/40" src="https://lh3.googleusercontent.com/aida/AEtjO1UMc7zs8DOFp-k6bsxOOzC1FRHHBiuwAxoZl8CvY0x7ju7n9yE1LQ-6IvMaNg-3t193Yk1bMlOgPlnW3zMOVo_Yp-6YKBsOeCcxXQpiKy-AqhG4cOLJdkRU_fkqvMrGq_6Fi1vIsTQsliaJEpZq_4pqpFzemtGkifdkT94KlxHA3vNu07hnXjTsMez1-2oPK6-6sfTJTVVVFCxpvUqNQAd7IAxfiuq7I3Mi7SkmZofrdXn0ScL6c2lAy8zqUwrE5La3x4eZ8viuRRw"><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface-card"></span></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-64 bg-surface-container-low border-r border-border-grid z-40 hidden lg:flex flex-col justify-between py-space-md"><div class="flex flex-col gap-space-xs px-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Módulos de Ingeniería</div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-highest text-primary font-bold"><a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="centro-principal" href="#"><span class="material-symbols-outlined text-[20px]">space_dashboard</span>Centro Principal</a><a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="nuevo-proyecto" href="#"><span class="material-symbols-outlined text-[20px]">architecture</span>Nuevo Proyecto</a><a aria-current="page" class="flex items-center gap-3 px-space-md py-2.5 rounded-lg transition-all bg-surface-container-highest text-primary font-bold" data-path="inventario" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span>Inventario</a><a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="portafolio" href="#"><span class="material-symbols-outlined text-[20px]">view_in_ar</span>Portafolio</a><a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="configuracion-materiales" href="#"><span class="material-symbols-outlined text-[20px]">tune</span>Configuración</a></nav></div><div class="px-space-md"><div class="p-space-sm rounded-lg bg-surface-container border border-border-grid flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">MOTOR CAD</span><span class="font-label-sm text-label-sm text-spring-lime">2.5D ACTIVO</span></div><span class="font-body-sm text-body-sm text-wireframe-blue">Guadua &amp; Acero Galv.</span></div></div></aside><div class="lg:pl-64"><main class="relative w-full pt-16 bg-background min-h-screen"><div class="flex flex-col w-full">
+<div class="px-space-md sm:px-space-lg lg:px-space-xl py-space-lg flex flex-col gap-space-lg max-w-[1540px] mx-auto w-full">
+<!-- Top Technical Banner & Inventory Telemetry -->
+<div class="relative overflow-hidden rounded-xl bg-surface-card border border-border-grid p-space-lg sm:p-space-xl shadow-xl">
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-64 h-64 bg-wireframe-blue/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="flex flex-col gap-2 max-w-3xl">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-deep/60 border border-primary/40 font-label-sm text-label-sm text-spring-lime uppercase tracking-widest">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+              Sincronizador Activo
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest border border-border-grid font-label-sm text-label-sm text-on-surface-variant">
+              DB: LOCALSTORAGE_SYS_V2
+            </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight mt-1">
+            Gestor de Almacén y Precios Base
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Los precios y nuevos insumos se sincronizan con la memoria técnica del cotizador automático, análisis de cargas y listas BOM.
+          </p>
+</div>
+<!-- Telemetry Indicators -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm bg-surface-container-lowest/80 border border-border-grid p-space-md rounded-xl backdrop-blur-md min-w-[320px]">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Mat. Base</span>
+<span class="font-metric-display text-headline-lg text-primary tracking-tight font-bold">4</span>
+<span class="font-body-sm text-body-sm text-spring-lime flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Bloqueados
+            </span>
+</div>
+<div class="flex flex-col border-l border-border-grid pl-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Insumos Libres</span>
+<span class="font-metric-display text-headline-lg text-wireframe-blue tracking-tight font-bold" id="dynamicCountBadge">6</span>
+<span class="font-body-sm text-body-sm text-wireframe-blue flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">dynamic_form</span> Editables
+            </span>
+</div>
+<div class="col-span-2 sm:col-span-1 flex flex-col border-t sm:border-t-0 sm:border-l border-border-grid pt-2 sm:pt-0 sm:pl-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Estado</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">Óptimo</span>
+<span class="font-label-sm text-label-sm text-outline">Latencia 0.2ms</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Wireframe Section 1: Crear nuevo registro libre -->
+<div class="bg-surface-card border border-border-grid rounded-xl p-space-lg shadow-lg relative overflow-hidden">
+<div class="flex items-center justify-between border-b border-border-grid pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary border border-border-grid">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Crear Nuevo Registro Libre / Insumo</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Añade componentes complementarios para cuantificación técnica inmediata</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider hidden sm:inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">tune</span> Configuración Dinámica
+        </span>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-end" id="createInsumoForm" onsubmit="event.preventDefault(); window.addNewInsumo();">
+<div class="md:col-span-6 flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="insumoName">
+<span class="">Nombre del Insumo</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Ej: Bulto Cemento Toluvia 50kg</span>
+</label>
+<div class="relative flex items-center">
+<span class="absolute left-3 text-input-affordance material-symbols-outlined text-[18px]">inventory</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md pl-10 pr-4 py-2.5 rounded-lg border border-border-grid focus:border-wireframe-blue focus:outline-none transition-colors placeholder:text-input-affordance" id="insumoName" placeholder="Nombre descriptivo, calibre o referencia técnica..." required="" type="text">
+</div>
+</div>
+<div class="md:col-span-3 flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="insumoPrice">
+            Precio Unitario (COP)
+          </label>
+<div class="relative flex items-center rounded-lg border border-border-grid bg-surface-container-lowest focus-within:border-wireframe-blue transition-colors">
+<span class="px-3 py-2.5 font-label-md text-label-md text-wireframe-blue font-bold border-r border-border-grid bg-surface-container-low select-none">
+              $
+            </span>
+<input class="w-full bg-transparent text-on-surface font-metric-display text-headline-sm px-3 py-2 focus:outline-none text-right tabular-nums tracking-wide" id="insumoPrice" min="0" placeholder="0" required="" step="50" type="number">
+</div>
+</div>
+<div class="md:col-span-3 flex">
+<button class="w-full h-[46px] rounded-lg bg-primary-container text-on-primary-container hover:bg-spring-lime hover:text-canvas-void font-label-lg text-label-lg flex items-center justify-center gap-2 transition-all shadow-[0_4px_16px_rgba(34,197,94,0.2)] active:scale-[0.98]" type="submit">
+<span class="material-symbols-outlined text-[20px]">post_add</span>
+<span class="">+ Crear Insumo</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Wireframe Section 2: Materiales base y memoria dinámica -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-spring-lime text-[24px]">construction</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Materiales Base de Construcción</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Componentes estructurales primarios requeridos para el cálculo de arcos, columnas y uniones.</p>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-2 font-label-sm text-label-sm text-outline">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Parámetros Fijos de Ingeniería
+        </div>
+</div>
+<!-- Grid of 4 core items -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Tubo Galvanizado 2"x6m -->
+<div class="bg-surface-card rounded-xl p-space-md border border-border-grid border-l-4 border-l-wireframe-blue hover:border-wireframe-blue/60 transition-all flex flex-col justify-between gap-space-md shadow-md">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-wireframe-blue/15 text-wireframe-blue border border-wireframe-blue/30 uppercase">
+                Acero Tubular
+              </span>
+<span class="material-symbols-outlined text-wireframe-blue text-[20px]">architecture</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">
+              Tubo Galvanizado 2"×6m
+            </h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Calibre estructural ISO para arcos y cordones</span>
+</div>
+<div class="flex flex-col gap-1.5 pt-2 border-t border-border-grid">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Precio Estructural Actual</label>
+<div class="relative flex items-center rounded-lg border border-border-grid bg-surface-container-lowest focus-within:border-wireframe-blue transition-colors">
+<span class="px-3 py-2 font-label-md text-label-md text-wireframe-blue font-bold border-r border-border-grid select-none">$</span>
+<input class="base-mat-input w-full bg-transparent text-spring-lime font-metric-display text-headline-sm px-3 py-1.5 focus:outline-none text-right tabular-nums tracking-wide" data-key="mat_tubo_galv" type="number" value="45000">
+</div>
+</div>
+</div>
+<!-- Card 2: Poste de Guadua Tratada -->
+<div class="bg-surface-card rounded-xl p-space-md border border-border-grid border-l-4 border-l-amber-structural hover:border-amber-structural/60 transition-all flex flex-col justify-between gap-space-md shadow-md">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-amber-structural/15 text-tertiary border border-amber-structural/30 uppercase">
+                Bio-Estructura
+              </span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">forest</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">
+              Poste Guadua Tratada 6m
+            </h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Inmunizada en sales de boro (diámetro 10-12cm)</span>
+</div>
+<div class="flex flex-col gap-1.5 pt-2 border-t border-border-grid">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Precio Estructural Actual</label>
+<div class="relative flex items-center rounded-lg border border-border-grid bg-surface-container-lowest focus-within:border-amber-structural transition-colors">
+<span class="px-3 py-2 font-label-md text-label-md text-tertiary font-bold border-r border-border-grid select-none">$</span>
+<input class="base-mat-input w-full bg-transparent text-tertiary font-metric-display text-headline-sm px-3 py-1.5 focus:outline-none text-right tabular-nums tracking-wide" data-key="mat_guadua_tratada" type="number" value="15000">
+</div>
+</div>
+</div>
+<!-- Card 3: Carevaca Sencilla -->
+<div class="bg-surface-card rounded-xl p-space-md border border-border-grid border-l-4 border-l-secondary hover:border-secondary/60 transition-all flex flex-col justify-between gap-space-md shadow-md">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary/10 text-secondary border border-secondary/30 uppercase">
+                Conector Simple
+              </span>
+<span class="material-symbols-outlined text-secondary text-[20px]">hardware</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">
+              Carevaca Sencilla
+            </h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Herraje de fijación estándar para cumbrera / faldón</span>
+</div>
+<div class="flex flex-col gap-1.5 pt-2 border-t border-border-grid">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Precio Estructural Actual</label>
+<div class="relative flex items-center rounded-lg border border-border-grid bg-surface-container-lowest focus-within:border-secondary transition-colors">
+<span class="px-3 py-2 font-label-md text-label-md text-secondary font-bold border-r border-border-grid select-none">$</span>
+<input class="base-mat-input w-full bg-transparent text-secondary font-metric-display text-headline-sm px-3 py-1.5 focus:outline-none text-right tabular-nums tracking-wide" data-key="mat_carevaca_sencilla" type="number" value="17000">
+</div>
+</div>
+</div>
+<!-- Card 4: Carevaca Reforzada (Destacada Wireframe) -->
+<div class="bg-surface-card rounded-xl p-space-md border border-amber-structural/50 border-l-4 border-l-tertiary shadow-[0_0_20px_rgba(217,119,6,0.15)] flex flex-col justify-between gap-space-md relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-amber-structural text-canvas-void font-label-sm text-[10px] uppercase font-bold px-3 py-0.5 rounded-bl-lg">
+            Mayor Esfuerzo
+          </div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-tertiary-container/20 text-tertiary border border-tertiary/40 uppercase">
+                Acople Pesado
+              </span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">shield</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">
+              Carevaca Reforzada
+            </h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Platina de 4mm con rigidizadores de torsión lateral</span>
+</div>
+<div class="flex flex-col gap-1.5 pt-2 border-t border-border-grid">
+<label class="font-label-sm text-label-sm text-tertiary font-bold">Precio Estructural Calibre Grueso</label>
+<div class="relative flex items-center rounded-lg border border-amber-structural/60 bg-surface-container-lowest focus-within:border-tertiary transition-colors">
+<span class="px-3 py-2 font-label-md text-label-md text-tertiary font-bold border-r border-amber-structural/40 select-none">$</span>
+<input class="base-mat-input w-full bg-transparent text-tertiary font-metric-display text-headline-sm px-3 py-1.5 focus:outline-none text-right tabular-nums tracking-wide font-bold" data-key="mat_carevaca_reforzada" type="number" value="22000">
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Insumos Dinámicos y Adicionales Registrados -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-wireframe-blue text-[24px]">dataset</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Insumos Dinámicos y Adicionales Registrados</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ítems libres con soporte para eliminación y recálculo automático de inventario.</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container-high border border-border-grid font-label-sm text-label-sm text-wireframe-blue">
+          Memoria Persistente Local
+        </span>
+</div>
+<!-- Dynamic list/cards container -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md" id="dynamicInsumosGrid">
+<!-- Rendered via JS -->
+</div>
+</div>
+<!-- Bottom Controls & Wireframe Save Bar -->
+<div class="rounded-xl bg-surface-card border border-border-grid p-space-md sm:p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md shadow-2xl">
+<!-- Visual Save Status Feedback -->
+<div class="w-full md:w-auto flex items-center gap-space-sm px-space-md py-3 rounded-lg bg-surface-container-lowest border border-primary/30 text-spring-lime transition-all" id="statusNotification">
+<span class="material-symbols-outlined text-[20px] text-spring-lime">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">✓ Precios guardados exitosamente.</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sincronizado con memoria del navegador e interfaz CAD.</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="w-full md:w-auto flex flex-wrap sm:flex-nowrap items-center gap-space-sm justify-end">
+<button class="w-full sm:w-auto px-space-md py-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface border border-border-grid font-label-md text-label-md transition-colors flex items-center justify-center gap-2" onclick="window.resetDefaults()" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+          Restablecer Valores Base
+        </button>
+<button class="w-full sm:w-auto px-space-lg py-3 rounded-lg bg-primary-container hover:bg-spring-lime text-on-primary-container hover:text-canvas-void font-label-lg text-label-lg font-bold transition-all shadow-[0_8px_24px_-4px_rgba(34,197,94,0.3)] flex items-center justify-center gap-2 active:scale-[0.98]" onclick="window.saveAllInventory()" type="button">
+<span class="material-symbols-outlined text-[22px]">save</span>
+<span class="">💾 Guardar Todo el Almacén</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+(function() {
+  const STORAGE_KEY_BASE = 'agro_almacen_base_v2';
+  const STORAGE_KEY_DYNAMIC = 'agro_almacen_dynamic_v2';
+
+  const defaultBasePrices = {
+    mat_tubo_galv: 45000,
+    mat_guadua_tratada: 15000,
+    mat_carevaca_sencilla: 17000,
+    mat_carevaca_reforzada: 22000
+  };
+
+  const defaultDynamicItems = [
+    { id: 'dyn_1', name: 'Bulto Cemento Gris Toluvia 50kg', price: 38000, unit: 'Bulto' },
+    { id: 'dyn_2', name: 'Arena de Pega Gruesa Lavada', price: 45000, unit: 'm³' },
+    { id: 'dyn_3', name: 'Tornillo Autoperforante c/Arandela #12', price: 350, unit: 'Unidad' },
+    { id: 'dyn_4', name: 'Cinta Reparación Plástico UV 50m', price: 65000, unit: 'Rollo' },
+    { id: 'dyn_5', name: 'Alambre Galvanizado Calibre #14', price: 12500, unit: 'Kg' },
+    { id: 'dyn_6', name: 'Plástico Polietileno Calibre 7 (Agro)', price: 9200, unit: 'm Lineal' }
+  ];
+
+  let currentBase = {};
+  let currentDynamic = [];
+
+  function loadStorage() {
+    try {
+      const storedBase = localStorage.getItem(STORAGE_KEY_BASE);
+      currentBase = storedBase ? JSON.parse(storedBase) : { ...defaultBasePrices };
+
+      const storedDynamic = localStorage.getItem(STORAGE_KEY_DYNAMIC);
+      currentDynamic = storedDynamic ? JSON.parse(storedDynamic) : [ ...defaultDynamicItems ];
+    } catch (e) {
+      currentBase = { ...defaultBasePrices };
+      currentDynamic = [ ...defaultDynamicItems ];
+    }
+  }
+
+  function renderBaseInputs() {
+    document.querySelectorAll('.base-mat-input').forEach(input => {
+      const key = input.dataset.key;
+      if (currentBase[key] !== undefined) {
+        input.value = currentBase[key];
+      }
+    });
+  }
+
+  function renderDynamicList() {
+    const grid = document.getElementById('dynamicInsumosGrid');
+    const badge = document.getElementById('dynamicCountBadge');
+    if (!grid) return;
+
+    if (badge) {
+      badge.textContent = currentDynamic.length;
+    }
+
+    if (currentDynamic.length === 0) {
+      grid.innerHTML = `
+        <div class="col-span-full py-10 px-4 rounded-xl border border-dashed border-border-grid text-center flex flex-col items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[36px] text-on-surface-variant">inventory_2</span>
+          <span class="font-headline-sm text-headline-sm text-on-surface">No hay insumos adicionales</span>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">Usa el formulario superior para añadir cemento, arenas, pernos o tensores.</p>
+        </div>
+      `;
+      return;
+    }
+
+    grid.innerHTML = currentDynamic.map(item => `
+      <div id="card_${item.id}" class="bg-surface-card border border-border-grid rounded-xl p-space-md flex flex-col justify-between gap-space-md hover:border-wireframe-blue/40 transition-all shadow-md group">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex flex-col gap-1">
+            <span class="font-label-sm text-label-sm text-wireframe-blue uppercase tracking-wider">${item.unit || 'Insumo'}</span>
+            <span class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-snug">${item.name}</span>
+          </div>
+          <button 
+            type="button" 
+            onclick="window.deleteInsumo('${item.id}')" 
+            title="Eliminar insumo" 
+            class="text-on-surface-variant hover:text-danger-alert hover:bg-danger-alert/10 p-1.5 rounded-lg border border-transparent hover:border-danger-alert/30 transition-colors">
+            <span class="material-symbols-outlined text-[20px]">delete</span>
+          </button>
+        </div>
+
+        <div class="flex flex-col gap-1.5 pt-2 border-t border-border-grid">
+          <div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+            <span>Precio Unitario (COP)</span>
+            <span class="text-spring-lime text-xs">Editable</span>
+          </div>
+          <div class="relative flex items-center rounded-lg border border-border-grid bg-surface-container-lowest focus-within:border-wireframe-blue transition-colors">
+            <span class="px-3 py-2 font-label-md text-label-md text-wireframe-blue font-bold border-r border-border-grid select-none">$</span>
+            <input 
+              type="number" 
+              value="${item.price}" 
+              min="0"
+              onchange="window.updateDynamicPrice('${item.id}', this.value)"
+              class="w-full bg-transparent text-on-surface font-metric-display text-headline-sm px-3 py-1.5 focus:outline-none text-right tabular-nums tracking-wide"
+            />
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function triggerFeedback(msg) {
+    const notif = document.getElementById('statusNotification');
+    if (!notif) return;
+    notif.classList.remove('opacity-0', 'scale-95');
+    notif.classList.add('bg-forest-deep/60', 'border-primary/50');
+    
+    if (msg) {
+      const txt = notif.querySelector('span.font-label-md');
+      if (txt) txt.textContent = msg;
+    }
+
+    setTimeout(() => {
+      notif.classList.remove('bg-forest-deep/60');
+    }, 2500);
+  }
+
+  window.addNewInsumo = function() {
+    const nameInput = document.getElementById('insumoName');
+    const priceInput = document.getElementById('insumoPrice');
+    if (!nameInput || !priceInput) return;
+
+    const name = nameInput.value.trim();
+    const price = parseFloat(priceInput.value);
+
+    if (!name || isNaN(price)) return;
+
+    const newItem = {
+      id: 'dyn_' + Date.now(),
+      name: name,
+      price: price,
+      unit: 'Unidad'
+    };
+
+    currentDynamic.unshift(newItem);
+    localStorage.setItem(STORAGE_KEY_DYNAMIC, JSON.stringify(currentDynamic));
+    
+    nameInput.value = '';
+    priceInput.value = '';
+    renderDynamicList();
+    triggerFeedback('✓ Insumo registrado y memorizado.');
+  };
+
+  window.deleteInsumo = function(id) {
+    currentDynamic = currentDynamic.filter(item => item.id !== id);
+    localStorage.setItem(STORAGE_KEY_DYNAMIC, JSON.stringify(currentDynamic));
+    renderDynamicList();
+    triggerFeedback('✓ Insumo eliminado del almacén.');
+  };
+
+  window.updateDynamicPrice = function(id, val) {
+    const p = parseFloat(val) || 0;
+    const item = currentDynamic.find(i => i.id === id);
+    if (item) {
+      item.price = p;
+      localStorage.setItem(STORAGE_KEY_DYNAMIC, JSON.stringify(currentDynamic));
+      triggerFeedback('✓ Precio actualizado en tiempo real.');
+    }
+  };
+
+  window.saveAllInventory = function() {
+    document.querySelectorAll('.base-mat-input').forEach(input => {
+      const key = input.dataset.key;
+      currentBase[key] = parseFloat(input.value) || 0;
+    });
+
+    localStorage.setItem(STORAGE_KEY_BASE, JSON.stringify(currentBase));
+    localStorage.setItem(STORAGE_KEY_DYNAMIC, JSON.stringify(currentDynamic));
+    triggerFeedback('✓ Precios guardados exitosamente.');
+  };
+
+  window.resetDefaults = function() {
+    if (confirm('¿Restablecer todos los materiales e insumos a los valores de fábrica?')) {
+      currentBase = { ...defaultBasePrices };
+      currentDynamic = [ ...defaultDynamicItems ];
+      localStorage.setItem(STORAGE_KEY_BASE, JSON.stringify(currentBase));
+      localStorage.setItem(STORAGE_KEY_DYNAMIC, JSON.stringify(currentDynamic));
+      renderBaseInputs();
+      renderDynamicList();
+      triggerFeedback('✓ Valores base restaurados.');
+    }
+  };
+
+  // Initialize on mount
+  loadStorage();
+  renderBaseInputs();
+  renderDynamicList();
+})();
+</script></main></div></body></html>

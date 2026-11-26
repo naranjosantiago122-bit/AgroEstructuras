@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgroEstructuras - Wireframes a mano</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js"></script>
+<style>
+  body { background: #cfd3d6; font-family: "Caveat", "Segoe Print", cursive; margin: 0; padding: 24px; text-align: center; }
+  h1 { font-size: 40px; margin: 0; color: #223; }
+  p.sub { font-size: 22px; margin: 0 0 24px; color: #445; }
+  .hoja { display: inline-block; margin: 0 auto 36px; max-width: 100%; }
+  .hoja h2 { font-size: 28px; margin: 0 0 6px; text-align: left; color: #223; }
+  canvas { max-width: 100%; height: auto; box-shadow: 0 4px 14px rgba(0,0,0,.35); background: #fff; display: block; }
+  a.dl { display: inline-block; margin-top: 8px; font-size: 20px; color: #234; text-decoration: underline; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1>AgroEstructuras</h1>
+<p class="sub">Wireframes de baja fidelidad (dibujados a mano)</p>
+<div id="lienzos"></div>
+
+<script>
+const W = 1000, H = 740;
+const INK = "#2b2b3a";
+const pantallas = [];
+
+/* ---------- utilidades de dibujo ---------- */
+function crear(titulo) {
+  const cont = document.createElement("div");
+  cont.className = "hoja";
+  cont.innerHTML = "";
+  const c = document.createElement("canvas");
+  c.width = W; c.height = H;
+  cont.appendChild(c);
+  const a = document.createElement("a");
+  a.className = "dl"; a.textContent = "⬇ Descargar imagen";
+  a.onclick = () => { a.href = c.toDataURL("image/png"); a.download = titulo.replace(/[^\w]+/g, "_") + ".png"; };
+  cont.appendChild(a);
+  document.getElementById("lienzos").appendChild(cont);
+  const ctx = c.getContext("2d");
+  const rc = rough.canvas(c);
+  return { c, ctx, rc };
+}
+
+function papel(ctx) {
+  ctx.fillStyle = "#fffef8"; ctx.fillRect(0, 0, W, H);
+  ctx.strokeStyle = "#dbe6f1"; ctx.lineWidth = 1;
+  for (let y = 40; y < H; y += 32) { ctx.beginPath(); ctx.moveTo(0, y + 0.5); ctx.lineTo(W, y + 0.5); ctx.stroke(); }
+  ctx.strokeStyle = "#f0c4c4"; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(34, 0); ctx.lineTo(34, H); ctx.stroke();
+  ctx.fillStyle = "#ddd";
+  [90, 350, 610].forEach(y => { ctx.beginPath(); ctx.arc(14, y, 7, 0, 7); ctx.fill(); });
+}
+
+let seed = 1;
+function herr(S) {
+  const { ctx, rc } = S;
+  const o = (extra = {}) => Object.assign({ stroke: "#3a3a46", strokeWidth: 1.6, roughness: 0.8, bowing: 0.8, disableMultiStroke: true, seed: seed++ }, extra);
+  return {
+    R: (x, y, w, h, e) => rc.rectangle(x, y, w, h, o(e)),
+    L: (x1, y1, x2, y2, e) => rc.line(x1, y1, x2, y2, o(e)),
+    C: (x, y, d, e) => rc.circle(x, y, d, o(e)),
+    T: (x, y, t, size = 24, align = "left", bold = false) => {
+      ctx.fillStyle = INK; ctx.textAlign = align;
+      ctx.font = `${bold ? 700 : 500} ${size}px Caveat, 'Segoe Print', cursive`;
+      ctx.fillText(t, x, y);
+    },
+    X: function (x, y, w, h, label) {
+      this.R(x, y, w, h); this.L(x, y, x + w, y + h, { strokeWidth: 1.2 }); this.L(x + w, y, x, y + h, { strokeWidth: 1.2 });
+      if (label) { ctx.fillStyle = "#fffef8"; const tw = label.length * 9 + 16; ctx.fillRect(x + w / 2 - tw / 2, y + h / 2 - 18, tw, 28); this.T(x + w / 2, y + h / 2 + 4, label, 22, "center"); }
+    },
+    B: function (x, y, w, h, label, relleno = true) {
+      this.R(x, y, w, h, relleno ? { fill: "#d9d9d9", fillStyle: "solid" } : {});
+      this.T(x + w / 2, y + h / 2 + 7, label, 24, "center", true);
+    },
+    O: function (x, y, label, sel) {
+      this.C(x, y, 18); if (sel) this.C(x, y, 8, { fill: INK, fillStyle: "solid" });
+      this.T(x + 16, y + 6, label, 22);
+    },
+    I: function (x, y, w, label, h = 32) { this.R(x, y, w, h); if (label) this.T(x + 8, y + h / 2 + 7, label, 20); },
+    tabla: function (x, y, cols, filas, hf = 36) {
+      const total = cols.reduce((a, b) => a + b, 0);
+      this.R(x, y, total, hf * filas.length);
+      for (let i = 1; i < filas.length; i++) this.L(x, y + hf * i, x + total, y + hf * i, { strokeWidth: 1.4 });
+      let cx = x; cols.forEach((w, i) => { if (i) this.L(cx, y, cx, y + hf * filas.length, { strokeWidth: 1.4 }); cx += w; });
+      filas.forEach((f, r) => { let px = x; f.forEach((t, i) => { this.T(px + 8, y + hf * r + hf / 2 + 7, t, 20, "left", r === 0); px += cols[i]; }); });
+    },
+    nav: function (links) {
+      this.R(60, 40, 100, 44); this.T(110, 70, "LOGO", 26, "center", true);
+      let x = 360; links.forEach(l => { this.T(x, 70, l, 24); this.L(x, 76, x + l.length * 11, 76, { strokeWidth: 1 }); x += l.length * 11 + 30; });
+      this.L(60, 100, 940, 100);
+    },
+    marco: function () { this.R(50, 30, 900, 650, { strokeWidth: 3, roughness: 1.2 }); },
+    chat: function (x, y) { this.B(x, y, 210, 38, "💬 Cotización en línea"); },
+    pie: function (t) { this.L(60, 640, 940, 640); this.T(500, 667, t, 20, "center"); },
+  };
+}
+
+function dibujar(titulo, fn) {
+  const S = crear(titulo); papel(S.ctx);
+  const d = herr(S);
+  const nombre = titulo.replace(/^\d+\.\s*/, "");
+  d.T(60, 36, "Wireframe de baja fidelidad – " + nombre, 28, "left", true);
+  d.L(60, 44, 60 + 330 + nombre.length * 11, 44, { strokeWidth: 1.2 });
+  S.ctx.save(); S.ctx.translate(0, 40);
+  fn(d);
+  S.ctx.restore();
+}
+
+/* ---------- 1. INICIO ---------- */
+dibujar("1. Inicio", d => {
+  d.marco(); d.nav(["Inicio", "Cotizar", "Galería"]);
+  d.B(810, 48, 120, 38, "Ingresar", false);
+  d.X(80, 118, 840, 220, "imagen de invernadero");
+  d.T(500, 385, "Cotiza tu invernadero en minutos", 36, "center", true);
+  d.T(500, 418, "~~~~~ texto corto de presentación ~~~~~", 22, "center");
+  d.B(380, 435, 240, 52, "COTIZAR AHORA");
+  [[80, "Invernaderos"], [370, "Saran / polisombra"], [660, "Mano de obra"]].forEach(([x, t]) => {
+    d.R(x, 515, 260, 70); d.T(x + 130, 560, t, 26, "center");
+  });
+  d.chat(710, 592);
+  d.pie("contacto · teléfono · redes");
+});
+
+/* ---------- 2. REGISTRO / LOGIN ---------- */
+dibujar("2. Registro e inicio de sesión", d => {
+  d.marco(); d.nav(["Inicio", "Cotizar", "Galería"]);
+  d.R(80, 130, 400, 490);
+  d.T(280, 175, "REGISTRARSE", 32, "center", true);
+  [["Nombre completo", 215], ["Correo", 285], ["Teléfono", 355], ["Ciudad", 425], ["Contraseña", 495]].forEach(([t, y]) => { d.T(105, y, t, 22); d.I(105, y + 8, 350, ""); });
+  d.B(155, 560, 250, 46, "CREAR CUENTA");
+  d.R(520, 130, 400, 330);
+  d.T(720, 175, "INICIAR SESIÓN", 32, "center", true);
+  d.T(545, 225, "Correo", 22); d.I(545, 233, 350, "");
+  d.T(545, 295, "Contraseña", 22); d.I(545, 303, 350, "");
+  d.B(595, 365, 250, 46, "INGRESAR");
+  d.T(720, 440, "¿Olvidaste tu contraseña?", 20, "center");
+});
+
+/* ---------- 3. COTIZADOR ---------- */
+dibujar("3. Cotizador + vista 3D", d => {
+  d.marco(); d.nav(["Inicio", "Cotizar", "Mis cotizaciones", "Galería"]);
+  const x = 80;
+  d.T(x, 135, "1. Tipo de trabajo", 22, "left", true);
+  d.O(x + 10, 160, "Todo costo", true); d.O(x + 180, 160, "Solo mano de obra", false);
+  d.T(x, 205, "2. Cubierta", 22, "left", true);
+  d.O(x + 10, 230, "Polietileno", true); d.O(x + 180, 230, "Saran", false);
+  d.T(x, 275, "3. Medidas (m)", 22, "left", true);
+  d.I(x, 285, 110, "Largo"); d.I(x + 125, 285, 110, "Ancho"); d.I(x + 250, 285, 110, "Alto");
+  d.T(x, 350, "4. Estructura", 22, "left", true);
+  d.O(x + 10, 375, "Guadua", true); d.O(x + 180, 375, "Palo inmunizado", false);
+  d.T(x, 420, "5. Diseño", 22, "left", true);
+  d.O(x + 10, 445, "Pagoda", true); d.O(x + 130, 445, "Capilla", false); d.O(x + 250, 445, "Cercha", false);
+  d.O(x + 10, 475, "Tubular", false); d.O(x + 130, 475, "Espacial", false);
+  d.T(x, 520, "6. Plástico / malla", 22, "left", true); d.I(x + 190, 497, 190, "seleccionar ▼");
+  d.T(x, 550, "7. Observaciones", 22, "left", true); d.I(x, 556, 380, "", 40);
+  d.B(x + 100, 602, 180, 34, "COTIZAR");
+  d.T(620, 135, "VISTA 3D", 28, "center", true);
+  d.X(510, 150, 400, 320, "modelo 3D");
+  d.B(540, 490, 150, 34, "↻ Rotar", false); d.B(720, 490, 150, 34, "+ Zoom", false);
+  d.T(710, 560, "← cambia en tiempo real", 22, "center");
+  d.T(710, 588, "al modificar las opciones", 22, "center");
+  d.L(560, 540, 540, 570, { strokeWidth: 1.5 });
+  d.chat(710, 598);
+});
+
+/* ---------- 4. RESULTADO ---------- */
+dibujar("4. Resultado de la cotización", d => {
+  d.marco(); d.nav(["Inicio", "Cotizar", "Mis cotizaciones", "Galería"]);
+  d.T(80, 140, "Cotización N° ___", 30, "left", true);
+  d.R(80, 155, 400, 175);
+  ["Trabajo: ______", "Cubierta: ______", "Medidas: __ x __ x __", "Estructura: ______", "Diseño: ______", "Plástico: ______"].forEach((t, i) => d.T(98, 185 + i * 26, "• " + t, 21));
+  d.X(520, 155, 400, 175, "imagen 3D");
+  d.tabla(80, 350, [270, 120, 200, 250], [
+    ["Material", "Cant.", "Precio unit.", "Subtotal"],
+    ["Guadua / palos", "__", "$ ____", "$ ____"],
+    ["Plástico / saran", "__", "$ ____", "$ ____"],
+    ["Alambre, grapas", "__", "$ ____", "$ ____"],
+    ["Mano de obra", "1", "$ ____", "$ ____"],
+  ], 36);
+  d.R(560, 545, 360, 52, { strokeWidth: 3 }); d.R(566, 551, 348, 40, { strokeWidth: 1.2 });
+  d.T(740, 582, "TOTAL: $ ________", 30, "center", true);
+  d.B(80, 548, 150, 40, "Descargar PDF", false); d.B(245, 548, 130, 40, "Guardar", false); d.B(390, 548, 130, 40, "Editar", false);
+});
+
+/* ---------- 5. GALERÍA ---------- */
+dibujar("5. Galería", d => {
+  d.marco(); d.nav(["Inicio", "Cotizar", "Galería", "Contacto"]);
+  d.T(80, 145, "Nuestros trabajos", 34, "left", true);
+  [["Todos", 80], ["Invernaderos", 190], ["Saran", 340], ["Guadua", 440]].forEach(([t, x]) => { d.R(x, 165, t.length * 11 + 30, 34); d.T(x + 14, 190, t, 22); });
+  for (let f = 0; f < 2; f++) for (let c = 0; c < 4; c++) d.X(80 + c * 215, 225 + f * 175, 195, 150, "foto");
+  d.B(400, 585, 200, 40, "Ver más", false);
+  d.chat(710, 588);
+  d.T(80, 635, "* al tocar una foto se abre grande con título y medidas", 20);
+});
+
+/* ---------- 6. MIS COTIZACIONES ---------- */
+dibujar("6. Mis cotizaciones", d => {
+  d.marco(); d.nav(["Inicio", "Cotizar", "Mis cotizaciones", "Galería"]);
+  d.T(80, 145, "Historial de cotizaciones", 34, "left", true);
+  d.tabla(80, 170, [80, 130, 170, 140, 150, 170], [
+    ["N°", "Fecha", "Diseño", "Medidas", "Total", "Acciones"],
+    ["001", "__/__/__", "______", "__x__", "$ ____", "Ver · PDF · ✕"],
+    ["002", "__/__/__", "______", "__x__", "$ ____", "Ver · PDF · ✕"],
+    ["003", "__/__/__", "______", "__x__", "$ ____", "Ver · PDF · ✕"],
+    ["004", "__/__/__", "______", "__x__", "$ ____", "Ver · PDF · ✕"],
+  ], 44);
+  d.B(80, 430, 240, 46, "+ Nueva cotización");
+});
+
+/* ---------- 7. ADMIN ---------- */
+dibujar("7. Panel de administrador", d => {
+  d.marco(); d.nav(["Panel admin", "Salir"]);
+  d.R(70, 120, 200, 500);
+  d.T(170, 160, "MENÚ", 28, "center", true);
+  ["▸ Precios", "▸ Diseños", "▸ Galería", "▸ Cotizaciones", "▸ Usuarios"].forEach((t, i) => d.T(90, 210 + i * 50, t, 24));
+  d.T(300, 150, "Precios de materiales", 32, "left", true);
+  d.I(300, 170, 300, "buscar material..."); d.B(640, 168, 270, 36, "+ Agregar material");
+  d.tabla(300, 230, [200, 90, 130, 220], [
+    ["Material", "Unidad", "Precio", "Acciones"],
+    ["Guadua", "und", "$ ____", "Editar · Eliminar"],
+    ["Palo inmunizado", "und", "$ ____", "Editar · Eliminar"],
+    ["Plástico cal. __", "m²", "$ ____", "Editar · Eliminar"],
+    ["Saran __%", "m²", "$ ____", "Editar · Eliminar"],
+  ], 44);
+});
+
+/* ---------- 8. CHAT DE COTIZACIÓN EN LÍNEA ---------- */
+dibujar("8. Cotización en línea (chat)", d => {
+  d.marco(); d.nav(["Inicio", "Cotizar", "Galería"]);
+  d.X(80, 125, 440, 380, "página actual");
+  d.chat(80, 530);
+  d.T(80, 600, "↑ botón flotante: está en todas las páginas", 22);
+  d.T(80, 628, "al tocarlo se abre el chat →", 22);
+  // ventana de chat
+  d.R(560, 120, 360, 500, { strokeWidth: 2.2 });
+  d.R(560, 120, 360, 48, { fill: "#d9d9d9", fillStyle: "solid" });
+  d.T(580, 152, "Cotización en línea", 26, "left", true);
+  d.T(893, 152, "✕", 26, "center", true);
+  // mensaje del asistente
+  d.R(575, 185, 270, 56); d.T(587, 210, "Hola 👋 ¿qué quieres", 21); d.T(587, 232, "cotizar?", 21);
+  d.B(575, 252, 125, 34, "Invernadero", false); d.B(712, 252, 125, 34, "Saran", false);
+  // mensaje del usuario
+  d.R(700, 305, 205, 40, { fill: "#d9d9d9", fillStyle: "solid" }); d.T(712, 332, "Invernadero", 22);
+  // asistente 2
+  d.R(575, 360, 300, 56); d.T(587, 385, "¿Todo costo o solo", 21); d.T(587, 407, "mano de obra?", 21);
+  d.B(575, 428, 125, 34, "Todo costo", false); d.B(712, 428, 170, 34, "Mano de obra", false);
+  d.T(590, 500, "... (siguen preguntas:", 21); d.T(590, 524, "medidas, estructura, diseño,", 21); d.T(590, 548, "plástico)", 21);
+  // caja de texto
+  d.I(575, 570, 250, "Escribe aquí...", 36); d.B(835, 570, 70, 36, "➤", false);
+  d.T(80, 670, "Al terminar el chat → muestra el resultado con el TOTAL", 22);
+});
+
+/* La fuente se carga antes de dibujar */
+</script>
+<script>
+  // Redibuja cuando la fuente manuscrita esté lista (los lienzos se dibujaron una vez; se recrean)
+  document.fonts.load("24px Caveat").then(() => {
+    document.getElementById("lienzos").innerHTML = "";
+    seed = 1;
+    pantallas.length = 0;
+    // volver a ejecutar el primer script de dibujo
+    document.querySelectorAll("script")[1].textContent && eval(document.querySelectorAll("script")[1].textContent.replace("const W", "var W").replace("const INK", "var INK").replace("const pantallas", "var pantallas"));
+  }).catch(() => {});
+</script>
+</body>
+</html>

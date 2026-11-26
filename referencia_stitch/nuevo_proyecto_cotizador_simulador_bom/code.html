@@ -1,0 +1,554 @@
+<!DOCTYPE html><html class="dark" lang="es" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#e6ecff", "on-tertiary-fixed": "#2a1700", "inverse-surface": "#dae2fd", "spring-lime": "#4ade80", "surface-tint": "#4ae176", "on-secondary": "#002e6a", "primary-fixed-dim": "#4ae176", "canvas-void": "#020617", "primary-fixed": "#6bff8f", "surface-container-lowest": "#060e20", "on-error-container": "#ffdad6", "input-affordance": "#475569", "secondary-container": "#0566d9", "on-surface": "#dae2fd", "on-primary-fixed-variant": "#005321", "tertiary-fixed": "#ffddb8", "on-secondary-fixed-variant": "#004395", "surface-card": "#1e293b", "surface-dim": "#0b1326", "border-grid": "#334155", "tertiary-container": "#ef9900", "surface-container-highest": "#2d3449", "on-background": "#dae2fd", "on-tertiary-container": "#5c3800", "inverse-primary": "#006e2f", "surface-variant": "#2d3449", "on-tertiary": "#472a00", "error": "#ffb4ab", "error-container": "#93000a", "surface": "#0b1326", "secondary": "#adc6ff", "amber-structural": "#d97706", "outline-variant": "#3d4a3d", "primary": "#4be277", "on-primary-fixed": "#002109", "on-secondary-fixed": "#001a42", "on-tertiary-fixed-variant": "#653e00", "secondary-fixed-dim": "#adc6ff", "danger-alert": "#ef4444", "primary-container": "#22c55e", "forest-deep": "#14532d", "surface-container-high": "#222a3d", "wireframe-blue": "#60a5fa", "on-surface-variant": "#bccbb9", "inverse-on-surface": "#283044", "tertiary-fixed-dim": "#ffb95f", "surface-container": "#171f33", "background": "#0b1326", "secondary-fixed": "#d8e2ff", "surface-bright": "#31394d", "outline": "#869585", "on-primary": "#003915", "on-primary-container": "#004b1e", "tertiary": "#ffba61", "on-error": "#690005", "surface-container-low": "#131b2e" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-mobile": "1rem", "margin-mobile": "1rem", "space-lg": "1.5rem", "space-xl": "2rem", "space-xs": "0.25rem", "margin": "2rem", "space-md": "1rem", "gutter": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "label-md": [ "Space Grotesk" ], "label-sm": [ "Space Grotesk" ], "metric-display": [ "Space Grotesk" ], "headline-sm": [ "Space Grotesk" ], "headline-xl-mobile": [ "Space Grotesk" ], "headline-md": [ "Space Grotesk" ], "headline-lg": [ "Space Grotesk" ], "body-sm": [ "Work Sans" ], "headline-xl": [ "Space Grotesk" ], "body-md": [ "Work Sans" ], "label-lg": [ "Space Grotesk" ], "body-lg": [ "Work Sans" ] }, "fontSize": { "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" } ], "metric-display": [ "32px", { "lineHeight": "36px", "fontWeight": "700" } ], "headline-sm": [ "18px", { "lineHeight": "24px", "fontWeight": "600" } ], "headline-xl-mobile": [ "24px", { "lineHeight": "32px", "fontWeight": "800" } ], "headline-md": [ "20px", { "lineHeight": "28px", "fontWeight": "700" } ], "headline-lg": [ "24px", { "lineHeight": "32px", "fontWeight": "700" } ], "body-sm": [ "13px", { "lineHeight": "18px", "fontWeight": "400" } ], "headline-xl": [ "30px", { "lineHeight": "38px", "fontWeight": "800" } ], "body-md": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "label-lg": [ "14px", { "lineHeight": "20px", "fontWeight": "600" } ], "body-lg": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 left-0 right-0 h-16 z-50 bg-surface-card/90 backdrop-blur-xl border-b border-border-grid shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="w-full h-16 px-gutter flex items-center justify-between gap-space-md"><div class="w-8 h-8 opacity-0 pointer-events-none hidden md:block"></div><div class="flex items-center gap-space-sm mx-auto"><div class="flex items-center justify-center w-9 h-9 rounded-lg bg-surface-container-highest border border-border-grid text-primary"><span class="material-symbols-outlined text-[20px]">grid_view</span></div><div class="flex flex-col text-center sm:text-left"><div class="flex items-center justify-center sm:justify-start gap-space-xs"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase">AgroEstructura</span><span class="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/30 font-label-sm text-label-sm text-primary">V.2 PRO</span></div><span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline">Software Agrícola y Estructural</span></div></div><div class="flex items-center gap-space-sm"><div class="hidden lg:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface">Ing. Agrónomo Senior</span><span class="font-body-sm text-body-sm text-wireframe-blue">Cálculo &amp; Estructuras</span></div><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/40" src="https://lh3.googleusercontent.com/aida/AEtjO1UMc7zs8DOFp-k6bsxOOzC1FRHHBiuwAxoZl8CvY0x7ju7n9yE1LQ-6IvMaNg-3t193Yk1bMlOgPlnW3zMOVo_Yp-6YKBsOeCcxXQpiKy-AqhG4cOLJdkRU_fkqvMrGq_6Fi1vIsTQsliaJEpZq_4pqpFzemtGkifdkT94KlxHA3vNu07hnXjTsMez1-2oPK6-6sfTJTVVVFCxpvUqNQAd7IAxfiuq7I3Mi7SkmZofrdXn0ScL6c2lAy8zqUwrE5La3x4eZ8viuRRw"><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface-card"></span></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-64 bg-surface-container-low border-r border-border-grid z-40 hidden lg:flex flex-col justify-between py-space-md"><div class="flex flex-col gap-space-xs px-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Módulos de Ingeniería</div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-highest text-primary font-bold"><a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="centro-principal" href="#"><span class="material-symbols-outlined text-[20px]">space_dashboard</span>Centro Principal</a><a aria-current="page" class="flex items-center gap-3 px-space-md py-2.5 rounded-lg transition-all bg-surface-container-highest text-primary font-bold" data-path="nuevo-proyecto" href="#"><span class="material-symbols-outlined text-[20px]">architecture</span>Nuevo Proyecto</a><a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="inventario" href="#"><span class="material-symbols-outlined text-[20px]">inventory_2</span>Inventario</a><a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="portafolio" href="#"><span class="material-symbols-outlined text-[20px]">view_in_ar</span>Portafolio</a><a class="flex items-center gap-3 px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="configuracion-materiales" href="#"><span class="material-symbols-outlined text-[20px]">tune</span>Configuración</a></nav></div><div class="px-space-md"><div class="p-space-sm rounded-lg bg-surface-container border border-border-grid flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant">MOTOR CAD</span><span class="font-label-sm text-label-sm text-spring-lime">2.5D ACTIVO</span></div><span class="font-body-sm text-body-sm text-wireframe-blue">Guadua &amp; Acero Galv.</span></div></div></aside><div class="lg:pl-64"><main class="relative w-full pt-16 bg-background min-h-screen"><div class="flex flex-col w-full p-4 lg:p-6 gap-6">
+<!-- Breadcrumbs & Quick Project Header Info -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface-card rounded-xl p-4 shadow-md">
+<div class="flex items-center gap-3">
+<div class="w-2.5 h-8 bg-primary rounded-full"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase text-wireframe-blue">Módulo de Ingeniería CAD 2.5D</span>
+<span class="w-1 h-1 rounded-full bg-border-grid"></span>
+<span class="font-label-sm text-label-sm text-spring-lime font-bold">ESTADO: CÁLCULO LISTO</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Cotizador Estructural &amp; Simulación Isométrica</h1>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-center">
+<span class="px-2.5 py-1 rounded-full bg-forest-deep text-spring-lime font-label-sm text-label-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Auto-Sync Activo
+      </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm">
+        ID: PRJ-2025-0842
+      </span>
+</div>
+</div>
+<!-- Two Column Layout: Controls (Left) vs Simulation & BOM (Right) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN: Configuracion Estructural (4 Cols desktop) -->
+<div class="xl:col-span-4 flex flex-col gap-5">
+<!-- Panel Wrapper -->
+<div class="bg-surface-card rounded-xl p-5 shadow-lg flex flex-col gap-5">
+<!-- Header Section with Green Accent Indicator -->
+<div class="flex items-center justify-between pb-3 bg-surface-container-low -mx-5 -mt-5 p-4 rounded-t-xl">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[22px]">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">1. Configuración Estructural</h2>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-container/20 text-spring-lime">Paso 1 de 2</span>
+</div>
+<form class="flex flex-col gap-4" id="calculatorForm" onsubmit="event.preventDefault(); triggerCalculate();">
+<!-- Cliente / Proyecto -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between">
+<span class="">CLIENTE / PROYECTO</span>
+<span class="text-secondary text-[10px]">REQUERIDO</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-input-affordance text-[18px]">business</span>
+<input class="w-full bg-surface-container-lowest text-on-surface pl-10 pr-3 py-2.5 rounded-lg font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary transition-all" id="projectClient" type="text" value="Inversiones Agrícolas La María">
+</div>
+</div>
+<!-- Tipo de Estructura -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between">
+<span class="">TIPO DE ESTRUCTURA</span>
+<span class="text-wireframe-blue text-[11px] font-bold">NORMA NSR-10</span>
+</label>
+<div class="relative flex items-center">
+<select class="w-full bg-surface-container-lowest text-on-surface pl-3 pr-10 py-2.5 rounded-lg font-body-md text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-secondary cursor-pointer" id="structType" onchange="updateStructurePreset(this.value)">
+<option selected="" value="tubular">Metálico Tubular (Sin postes centrales / Luz Libre)</option>
+<option value="guadua">Capilla de Guadua &amp; Cercha Orgánica</option>
+<option value="multitunel">Multitúnel Gótico Reforzado</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 text-input-affordance pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Dimensiones: Largo & Ancho -->
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant">LARGO TOTAL</label>
+<div class="flex rounded-lg overflow-hidden bg-surface-container-lowest">
+<input class="w-full bg-transparent px-3 py-2 text-on-surface font-label-md text-label-md focus:outline-none" id="dimLength" max="300" min="10" type="number" value="50">
+<span class="bg-surface-container-high px-2.5 py-2 font-label-sm text-label-sm text-on-surface-variant flex items-center">m</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant">ANCHO TOTAL</label>
+<div class="flex rounded-lg overflow-hidden bg-surface-container-lowest">
+<input class="w-full bg-transparent px-3 py-2 text-on-surface font-label-md text-label-md focus:outline-none" id="dimWidth" max="120" min="6" type="number" value="24">
+<span class="bg-surface-container-high px-2.5 py-2 font-label-sm text-label-sm text-on-surface-variant flex items-center">m</span>
+</div>
+</div>
+</div>
+<!-- Distancia Postes & Nro Naves -->
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant">DIST. POSTES</label>
+<div class="flex rounded-lg overflow-hidden bg-surface-container-lowest">
+<input class="w-full bg-transparent px-3 py-2 text-on-surface font-label-md text-label-md focus:outline-none" id="dimPostDist" step="0.5" type="number" value="2.5">
+<span class="bg-surface-container-high px-2.5 py-2 font-label-sm text-label-sm text-on-surface-variant flex items-center">m</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant">NRO. NAVES</label>
+<span class="px-1.5 py-0.2 rounded bg-secondary-container/20 text-wireframe-blue text-[10px] font-bold uppercase">Acopladas</span>
+</div>
+<div class="flex rounded-lg overflow-hidden bg-surface-container-lowest">
+<input class="w-full bg-transparent px-3 py-2 text-on-surface font-label-md text-label-md focus:outline-none font-bold text-wireframe-blue" id="dimModules" max="10" min="1" type="number" value="2">
+<span class="bg-surface-container-high px-2.5 py-2 font-label-sm text-label-sm text-on-surface-variant flex items-center">nvs</span>
+</div>
+</div>
+</div>
+<!-- AGRUPADO: CUBIERTA Y DESAGÜE -->
+<div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col gap-3 shadow-inner">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-wireframe-blue flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">roofing</span> CUBIERTA Y DESAGÜE
+              </span>
+<span class="text-[10px] font-label-sm uppercase text-on-surface-variant">Norma Térmica</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Calibre Plástico</label>
+<select class="w-full bg-surface-card text-on-surface text-label-sm font-label-sm px-2.5 py-1.5 rounded-lg focus:outline-none">
+<option selected="">Calibre 6 (150 µm)</option>
+<option>Calibre 7 (175 µm)</option>
+<option>Calibre 10 (250 µm)</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Ancho Plástico</label>
+<select class="w-full bg-surface-card text-on-surface text-label-sm font-label-sm px-2.5 py-1.5 rounded-lg focus:outline-none">
+<option selected="">6.00 m</option>
+<option>5.80 m</option>
+<option>7.20 m</option>
+<option>8.00 m</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Ancho de Canal</label>
+<select class="w-full bg-surface-card text-on-surface text-label-sm font-label-sm px-2.5 py-1.5 rounded-lg focus:outline-none">
+<option selected="">1.20 m (Galv.)</option>
+<option>0.90 m</option>
+<option>No requiere</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Calibre Canal</label>
+<select class="w-full bg-surface-card text-on-surface text-label-sm font-label-sm px-2.5 py-1.5 rounded-lg focus:outline-none">
+<option selected="">Calibre 6</option>
+<option>Calibre 8</option>
+<option>Calibre 14 (Chapa)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Modalidad de Cotización -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant">MODALIDAD DE COTIZACIÓN</label>
+<div class="grid grid-cols-2 gap-2">
+<label class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-lowest cursor-pointer hover:bg-surface-container transition-colors">
+<input checked="" class="accent-primary" name="pricingModel" type="radio" value="all">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">A Todo Costo</span>
+</label>
+<label class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-lowest cursor-pointer hover:bg-surface-container transition-colors">
+<input class="accent-primary" name="pricingModel" type="radio" value="labor">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Solo Mano Obra</span>
+</label>
+</div>
+</div>
+<!-- Añadir Insumos Libres -->
+<div class="flex flex-col gap-2 pt-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant flex items-center justify-between">
+<span class="">AÑADIR INSUMOS LIBRES</span>
+<span class="text-tertiary text-[10px] uppercase font-bold">+ Extras</span>
+</label>
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<select class="w-full bg-surface-container-lowest text-on-surface pl-2.5 pr-7 py-2 rounded-lg font-body-sm text-body-sm appearance-none focus:outline-none" id="freeItemSelect">
+<option data-price="34000" value="Bulto Cemento Portland (50kg)">Bulto Cemento Portland (50kg)</option>
+<option data-price="28000" value="Tornillos Autoperforantes 2&quot; (Caja 100u)">Tornillos Autoperforantes 2" (100u)</option>
+<option data-price="4500" value="Abrazadera Sin Fin 2&quot; Inox">Abrazadera Sin Fin 2" Inox</option>
+<option data-price="18000" value="Piola Polipropileno Negra (Kilo)">Piola Polipropileno Negra (Kilo)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-2.5 text-input-affordance pointer-events-none text-[16px]">expand_more</span>
+</div>
+<input class="w-16 bg-surface-container-lowest text-center py-2 rounded-lg font-label-md text-label-md text-on-surface focus:outline-none" id="freeItemQty" min="1" type="number" value="10">
+<button class="w-10 h-10 rounded-lg bg-surface-container-highest text-primary hover:bg-primary hover:text-on-primary flex items-center justify-center transition-all shadow-sm" onclick="addFreeItem()" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Chips de Insumos Activos -->
+<div class="flex flex-wrap gap-1.5 pt-1" id="activeChipsContainer">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container text-on-surface text-[12px] font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> 50x Bulto Cemento
+                <button class="text-on-surface-variant hover:text-danger-alert ml-1" onclick="this.parentElement.remove()" type="button">×</button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container text-on-surface text-[12px] font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-wireframe-blue"></span> 12x Tornillos 2"
+                <button class="text-on-surface-variant hover:text-danger-alert ml-1" onclick="this.parentElement.remove()" type="button">×</button>
+</span>
+</div>
+</div>
+<!-- Botón Principal Prominente (Esmeralda / Neón) -->
+<div class="pt-2">
+<button class="w-full py-3.5 px-4 rounded-xl bg-primary hover:bg-spring-lime text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-[0_8px_20px_-4px_rgba(75,226,119,0.35)] transition-all transform active:scale-[0.98]" type="submit">
+<span class="material-symbols-outlined text-[22px]">bolt</span>
+<span class="">CALCULAR PROYECTO</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Quick Material Benchmark Card (Reference) -->
+
+</div>
+<!-- RIGHT COLUMN: Simulation Canvas (Top) & BOM Table (Bottom) (8 Cols desktop) -->
+<div class="xl:col-span-8 flex flex-col gap-6">
+<!-- 1. SIMULADOR DE ESTRUCTURA (CANVAS HUD ISOMÉTRICO) -->
+<div class="bg-surface-card rounded-xl p-5 shadow-lg flex flex-col gap-4">
+<!-- Viewport Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-1">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-wireframe-blue"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">
+              Simulador de Estructura e Ingeniería Avanzada
+            </h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-secondary-container/20 text-wireframe-blue font-label-sm text-label-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">view_in_ar</span>
+              Modelo: Tubular Galv.
+            </span>
+<span class="px-2 py-1 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">
+              FOV: 42° ISO
+            </span>
+</div>
+</div>
+<!-- CAD Engine Screen Simulator (Void Ground) -->
+<div class="relative w-full h-[290px] md:h-[340px] rounded-xl bg-canvas-void overflow-hidden flex items-center justify-center shadow-inner">
+<!-- Background CAD Blueprint Grid Graphic -->
+<div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:24px_24px]"></div>
+<!-- Perspective Axis Indicators Overlay (Top Left) -->
+<div class="absolute top-3 left-4 flex flex-col gap-1 z-10 pointer-events-none">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-mono tracking-wider">X: 50.00m | Y: 24.00m</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">Altura Cenital: 5.60m | Pendiente: 28%</span>
+</div>
+<!-- Dynamic Mode Toggle Overlay (Top Right) -->
+<div class="absolute top-3 right-4 z-10 flex items-center gap-1.5 bg-surface-card/80 backdrop-blur-md p-1 rounded-lg">
+<button class="px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" id="btnViewIso" onclick="setSimView('wireframe')">Wireframe</button>
+
+</div>
+<!-- Central Vector Blueprint Illustration of 2 Coupled Greenhouse Arches -->
+<div class="relative w-full h-full flex items-center justify-center p-4">
+<svg class="w-full h-full text-wireframe-blue select-none transition-all duration-300" fill="none" id="cadSchematicSvg" stroke="currentColor" viewBox="0 0 800 320" style="filter: drop-shadow(rgba(74, 222, 128, 0.4) 0px 0px 12px);">
+<!-- Ground Plane Grid Lines in Isometric Angle -->
+<path d="M 60 270 L 520 270 L 740 180 L 280 180 Z" fill="#060e20" fill-opacity="0.4" stroke="#1e293b" stroke-dasharray="4 4" stroke-width="1.5"></path>
+<!-- Ground Foundation Points -->
+<circle cx="100" cy="250" fill="#4ade80" r="3"></circle>
+<circle cx="280" cy="250" fill="#4ade80" r="3"></circle>
+<circle cx="460" cy="250" fill="#4ade80" r="3"></circle>
+<circle cx="320" cy="190" fill="#4ade80" opacity="0.6" r="2.5"></circle>
+<circle cx="500" cy="190" fill="#4ade80" opacity="0.6" r="2.5"></circle>
+<circle cx="680" cy="190" fill="#4ade80" opacity="0.6" r="2.5"></circle>
+<!-- Central Gutter (Canal de Desagüe) Line between Nave 1 and Nave 2 -->
+<path d="M 280 195 L 500 135" stroke="#4ade80" stroke-linecap="round" stroke-width="3"></path>
+<text fill="#4ade80" font-family="Space Grotesk" font-size="10" font-weight="bold" x="370" y="155">CANAL CENTRAL 1.20M</text>
+<!-- Nave 1 - Front Arch (Tubular Galv) -->
+<path d="M 100 250 L 100 180 Q 190 80 280 150 L 280 195" stroke="#60a5fa" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Nave 1 - Rear Arch -->
+<path d="M 320 190 L 320 120 Q 410 20 500 90 L 500 135" stroke="#3b82f6" stroke-linecap="round" stroke-opacity="0.7" stroke-width="1.5"></path>
+<!-- Nave 2 - Front Arch (Coupled Arches with Central Free Span) -->
+<path d="M 280 195 L 280 150 Q 370 70 460 170 L 460 250" stroke="#60a5fa" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Nave 2 - Rear Arch -->
+<path d="M 500 135 L 500 90 Q 590 10 680 110 L 680 190" stroke="#3b82f6" stroke-linecap="round" stroke-opacity="0.7" stroke-width="1.5"></path>
+<!-- Ridge & Purlin Connectors (Correas de Unión) -->
+<line stroke="#38bdf8" stroke-dasharray="3 3" stroke-width="1.5" x1="100" x2="320" y1="180" y2="120"></line>
+<line stroke="#38bdf8" stroke-width="2" x1="190" x2="410" y1="126" y2="66"></line>
+<line stroke="#38bdf8" stroke-width="2" x1="370" x2="590" y1="110" y2="50"></line>
+<line stroke="#38bdf8" stroke-dasharray="3 3" stroke-width="1.5" x1="460" x2="680" y1="170" y2="110"></line>
+<!-- Cenital Aeration Flap (Ventilación Cenital Abierta) -->
+<path d="M 190 126 L 190 105 L 410 45 L 410 66" stroke="#fbbf24" stroke-linecap="round" stroke-width="2"></path>
+<path d="M 370 110 L 370 89 L 590 29 L 590 50" stroke="#fbbf24" stroke-linecap="round" stroke-width="2"></path>
+<text fill="#fbbf24" font-family="Space Grotesk" font-size="10" font-weight="bold" x="210" y="95">VENTILACIÓN CENITAL ACTIVA</text>
+<!-- Carevaca Brackets Visualization Dots -->
+<circle cx="100" cy="180" fill="#38bdf8" r="4"></circle>
+<circle cx="280" cy="150" fill="#4ade80" r="5"></circle>
+<circle cx="460" cy="170" fill="#38bdf8" r="4"></circle>
+<!-- Isometric Dimension Annotations -->
+<g stroke="#94a3b8" stroke-dasharray="2 2" stroke-width="1">
+<line x1="100" x2="460" y1="265" y2="265"></line>
+<line x1="100" x2="100" y1="260" y2="270"></line>
+<line x1="460" x2="460" y1="260" y2="270"></line>
+</g>
+<text fill="#dae2fd" font-family="Space Grotesk" font-size="12" font-weight="bold" x="245" y="282">ANCHO TOTAL: 24.00 m (2 Naves x 12.00 m)</text>
+<g stroke="#94a3b8" stroke-dasharray="2 2" stroke-width="1">
+<line x1="480" x2="700" y1="260" y2="180"></line>
+</g>
+<text fill="#dae2fd" font-family="Space Grotesk" font-size="11" font-weight="bold" transform="rotate(-18, 615, 235)" x="615" y="235">LARGO: 50.00 m</text>
+</svg>
+</div>
+<!-- Bottom Legend Tag -->
+<div class="absolute bottom-2.5 left-4 right-4 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pointer-events-none bg-surface-card/60 backdrop-blur-sm px-3 py-1.5 rounded-lg">
+<span class="flex items-center gap-1.5 text-spring-lime font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+              Estructura sin postes centrales (luz libre modular).
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:inline">2 Naves Acopladas · Doble Vertiente</span>
+</div>
+</div>
+<!-- Technical Description Callout Footer -->
+<div class="p-3 bg-surface-container-low rounded-lg flex items-start gap-3 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">info</span>
+<div class="">
+<strong class="text-on-surface">Configuración de Cargas Seleccionada:</strong>
+            Estructura Modular Tubular Abierta con Ventilación Cenital. Módulos: 2 naves continuas. Luz libre central optimizada para labores con tractor y cosecha mecanizada. Resistencia calculada a vientos de hasta 95 km/h.
+          </div>
+</div>
+</div>
+<!-- 2. DESGLOSE DE MATERIALES Y COSTOS (BOM) -->
+<div class="bg-surface-card rounded-xl p-5 shadow-lg flex flex-col gap-4">
+<!-- Table Section Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-1">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">
+              Desglose de Materiales y Costos (BOM)
+            </h2>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+              FECHA: <span class="text-on-surface font-bold">24 OCT 2025</span>
+</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-spring-lime font-label-sm text-label-sm">
+              LISTA PRECIOS V.2
+            </span>
+</div>
+</div>
+<!-- Scrollable BOM Table Container -->
+<div class="overflow-x-auto rounded-lg shadow-sm">
+<table class="w-full text-left font-body-md text-body-md">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-3 px-4">Ítem / Componente</th>
+<th class="py-3 px-3 text-center">Cant.</th>
+<th class="py-3 px-4 text-right">Vr. Unitario</th>
+<th class="py-3 px-4 text-right">Subtotal (COP)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40" id="bomTableBody">
+<!-- Category Header -->
+<tr class="bg-surface-container-highest/40 font-label-sm text-label-sm text-wireframe-blue">
+<td class="py-2 px-4 uppercase font-bold tracking-wider flex items-center gap-1.5" colspan="4">
+<span class="material-symbols-outlined text-[16px]">precision_manufacturing</span>
+                  Ingeniería Estructural para 2 Naves Acopladas
+                </td>
+</tr>
+<!-- Row 1: Tubo Galvanizado -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-semibold text-on-surface">Tubo Galvanizado 2" x 6.00m</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Calibre 2.0 mm estructural ASTM A500</div>
+</td>
+<td class="py-3 px-3 text-center font-label-md text-label-md text-on-surface">242 un</td>
+<td class="py-3 px-4 text-right font-label-md text-label-md text-on-surface-variant">$ 45.000</td>
+<td class="py-3 px-4 text-right font-label-md text-label-md text-spring-lime font-bold">$ 10.890.000</td>
+</tr>
+<!-- Row 2: Carevaca Sencilla -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-semibold text-on-surface">Carevaca Sencilla</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Conector perimetral estampado galvanizado</div>
+</td>
+<td class="py-3 px-3 text-center font-label-md text-label-md text-on-surface">400 un</td>
+<td class="py-3 px-4 text-right font-label-md text-label-md text-on-surface-variant">$ 17.000</td>
+<td class="py-3 px-4 text-right font-label-md text-label-md text-spring-lime font-bold">$ 6.800.000</td>
+</tr>
+<!-- Row 3: Carevaca Reforzada -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-semibold text-on-surface">Carevaca Reforzada (Calibre Grueso)</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Nudo de cercha y columna central</div>
+</td>
+<td class="py-3 px-3 text-center font-label-md text-label-md text-on-surface">60 un</td>
+<td class="py-3 px-4 text-right font-label-md text-label-md text-on-surface-variant">$ 22.000</td>
+<td class="py-3 px-4 text-right font-label-md text-label-md text-spring-lime font-bold">$ 1.320.000</td>
+</tr>
+<!-- Row 4: Plastico Lechoso -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-semibold text-on-surface">Plástico Lechoso UV6+ Cal. 6 (6.00m)</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Difusión 55% térmico aditivo antigoteo</div>
+</td>
+<td class="py-3 px-3 text-center font-label-md text-label-md text-on-surface">2.520 m²</td>
+<td class="py-3 px-4 text-right font-label-md text-label-md text-on-surface-variant">$ 4.200</td>
+<td class="py-3 px-4 text-right font-label-md text-label-md text-spring-lime font-bold">$ 10.584.000</td>
+</tr>
+<!-- Row 5: Canal de Desague -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4">
+<div class="font-semibold text-on-surface">Canal Cal. 6 (1.20m) - Rollo 100m</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Desagüe pluvial con traslape galvanizado</div>
+</td>
+<td class="py-3 px-3 text-center font-label-md text-label-md text-on-surface">2 rollos</td>
+<td class="py-3 px-4 text-right font-label-md text-label-md text-on-surface-variant">$ 355.000</td>
+<td class="py-3 px-4 text-right font-label-md text-label-md text-spring-lime font-bold">$ 710.000</td>
+</tr>
+<!-- Category Header: Insumos Dinamicos -->
+<tr class="bg-surface-container-highest/40 font-label-sm text-label-sm text-tertiary">
+<td class="py-2 px-4 uppercase font-bold tracking-wider flex items-center gap-1.5" colspan="4">
+<span class="material-symbols-outlined text-[16px]">widgets</span>
+                  Insumos Dinámicos &amp; Anclajes
+                </td>
+</tr>
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-2.5 px-4 text-on-surface">Bulto Cemento Portland Tipo 1 (Pedestales)</td>
+<td class="py-2.5 px-3 text-center font-label-md text-label-md text-on-surface">50 un</td>
+<td class="py-2.5 px-4 text-right font-label-md text-label-md text-on-surface-variant">$ 34.000</td>
+<td class="py-2.5 px-4 text-right font-label-md text-label-md text-spring-lime font-bold">$ 1.700.000</td>
+</tr>
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-2.5 px-4 text-on-surface">Tornillos Autoperforantes 2" (100u)</td>
+<td class="py-2.5 px-3 text-center font-label-md text-label-md text-on-surface">12 un</td>
+<td class="py-2.5 px-4 text-right font-label-md text-label-md text-on-surface-variant">$ 28.000</td>
+<td class="py-2.5 px-4 text-right font-label-md text-label-md text-spring-lime font-bold">$ 336.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Financial Summary Totals Block -->
+<div class="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4 pt-3 bg-surface-container-low p-4 rounded-xl border border-border-grid/50">
+<!-- Secondary Action Buttons -->
+<div class="flex items-center gap-2.5 w-full md:w-auto flex-wrap sm:flex-nowrap">
+<button class="flex-1 md:flex-none px-4 py-2 rounded-lg bg-surface-card hover:bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-2 transition-colors border border-border-grid" onclick="saveToHistory()" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span class="">Historial</span>
+</button>
+<button class="flex-1 md:flex-none px-4 py-2 rounded-lg bg-secondary-container/20 text-wireframe-blue hover:bg-secondary-container/30 font-label-sm text-label-sm flex items-center justify-center gap-2 transition-colors border border-wireframe-blue/20" onclick="exportPdf()" type="button">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+<span class="">Exportar PDF</span>
+</button>
+</div>
+<!-- Cost Summary Lines & Compact Grand Total -->
+<div class="flex flex-col gap-1.5 text-right w-full md:w-auto min-w-[280px]">
+<div class="flex items-center justify-between md:justify-end gap-6 text-on-surface-variant font-body-sm text-body-sm">
+<span class="font-label-sm text-label-sm uppercase text-[11px]">Costo Materiales:</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-mono" id="txtCostMaterials">$ 30.304.000 COP</span>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-6 text-on-surface-variant font-body-sm text-body-sm">
+<span class="font-label-sm text-label-sm uppercase text-[11px]">Mano de Obra Calificada:</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-mono" id="txtCostLabor">$ 7.540.000 COP</span>
+</div>
+<!-- Grand Total Highlight Box (Compact & Elegant) -->
+<div class="mt-1 bg-surface-card px-3.5 py-2 rounded-lg flex items-center justify-between md:justify-end gap-4 shadow-md border border-border-grid">
+<span class="font-label-md text-label-md uppercase text-on-surface font-bold tracking-wider text-[12px]">TOTAL PRESUPUESTO:</span>
+<span class="font-headline-lg text-headline-lg text-spring-lime font-bold tracking-tight" id="txtCostTotal">$ 37.844.000 COP</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast Modal Container (Scriptable) -->
+<div class="fixed bottom-6 right-6 z-50 transform transition-all duration-300 pointer-events-none translate-y-24 opacity-0" id="toastNotification">
+<div class="bg-surface-card text-on-surface px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">task_alt</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold" id="toastTitle">Generando Documento</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant" id="toastMessage">Compilando memoria de cálculo y cotización formal...</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro-Interactions Script for CAD Perspective & Calculations -->
+<script>
+  function showToast(title, message) {
+    const toast = document.getElementById('toastNotification');
+    const tTitle = document.getElementById('toastTitle');
+    const tMsg = document.getElementById('toastMessage');
+    if (!toast) return;
+    tTitle.innerText = title;
+    tMsg.innerText = message;
+    toast.classList.remove('translate-y-24', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+    setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-24', 'opacity-0');
+    }, 2800);
+  }
+
+  function triggerCalculate() {
+    const length = parseFloat(document.getElementById('dimLength').value) || 50;
+    const width = parseFloat(document.getElementById('dimWidth').value) || 24;
+    const modules = parseInt(document.getElementById('dimModules').value) || 2;
+    const client = document.getElementById('projectClient').value;
+
+    // Fast parametric mock recalculation
+    const area = length * width;
+    const tubes = Math.round((length / 2.5) * (modules * 4 + 2));
+    const matCost = Math.round(area * 25253);
+    const laborCost = Math.round(matCost * 0.248);
+    const grandTotal = matCost + laborCost;
+
+    const formatter = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+
+    document.getElementById('txtCostMaterials').innerText = formatter.format(matCost) + ' COP';
+    document.getElementById('txtCostLabor').innerText = formatter.format(laborCost) + ' COP';
+    document.getElementById('txtCostTotal').innerText = formatter.format(grandTotal) + ' COP';
+
+    showToast('Presupuesto Recalculado', `${client}: ${area} m² configurados.`);
+  }
+
+  function addFreeItem() {
+    const select = document.getElementById('freeItemSelect');
+    const qtyInput = document.getElementById('freeItemQty');
+    const container = document.getElementById('activeChipsContainer');
+    
+    const itemName = select.options[select.selectedIndex].text;
+    const qty = qtyInput.value;
+
+    if (!qty || qty <= 0) return;
+
+    const chip = document.createElement('span');
+    chip.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container text-on-surface text-[12px] font-label-sm';
+    chip.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-spring-lime"></span> ${qty}x ${itemName} <button type="button" onclick="this.parentElement.remove()" class="text-on-surface-variant hover:text-danger-alert ml-1">×</button>`;
+
+    container.appendChild(chip);
+    showToast('Insumo Adicionado', `${qty} unidades añadidas al proyecto.`);
+  }
+
+  function setSimView(viewType) {
+    const svg = document.getElementById('cadSchematicSvg');
+    const btnIso = document.getElementById('btnViewIso');
+    const btnRen = document.getElementById('btnViewRen');
+
+    if (viewType === 'wireframe') {
+      svg.style.filter = 'none';
+      btnIso.className = 'px-2.5 py-1 rounded bg-surface-container-highest text-wireframe-blue font-label-sm text-label-sm';
+      btnRen.className = 'px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm';
+    } else {
+      svg.style.filter = 'drop-shadow(0 0 12px rgba(74, 222, 128, 0.4))';
+      btnRen.className = 'px-2.5 py-1 rounded bg-surface-container-highest text-spring-lime font-label-sm text-label-sm';
+      btnIso.className = 'px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm';
+    }
+  }
+
+  function updateStructurePreset(preset) {
+    if (preset === 'guadua') {
+      showToast('Preset Seleccionado', 'Cargando cercha bio-estructural de Guadua Angustifolia.');
+    } else {
+      showToast('Preset Seleccionado', 'Cargando arcos en acero galvanizado en caliente.');
+    }
+  }
+
+  function saveToHistory() {
+    showToast('Historial Guardado', 'Presupuesto archivado en Portafolio Técnico.');
+  }
+
+  function exportPdf() {
+    showToast('Generando Documento', 'Compilando memoria de cálculo y cotización formal...');
+  }
+</script></main></div></body></html>

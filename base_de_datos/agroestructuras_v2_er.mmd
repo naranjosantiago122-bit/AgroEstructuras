@@ -1,0 +1,183 @@
+erDiagram
+  roles ||--o{ usuarios : "id_rol"
+  materiales ||--o{ historial_precios : "id_material"
+  usuarios ||--o{ historial_precios : "id_usuario"
+  usuarios ||--o{ solicitudes : "id_cliente"
+  tipos_estructura ||--o{ solicitudes : "id_tipo_estructura"
+  modalidades ||--o{ solicitudes : "id_modalidad"
+  calibres ||--o{ solicitudes : "id_calibre_plastico"
+  anchos_plastico ||--o{ solicitudes : "id_ancho_plastico"
+  anchos_canal |o--o{ solicitudes : "id_ancho_canal"
+  calibres |o--o{ solicitudes : "id_calibre_canal"
+  solicitudes |o--o{ cotizaciones : "id_solicitud"
+  usuarios |o--o{ cotizaciones : "id_cliente"
+  usuarios ||--o{ cotizaciones : "id_dueno"
+  tipos_estructura ||--o{ cotizaciones : "id_tipo_estructura"
+  modalidades ||--o{ cotizaciones : "id_modalidad"
+  calibres ||--o{ cotizaciones : "id_calibre_plastico"
+  anchos_plastico ||--o{ cotizaciones : "id_ancho_plastico"
+  anchos_canal |o--o{ cotizaciones : "id_ancho_canal"
+  calibres |o--o{ cotizaciones : "id_calibre_canal"
+  cotizaciones ||--o{ detalle_cotizacion : "id_cotizacion"
+  materiales |o--o{ detalle_cotizacion : "id_material"
+  solicitudes ||--o{ respuestas_solicitud : "id_solicitud"
+  usuarios ||--o{ respuestas_solicitud : "id_usuario"
+  cotizaciones |o--o{ respuestas_solicitud : "id_cotizacion"
+  solicitudes ||--o{ notificaciones : "id_solicitud"
+  usuarios ||--o{ notificaciones : "id_destinatario"
+  categorias_obra ||--o{ obras : "id_categoria"
+
+  roles {
+    int id_rol PK
+    varchar nombre UK
+  }
+  usuarios {
+    int id_usuario PK
+    int id_rol FK
+    varchar nombre
+    varchar correo UK
+    varchar telefono
+    varchar ciudad
+    varchar clave_hash
+    tinyint activo
+    datetime fecha_registro
+  }
+  tipos_estructura {
+    int id_tipo_estructura PK
+    varchar nombre UK
+    decimal distancia_max
+    varchar descripcion
+  }
+  modalidades {
+    int id_modalidad PK
+    varchar nombre UK
+  }
+  calibres {
+    int id_calibre PK
+    tinyint valor UK
+  }
+  anchos_plastico {
+    int id_ancho_plastico PK
+    decimal ancho_m UK
+    decimal precio_m2
+  }
+  anchos_canal {
+    int id_ancho_canal PK
+    decimal ancho_m UK
+    decimal precio_rollo
+  }
+  materiales {
+    int id_material PK
+    varchar codigo UK
+    varchar nombre
+    varchar unidad
+    decimal precio_unitario
+    enum tipo
+    tinyint activo
+    datetime fecha_actualizacion
+  }
+  historial_precios {
+    int id_historial PK
+    int id_material FK
+    decimal precio
+    datetime fecha
+    int id_usuario FK
+  }
+  solicitudes {
+    int id_solicitud PK
+    varchar codigo UK
+    int id_cliente FK
+    int id_tipo_estructura FK
+    int id_modalidad FK
+    decimal largo
+    decimal ancho
+    decimal distancia_postes
+    tinyint numero_naves
+    int id_calibre_plastico FK
+    int id_ancho_plastico FK
+    int id_ancho_canal FK
+    int id_calibre_canal FK
+    text observaciones
+    enum origen
+    enum estado
+    datetime fecha_creacion
+    datetime fecha_actualizacion
+  }
+  cotizaciones {
+    int id_cotizacion PK
+    varchar codigo UK
+    int id_solicitud FK
+    int id_cliente FK
+    varchar cliente_nombre
+    varchar cliente_contacto
+    int id_dueno FK
+    int id_tipo_estructura FK
+    int id_modalidad FK
+    decimal largo
+    decimal ancho
+    decimal distancia_postes
+    tinyint numero_naves
+    int id_calibre_plastico FK
+    int id_ancho_plastico FK
+    int id_ancho_canal FK
+    int id_calibre_canal FK
+    text observaciones
+    decimal area_total
+    decimal costo_materiales
+    decimal costo_mano_obra
+    decimal total
+    enum estado
+    tinyint visible_cliente
+    varchar ruta_pdf
+    text notas_internas
+    datetime fecha_creacion
+    datetime fecha_envio
+  }
+  detalle_cotizacion {
+    int id_detalle PK
+    int id_cotizacion FK
+    int id_material FK
+    enum seccion
+    varchar descripcion
+    decimal cantidad
+    varchar unidad
+    decimal precio_unitario
+    decimal subtotal
+    smallint orden
+  }
+  respuestas_solicitud {
+    int id_respuesta PK
+    int id_solicitud FK
+    int id_usuario FK
+    text mensaje
+    int id_cotizacion FK
+    datetime fecha
+  }
+  notificaciones {
+    int id_notificacion PK
+    int id_solicitud FK
+    int id_destinatario FK
+    enum canal
+    varchar mensaje
+    enum estado_envio
+    tinyint leida
+    datetime fecha_creacion
+    datetime fecha_envio
+  }
+  categorias_obra {
+    int id_categoria PK
+    varchar nombre UK
+  }
+  obras {
+    int id_obra PK
+    int id_categoria FK
+    varchar nombre
+    varchar ubicacion
+    decimal largo
+    decimal ancho
+    smallint anio
+    varchar descripcion
+    varchar ruta_foto
+    tinyint activo
+    datetime fecha_registro
+  }

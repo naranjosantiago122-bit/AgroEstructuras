@@ -1,0 +1,3 @@
+﻿Referencia de diseño exportada de Stitch (21-oct-2026). Contiene DESIGN.md (sistema de diseno) y, por pantalla, code.html y screen.png.
+Ojo: los datos de estas pantallas (cifras, contactos, normas, obras) son de relleno generado por Stitch; no son del proyecto.
+El front-end real esta en ..\frontend.

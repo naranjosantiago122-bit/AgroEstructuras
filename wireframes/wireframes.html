@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgroEstructuras - Wireframes baja fidelidad</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: "Comic Sans MS", "Segoe Print", Arial, sans-serif; background: #e9e9e9; color: #333; margin: 0; padding: 24px; }
+  h1 { text-align: center; margin: 0 0 4px; }
+  .sub { text-align: center; color: #666; margin-bottom: 32px; }
+  .pantalla { max-width: 1000px; margin: 0 auto 48px; }
+  .pantalla > h2 { margin: 0 0 8px; font-size: 18px; }
+  .marco { background: #fff; border: 3px solid #555; min-height: 520px; display: flex; flex-direction: column; }
+  /* Piezas reutilizables */
+  .nav { display: flex; align-items: center; gap: 16px; padding: 12px 20px; border-bottom: 2px solid #555; background: #f4f4f4; }
+  .logo { border: 2px solid #555; padding: 6px 14px; font-weight: bold; background: #ddd; }
+  .nav .links { margin-left: auto; display: flex; gap: 18px; }
+  .nav .links span { border-bottom: 2px solid #999; }
+  .pie { margin-top: auto; border-top: 2px solid #555; padding: 14px; text-align: center; background: #f4f4f4; font-size: 13px; }
+  .contenido { padding: 24px; flex: 1; }
+  .caja { border: 2px solid #777; background: #ddd; display: flex; align-items: center; justify-content: center; color: #555; text-align: center; padding: 8px; }
+  .img { position: relative; border: 2px solid #777; background: #ddd; display: flex; align-items: center; justify-content: center; color: #666; }
+  .img::before, .img::after { content: ""; position: absolute; inset: 0; background:
+      linear-gradient(to top right, transparent calc(50% - 1px), #999, transparent calc(50% + 1px)); }
+  .img::after { background: linear-gradient(to top left, transparent calc(50% - 1px), #999, transparent calc(50% + 1px)); }
+  .img span { position: relative; z-index: 1; background: #ddd; padding: 2px 8px; }
+  .btn { border: 2px solid #333; background: #bbb; padding: 10px 22px; font-weight: bold; display: inline-block; text-align: center; }
+  .btn.sec { background: #fff; }
+  .campo { margin-bottom: 14px; }
+  .campo label { display: block; font-size: 13px; margin-bottom: 3px; }
+  .input { border: 2px solid #777; background: #fff; height: 34px; padding: 6px 8px; color: #999; font-size: 13px; }
+  .input.grande { height: 90px; }
+  .opciones { display: flex; flex-wrap: wrap; gap: 8px; }
+  .op { border: 2px solid #777; padding: 6px 12px; font-size: 13px; background: #fff; }
+  .op.sel { background: #bbb; font-weight: bold; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { border: 2px solid #777; padding: 8px; text-align: left; }
+  th { background: #ccc; }
+  .total { text-align: right; font-size: 20px; font-weight: bold; border: 3px double #333; padding: 12px; margin-top: 14px; background: #eee; }
+  .nota { background: #fff7b0; border: 1px dashed #aa9; padding: 6px 10px; font-size: 12px; margin-top: 8px; }
+  .centro { display: flex; justify-content: center; }
+  .tarjeta { width: 380px; border: 2px solid #777; padding: 22px; background: #f8f8f8; }
+  .hero { height: 220px; margin-bottom: 20px; }
+  @media (max-width: 700px) { .grid2, .grid3, .grid4 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>AgroEstructuras</h1>
+<div class="sub">Wireframes de baja fidelidad &middot; Sistema de cotización de invernaderos y estructuras para saran</div>
+
+<!-- 1. INICIO -->
+<section class="pantalla">
+  <h2>1. Inicio (Home)</h2>
+  <div class="marco">
+    <div class="nav">
+      <div class="logo">LOGO</div>
+      <div class="links"><span>Inicio</span><span>Cotizar</span><span>Galería</span><span>Contacto</span><span class="btn sec" style="padding:4px 12px">Ingresar</span></div>
+    </div>
+    <div class="contenido">
+      <div class="img hero"><span>Imagen principal: invernadero</span></div>
+      <div style="text-align:center; margin-bottom:20px">
+        <h3 style="margin:0 0 8px">Título: Cotiza tu invernadero en minutos</h3>
+        <p style="margin:0 0 14px; color:#666">Texto corto de presentación de la empresa</p>
+        <span class="btn">COTIZAR AHORA</span>
+      </div>
+      <div class="grid3">
+        <div class="caja" style="height:110px">Servicio:<br>Invernaderos en polietileno</div>
+        <div class="caja" style="height:110px">Servicio:<br>Estructuras para saran / polisombra</div>
+        <div class="caja" style="height:110px">Servicio:<br>Solo mano de obra</div>
+      </div>
+    </div>
+    <div class="pie">Pie de página: contacto &middot; teléfono &middot; redes</div>
+  </div>
+</section>
+
+<!-- 2. REGISTRO / LOGIN -->
+<section class="pantalla">
+  <h2>2. Registro e inicio de sesión</h2>
+  <div class="marco">
+    <div class="nav"><div class="logo">LOGO</div><div class="links"><span>Inicio</span><span>Cotizar</span><span>Galería</span></div></div>
+    <div class="contenido">
+      <div class="grid2">
+        <div class="tarjeta">
+          <h3 style="margin-top:0">Registrarse</h3>
+          <div class="campo"><label>Nombre completo</label><div class="input">Escribe aquí...</div></div>
+          <div class="campo"><label>Correo electrónico</label><div class="input">correo@ejemplo.com</div></div>
+          <div class="campo"><label>Teléfono</label><div class="input">3__ ___ ____</div></div>
+          <div class="campo"><label>Ciudad / Municipio</label><div class="input">Escribe aquí...</div></div>
+          <div class="campo"><label>Contraseña</label><div class="input">••••••••</div></div>
+          <div class="btn" style="width:100%">CREAR CUENTA</div>
+        </div>
+        <div class="tarjeta">
+          <h3 style="margin-top:0">Iniciar sesión</h3>
+          <div class="campo"><label>Correo electrónico</label><div class="input">correo@ejemplo.com</div></div>
+          <div class="campo"><label>Contraseña</label><div class="input">••••••••</div></div>
+          <div class="btn" style="width:100%">INGRESAR</div>
+          <p style="font-size:12px; color:#666">¿Olvidaste tu contraseña?</p>
+        </div>
+      </div>
+    </div>
+    <div class="pie">Pie de página</div>
+  </div>
+</section>
+
+<!-- 3. COTIZADOR -->
+<section class="pantalla">
+  <h2>3. Formulario de cotización + vista 3D</h2>
+  <div class="marco">
+    <div class="nav"><div class="logo">LOGO</div><div class="links"><span>Inicio</span><span>Cotizar</span><span>Mis cotizaciones</span><span>Galería</span><span>Hola, Usuario ▾</span></div></div>
+    <div class="contenido">
+      <div class="grid2">
+        <div>
+          <h3 style="margin-top:0">Datos de tu estructura</h3>
+
+          <div class="campo"><label>1. Tipo de trabajo</label>
+            <div class="opciones"><span class="op sel">◉ Todo costo</span><span class="op">○ Solo mano de obra</span></div></div>
+
+          <div class="campo"><label>2. Tipo de cubierta</label>
+            <div class="opciones"><span class="op sel">◉ Invernadero (polietileno)</span><span class="op">○ Saran / polisombra</span></div></div>
+
+          <div class="campo"><label>3. Medidas (metros)</label>
+            <div class="opciones">
+              <div class="input" style="width:120px">Largo</div>
+              <div class="input" style="width:120px">Ancho</div>
+              <div class="input" style="width:120px">Altura</div>
+            </div></div>
+
+          <div class="campo"><label>4. Material de la estructura</label>
+            <div class="opciones"><span class="op sel">◉ Guadua</span><span class="op">○ Palos inmunizados</span></div></div>
+
+          <div class="campo"><label>5. Diseño</label>
+            <div class="opciones"><span class="op sel">Pagoda</span><span class="op">Capilla</span><span class="op">Capilla en cercha</span><span class="op">Tubular</span><span class="op">Espacial</span></div></div>
+
+          <div class="campo"><label>6. Tipo de plástico / malla</label>
+            <div class="input">Seleccionar ▾ (calibre / % de sombra)</div></div>
+
+          <div class="campo"><label>7. Observaciones del trabajo</label>
+            <div class="input grande">Escribe detalles adicionales...</div></div>
+
+          <span class="btn">COTIZAR</span>
+        </div>
+
+        <div>
+          <h3 style="margin-top:0">Vista previa 3D</h3>
+          <div class="img" style="height:340px"><span>Modelo 3D del invernadero<br>(se actualiza con las opciones)</span></div>
+          <div class="opciones" style="margin-top:10px; justify-content:center">
+            <span class="op">⟲ Rotar</span><span class="op">＋ Zoom</span><span class="op">Restablecer</span>
+          </div>
+          <div class="nota">Nota: el 3D cambia en tiempo real al modificar medidas, diseño o plástico.</div>
+        </div>
+      </div>
+    </div>
+    <div class="pie">Pie de página</div>
+  </div>
+</section>
+
+<!-- 4. RESULTADO -->
+<section class="pantalla">
+  <h2>4. Resultado de la cotización</h2>
+  <div class="marco">
+    <div class="nav"><div class="logo">LOGO</div><div class="links"><span>Inicio</span><span>Cotizar</span><span>Mis cotizaciones</span><span>Galería</span><span>Hola, Usuario ▾</span></div></div>
+    <div class="contenido">
+      <h3 style="margin-top:0">Cotización N.º ____</h3>
+      <div class="grid2">
+        <div>
+          <div class="caja" style="justify-content:flex-start; text-align:left; display:block; background:#f4f4f4">
+            <b>Opciones elegidas</b><br>
+            &bull; Tipo de trabajo: ______<br>
+            &bull; Cubierta: ______<br>
+            &bull; Medidas: ___ x ___ x ___ m<br>
+            &bull; Estructura: ______<br>
+            &bull; Diseño: ______<br>
+            &bull; Plástico / malla: ______<br>
+            &bull; Observaciones: ______
+          </div>
+        </div>
+        <div class="img" style="height:190px"><span>Imagen 3D del resultado</span></div>
+      </div>
+
+      <h4>Lista de materiales</h4>
+      <table>
+        <tr><th>Material</th><th>Cantidad</th><th>Unidad</th><th>Precio unit.</th><th>Subtotal</th></tr>
+        <tr><td>Guadua / Palos</td><td>__</td><td>und</td><td>$ ____</td><td>$ ____</td></tr>
+        <tr><td>Plástico / Saran</td><td>__</td><td>m²</td><td>$ ____</td><td>$ ____</td></tr>
+        <tr><td>Alambre</td><td>__</td><td>kg</td><td>$ ____</td><td>$ ____</td></tr>
+        <tr><td>Grapas, amarres, otros</td><td>__</td><td>und</td><td>$ ____</td><td>$ ____</td></tr>
+        <tr><td>Mano de obra</td><td>1</td><td>global</td><td>$ ____</td><td>$ ____</td></tr>
+      </table>
+      <div class="total">TOTAL: $ ______________</div>
+
+      <div style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap">
+        <span class="btn">Descargar PDF</span>
+        <span class="btn sec">Guardar cotización</span>
+        <span class="btn sec">Editar opciones</span>
+        <span class="btn sec">Contactar por WhatsApp</span>
+      </div>
+    </div>
+    <div class="pie">Pie de página</div>
+  </div>
+</section>
+
+<!-- 5. GALERÍA -->
+<section class="pantalla">
+  <h2>5. Galería</h2>
+  <div class="marco">
+    <div class="nav"><div class="logo">LOGO</div><div class="links"><span>Inicio</span><span>Cotizar</span><span>Galería</span><span>Contacto</span><span class="btn sec" style="padding:4px 12px">Ingresar</span></div></div>
+    <div class="contenido">
+      <h3 style="margin-top:0">Nuestros trabajos</h3>
+      <div class="opciones" style="margin-bottom:16px">
+        <span class="op sel">Todos</span><span class="op">Invernaderos</span><span class="op">Saran / polisombra</span><span class="op">Guadua</span><span class="op">Palos inmunizados</span>
+      </div>
+      <div class="grid4">
+        <div class="img" style="height:130px"><span>Foto 1</span></div>
+        <div class="img" style="height:130px"><span>Foto 2</span></div>
+        <div class="img" style="height:130px"><span>Foto 3</span></div>
+        <div class="img" style="height:130px"><span>Foto 4</span></div>
+        <div class="img" style="height:130px"><span>Foto 5</span></div>
+        <div class="img" style="height:130px"><span>Foto 6</span></div>
+        <div class="img" style="height:130px"><span>Foto 7</span></div>
+        <div class="img" style="height:130px"><span>Foto 8</span></div>
+      </div>
+      <div class="centro" style="margin-top:16px"><span class="btn sec">Ver más</span></div>
+      <div class="nota">Al hacer clic en una foto se abre ampliada con título, ubicación y medidas.</div>
+    </div>
+    <div class="pie">Pie de página</div>
+  </div>
+</section>
+
+<!-- 6. MIS COTIZACIONES -->
+<section class="pantalla">
+  <h2>6. Mis cotizaciones (usuario)</h2>
+  <div class="marco">
+    <div class="nav"><div class="logo">LOGO</div><div class="links"><span>Inicio</span><span>Cotizar</span><span>Mis cotizaciones</span><span>Galería</span><span>Hola, Usuario ▾</span></div></div>
+    <div class="contenido">
+      <h3 style="margin-top:0">Historial de cotizaciones</h3>
+      <table>
+        <tr><th>N.º</th><th>Fecha</th><th>Diseño</th><th>Medidas</th><th>Total</th><th>Acciones</th></tr>
+        <tr><td>001</td><td>__/__/__</td><td>______</td><td>__x__</td><td>$ ____</td><td>Ver &middot; PDF &middot; Eliminar</td></tr>
+        <tr><td>002</td><td>__/__/__</td><td>______</td><td>__x__</td><td>$ ____</td><td>Ver &middot; PDF &middot; Eliminar</td></tr>
+        <tr><td>003</td><td>__/__/__</td><td>______</td><td>__x__</td><td>$ ____</td><td>Ver &middot; PDF &middot; Eliminar</td></tr>
+      </table>
+      <div style="margin-top:16px"><span class="btn">+ Nueva cotización</span></div>
+    </div>
+    <div class="pie">Pie de página</div>
+  </div>
+</section>
+
+<!-- 7. ADMIN -->
+<section class="pantalla">
+  <h2>7. Panel de administrador (precios y galería)</h2>
+  <div class="marco">
+    <div class="nav"><div class="logo">LOGO</div><div class="links"><span>Panel admin</span><span>Salir</span></div></div>
+    <div class="contenido">
+      <div style="display:grid; grid-template-columns: 200px 1fr; gap:20px">
+        <div style="border:2px solid #777; background:#f4f4f4; padding:12px; line-height:2">
+          <b>Menú</b><br>▸ Precios de materiales<br>▸ Diseños y fórmulas<br>▸ Galería<br>▸ Cotizaciones<br>▸ Usuarios
+        </div>
+        <div>
+          <h3 style="margin-top:0">Precios de materiales</h3>
+          <div class="opciones" style="margin-bottom:12px"><div class="input" style="width:240px">Buscar material...</div><span class="btn">+ Agregar material</span></div>
+          <table>
+            <tr><th>Material</th><th>Unidad</th><th>Precio</th><th>Acciones</th></tr>
+            <tr><td>Guadua</td><td>und</td><td>$ ____</td><td>Editar &middot; Eliminar</td></tr>
+            <tr><td>Palo inmunizado</td><td>und</td><td>$ ____</td><td>Editar &middot; Eliminar</td></tr>
+            <tr><td>Plástico calibre __</td><td>m²</td><td>$ ____</td><td>Editar &middot; Eliminar</td></tr>
+            <tr><td>Saran __%</td><td>m²</td><td>$ ____</td><td>Editar &middot; Eliminar</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

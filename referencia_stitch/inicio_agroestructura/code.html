@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgroEstructuras V.2 PRO - Software y Cotización de Invernaderos</title>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#080d1a',
+              base: '#0b1326',
+              surface: '#111c35',
+              card: '#162344',
+              border: '#1e293b',
+              accent: '#22c55e',
+              emeraldGlow: '#10b981',
+              cyanGlow: '#06b6d4',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-styling">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+    body {
+      background-color: #0b1326;
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .technical-grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(30, 41, 59, 0.35) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 41, 59, 0.35) 1px, transparent 1px);
+    }
+
+    .glow-green {
+      box-shadow: 0 0 25px -4px rgba(34, 197, 94, 0.35);
+    }
+
+    .glow-green:hover {
+      box-shadow: 0 0 35px -2px rgba(34, 197, 94, 0.55);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col technical-grid-pattern relative selection:bg-emerald-500 selection:text-black">
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 bg-[#0b1326]/90 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300" data-purpose="site-navigation-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Logo Brand Container -->
+<a class="flex items-center gap-3.5 group" data-purpose="brand-logo" href="#">
+<img alt="Logo AgroEstructuras" class="h-14 w-auto object-contain transition-transform group-hover:scale-105 duration-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRgdmGZm63XBv6Sa74GjPU6NV78MwdruVVGU44Z-y0ZAFS1ulL9vn7yRGwO5QC6v_WAXVPHaD6wLxt5SjAFdRwrjpT_T-infjrdqbYvF9Bpnh0xAQ4pcTv1pOLLTXNXMzQNCcrT5yGtbmWRFP2OeLzvflT-hM5qDDr3lc3pzNFLnQUixALSZ8c5P46oPw5boDDqwYpaaPXep9VPLDGVNGDpdgpJCz0SQQU0mSdmBDPQDDtize7wA0fV9qO0F5LxD9IEn8"/>
+<div class="flex flex-col">
+<span class="font-mono text-xs tracking-wider text-emerald-400 font-semibold uppercase">V.2 PRO Agricultural Suite</span>
+<span class="text-xs text-slate-400">Ingeniería &amp; Simulación Estructural</span>
+</div>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center space-x-1" data-purpose="nav-links">
+<a class="px-4 py-2 text-sm font-medium text-emerald-400 border-b-2 border-emerald-400 tracking-wide transition-colors" href="#">
+            Inicio
+          </a>
+<a class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-emerald-400 border-b-2 border-transparent hover:border-emerald-400/50 tracking-wide transition-all" href="#cotizador">
+            Cotizar
+          </a>
+<a class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-emerald-400 border-b-2 border-transparent hover:border-emerald-400/50 tracking-wide transition-all" href="#galeria">
+            Galería
+          </a>
+<a class="px-4 py-2 text-sm font-medium text-slate-300 hover:text-emerald-400 border-b-2 border-transparent hover:border-emerald-400/50 tracking-wide transition-all" href="#servicios">
+            Servicios
+          </a>
+</nav>
+<!-- CTA Auth Button -->
+<div class="flex items-center gap-3" data-purpose="nav-actions">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-slate-200 hover:text-white transition duration-200 hover:border-emerald-500/40" href="#login">
+<i class="fa-solid fa-lock text-emerald-400 text-xs"></i>
+<span>Ingresar</span>
+</a>
+<!-- Mobile Menu Trigger -->
+<button aria-label="Abrir menú" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none" type="button">
+<i class="fa-solid fa-bars text-xl"></i>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow">
+<!-- Hero Image Wireframe Section -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4" data-purpose="hero-wireframe-banner">
+<div class="relative rounded-2xl overflow-hidden border border-slate-800 bg-[#0f172a] shadow-2xl group">
+<!-- Greenhouse Visual Element -->
+<div class="relative h-64 sm:h-80 md:h-96 lg:h-[420px] w-full overflow-hidden">
+<img alt="Estructura tecnológica de invernadero automatizado" class="w-full h-full object-cover object-center brightness-75 group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyDH7YJpcmzkSR-8AAsJNgiahsRp8Pkr94nnCWEhCyx-j05UYAW7chthCz99K2C0WPpMKxplrJAybuT95ihOeP0Uy8vpaTKZDH96ZHDkRhIpJDUWr37_HdQ-kfHkfi4W5WZ0x-2WgmMn5QFejocIP0D6UJfRIdNKGekKaxyAVYS2X2OzW2Xyu1GzLHK0Px84LKxU-1jSq23Q4ebbAyYEM6SIZT-qBiM7uwzmeS3lCiL-jX3PM5WSwQ1g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0b1326] via-[#0b1326]/40 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#0b1326]/80 via-transparent to-[#0b1326]/80"></div>
+<!-- HUD & Blueprint Engineering Overlays -->
+<div class="absolute top-4 left-4 sm:top-6 sm:left-6 flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 backdrop-blur-md">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              SISTEMA PARAMÉTRICO V.2
+            </span>
+<span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-slate-900/80 text-cyan-400 border border-cyan-500/30 backdrop-blur-md">
+<i class="fa-solid fa-cube text-[10px]"></i> CÁLCULO NSR-10 &amp; NTC 5427
+            </span>
+</div>
+<div class="absolute top-4 right-4 sm:top-6 sm:right-6">
+<div class="px-3.5 py-1.5 rounded-lg bg-black/60 border border-slate-700/70 backdrop-blur-md text-right font-mono">
+<span class="text-[10px] text-slate-400 uppercase tracking-widest block">Resistencia Viento</span>
+<span class="text-xs sm:text-sm font-semibold text-emerald-300">120 km/h Certificado</span>
+</div>
+</div>
+<!-- Bottom Banner Title Tag -->
+<div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+<div>
+<p class="font-mono text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-1">Módulo Arquitectura Agronómica</p>
+<h2 class="text-xl sm:text-3xl font-bold text-white tracking-tight drop-shadow-md">
+                Estructuras Agrícolas de Alto Rendimiento
+              </h2>
+</div>
+<div class="hidden lg:flex items-center gap-3 bg-slate-900/80 border border-slate-700/70 backdrop-blur-md px-4 py-2 rounded-xl">
+<i class="fa-solid fa-chart-line text-emerald-400"></i>
+<span class="text-xs text-slate-300 font-mono">Simulación de Cargas &amp; Retorno de Inversión</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Proposition Section -->
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center" data-purpose="value-proposition" id="cotizador">
+<!-- Title according to wireframe: "Cotiza tu invernadero en minutos" -->
+<h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        Cotiza tu invernadero <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">en minutos</span>
+</h1>
+<!-- Short presentation text -->
+<p class="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Software y diseño estructural especializado para el agro colombiano. Dimensionamiento paramétrico de materiales, simulación CAD y presupuestos precisos al instante.
+      </p>
+<!-- Primary Action CTA Button: "COTIZAR AHORA" -->
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-bold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-emerald-400 to-emerald-500 hover:from-emerald-300 hover:to-emerald-400 transition-all duration-200 transform hover:-translate-y-0.5 glow-green font-mono" href="#cotizador-app">
+<i class="fa-solid fa-calculator text-lg"></i>
+<span>Cotizar Ahora</span>
+<i class="fa-solid fa-arrow-right text-sm ml-1"></i>
+</a>
+</div>
+<!-- Quick Metrics Ribbon -->
+<div class="mt-6 flex items-center justify-center gap-6 text-xs font-mono text-slate-400">
+<span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> Sin compromiso</span>
+<span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> Despiece técnico inmediato</span>
+<span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-400"></i> Exportación en PDF</span>
+</div>
+</section>
+<!-- Main Categories Section (Wireframe 3 Blocks: Invernaderos | Saran/Polisombra | Mano de Obra) -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-purpose="three-main-categories" id="servicios">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Category Card 1: Invernaderos -->
+<article class="bg-[#111c35] border border-slate-800 hover:border-emerald-500/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-emerald-950/20 group flex flex-col justify-between" data-purpose="card-invernaderos">
+<div>
+<div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-warehouse"></i>
+</div>
+<div class="font-mono text-xs text-emerald-400 uppercase tracking-widest font-semibold mb-1">Estructuras Rígidas</div>
+<h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Invernaderos</h3>
+<p class="text-sm text-slate-300 leading-relaxed mb-6">
+              Diseño tipo túnel, capilla, multitúnel y gótico. Estructuras en tubería galvanizada, policarbonato alveolar y películas plásticas térmicas con ventilación cenital optimizada.
+            </p>
+</div>
+<div class="pt-4 border-t border-slate-800/80">
+<ul class="space-y-2 mb-6 text-xs text-slate-400 font-mono">
+<li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-emerald-400"></i> Acero galvanizado por inmersión</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-emerald-400"></i> Cubiertas UV bioclimáticas</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-emerald-400"></i> Cálculos de carga y nieve</li>
+</ul>
+<a class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 group-hover:text-emerald-300" href="#cotizar">
+<span>Configurar invernadero</span>
+<i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+</article>
+<!-- Category Card 2: Sarán / Polisombra -->
+<article class="bg-[#111c35] border border-slate-800 hover:border-emerald-500/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-emerald-950/20 group flex flex-col justify-between" data-purpose="card-saran-polisombra">
+<div>
+<div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+<div class="font-mono text-xs text-cyan-400 uppercase tracking-widest font-semibold mb-1">Manejo de Radiación</div>
+<h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Sarán / Polisombra</h3>
+<p class="text-sm text-slate-300 leading-relaxed mb-6">
+              Casas malla, sombríos agrícolas y tensoestructuras. Porcentajes de sombra calibrados (35% a 80%) con guayas tensoras certificadas para protección ante heladas y granizo.
+            </p>
+</div>
+<div class="pt-4 border-t border-slate-800/80">
+<ul class="space-y-2 mb-6 text-xs text-slate-400 font-mono">
+<li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-cyan-400"></i> Mallas monofilamento y raschel</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-cyan-400"></i> Posteadura de alta resistencia</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-cyan-400"></i> Malla antiáfidos y microclimas</li>
+</ul>
+<a class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 group-hover:text-cyan-300" href="#cotizar">
+<span>Calcular sombrío</span>
+<i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+</article>
+<!-- Category Card 3: Mano de Obra -->
+<article class="bg-[#111c35] border border-slate-800 hover:border-emerald-500/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-emerald-950/20 group flex flex-col justify-between" data-purpose="card-mano-obra">
+<div>
+<div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-5 group-hover:scale-110 transition-transform">
+<i class="fa-solid fa-person-digging"></i>
+</div>
+<div class="font-mono text-xs text-amber-400 uppercase tracking-widest font-semibold mb-1">Instalación en Campo</div>
+<h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Mano de Obra</h3>
+<p class="text-sm text-slate-300 leading-relaxed mb-6">
+              Cuadrillas especializadas en anclaje, armado estructural, templado de plástico y colocación de canaletas. Presupuesto por metro lineal, metro cuadrado o proyecto llave en mano.
+            </p>
+</div>
+<div class="pt-4 border-t border-slate-800/80">
+<ul class="space-y-2 mb-6 text-xs text-slate-400 font-mono">
+<li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-amber-400"></i> Personal certificado en alturas</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-amber-400"></i> Nivelación y zapatas de concreto</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-amber-400"></i> Tiempos garantizados de entrega</li>
+</ul>
+<a class="inline-flex items-center gap-2 text-sm font-semibold text-amber-400 group-hover:text-amber-300" href="#cotizar">
+<span>Cotizar cuadrilla</span>
+<i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+</article>
+</div>
+</section>
+<!-- Technical Trust Banner -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 mb-12" id="galeria">
+<div class="rounded-xl bg-slate-900/60 border border-slate-800 p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-emerald-500/10 rounded-lg text-emerald-400">
+<i class="fa-solid fa-microchip text-2xl"></i>
+</div>
+<div>
+<h4 class="text-base font-semibold text-white">Algoritmo de cubicación AgroEstructuras PRO</h4>
+<p class="text-xs text-slate-400">Optimiza hasta un 18% en consumo de tubería y fijaciones sin comprometer la resistencia estructural.</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<a class="px-4 py-2 text-xs font-mono font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700" href="#demo">
+            Ver Portafolio de Proyectos
+          </a>
+</div>
+</div>
+</section>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: FloatingChatButton -->
+<!-- Wireframe element: "Cotización en línea" floating badge -->
+<div class="fixed bottom-6 right-6 z-50" data-purpose="floating-online-quotation">
+<a class="flex items-center gap-2.5 px-4 py-3 rounded-full bg-slate-900/90 hover:bg-slate-900 border border-emerald-500/60 text-white shadow-xl hover:shadow-emerald-500/30 backdrop-blur-md transition-all duration-200 transform hover:scale-105 group" href="https://wa.me/573000000000?text=Hola,%20deseo%20una%20cotizaci%C3%B3n%20para%20un%20invernadero" rel="noopener noreferrer" target="_blank">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+</span>
+<i class="fa-solid fa-comments text-emerald-400 text-base group-hover:rotate-6 transition-transform"></i>
+<span class="text-sm font-semibold tracking-wide">Cotización en línea</span>
+</a>
+</div>
+<!-- END: FloatingChatButton -->
+<!-- BEGIN: MainFooter -->
+<!-- Footer matching wireframe bottom notes: 'contacto · teléfono · redes' -->
+<footer class="bg-[#080d1a] border-t border-slate-800 text-slate-400 text-sm mt-auto" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<!-- Brand Info -->
+<div class="md:col-span-1">
+<div class="flex items-center gap-2 mb-3">
+<img alt="AgroEstructuras" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRgdmGZm63XBv6Sa74GjPU6NV78MwdruVVGU44Z-y0ZAFS1ulL9vn7yRGwO5QC6v_WAXVPHaD6wLxt5SjAFdRwrjpT_T-infjrdqbYvF9Bpnh0xAQ4pcTv1pOLLTXNXMzQNCcrT5yGtbmWRFP2OeLzvflT-hM5qDDr3lc3pzNFLnQUixALSZ8c5P46oPw5boDDqwYpaaPXep9VPLDGVNGDpdgpJCz0SQQU0mSdmBDPQDDtize7wA0fV9qO0F5LxD9IEn8"/>
+<span class="font-bold text-white tracking-tight">AgroEstructuras</span>
+</div>
+<p class="text-xs text-slate-400 leading-relaxed">
+            Plataforma digital para el diseño, dimensionamiento estructural y suministro de sistemas de protección de cultivos en Colombia y Latinoamérica.
+          </p>
+</div>
+<!-- Contact details (Wireframe: Contacto) -->
+<div>
+<h5 class="text-white font-mono text-xs uppercase tracking-wider font-semibold mb-3">Contacto Directo</h5>
+<ul class="space-y-2 text-xs">
+<li class="flex items-center gap-2">
+<i class="fa-solid fa-envelope text-emerald-400"></i>
+<span>ingenieria@agroestructuras.co</span>
+</li>
+<li class="flex items-center gap-2">
+<i class="fa-solid fa-location-dot text-emerald-400"></i>
+<span>Bogotá &amp; Medellín, Colombia</span>
+</li>
+<li class="flex items-center gap-2">
+<i class="fa-solid fa-clock text-emerald-400"></i>
+<span>Lun - Sáb: 7:00 AM - 6:00 PM</span>
+</li>
+</ul>
+</div>
+<!-- Phone details (Wireframe: Teléfono) -->
+<div>
+<h5 class="text-white font-mono text-xs uppercase tracking-wider font-semibold mb-3">Línea Telefónica</h5>
+<ul class="space-y-2 text-xs">
+<li class="flex items-center gap-2">
+<i class="fa-solid fa-phone text-emerald-400"></i>
+<span>+57 (601) 345-6789</span>
+</li>
+<li class="flex items-center gap-2">
+<i class="fa-brands fa-whatsapp text-emerald-400"></i>
+<span>+57 310 987 6543 (Ventas)</span>
+</li>
+<li class="flex items-center gap-2">
+<i class="fa-solid fa-headset text-emerald-400"></i>
+<span>Soporte Técnico Especializado</span>
+</li>
+</ul>
+</div>
+<!-- Social Media details (Wireframe: Redes) -->
+<div>
+<h5 class="text-white font-mono text-xs uppercase tracking-wider font-semibold mb-3">Redes &amp; Comunidad</h5>
+<p class="text-xs text-slate-400 mb-3">Sigue nuestras obras instaladas y tutoriales agronómicos:</p>
+<div class="flex items-center gap-3">
+<a aria-label="Facebook" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-colors" href="#">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+<a aria-label="Instagram" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-colors" href="#">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a aria-label="YouTube" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-colors" href="#">
+<i class="fa-brands fa-youtube"></i>
+</a>
+<a aria-label="LinkedIn" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-colors" href="#">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+</div>
+</div>
+</div>
+<!-- Bottom Wireframe Footer Line -->
+<div class="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-mono">
+<p>© 2024 AgroEstructuras V.2 PRO. Software Agrícola. Todos los derechos reservados.</p>
+<p class="mt-2 sm:mt-0 tracking-wider">contacto • teléfono • redes</p>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>

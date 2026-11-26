@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Acceso y Registro | AgroEstructuras - Software Agrícola</title>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            matrix: {
+              base: '#070b14',
+              surface: '#0d1527',
+              card: '#131e36',
+              input: '#09101f',
+              border: '#1f2f4e',
+              emerald: '#22c55e',
+              accent: '#38bdf8',
+              amber: '#f59e0b'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="custom-decorations">
+    /* Subtle grid pattern background */
+    .bg-grid-pattern {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(34, 197, 94, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(34, 197, 94, 0.04) 1px, transparent 1px);
+    }
+    
+    /* Glowing aura effect behind cards */
+    .glow-aura {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.12) 0%, rgba(13, 21, 39, 0) 70%);
+      pointer-events: none;
+      filter: blur(40px);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-matrix-base bg-grid-pattern text-slate-100 font-sans min-h-full flex flex-col antialiased selection:bg-emerald-500 selection:text-black relative overflow-x-hidden">
+<!-- Ambient background glow elements -->
+<div aria-hidden="true" class="glow-aura -top-24 -left-20"></div>
+<div aria-hidden="true" class="glow-aura top-1/2 -right-36"></div>
+<!-- BEGIN: MainHeader -->
+<header class="w-full border-b border-matrix-border/80 bg-matrix-base/90 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Logo Branding -->
+<a class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg p-1" data-purpose="site-brand" href="#">
+<img alt="AgroEstructuras Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLBVJ04T-FODRMkrJiuCD_yB-0ZZ0aGuLYDSLKwpyFV3zzuL1AurOkO9IXsOtUdLEMhbGD70lHOBP8Bm6aeo-to-Fzsm_Sho0pqLuGV1eErfSNIeZUvv6XDaem1TJdE9bGu5H2m0qlracOeIxb2a13fgxY7XzmE16xc3gQfTYh-YQHQ7ZMj1r6DKk2AKABgB1NevAYHwJ2cDBblcwFbFAuWSmrGfBTIe26VB48TNqwc_PoDYxl8uLopg"/>
+<div class="flex flex-col">
+<span class="text-xs uppercase tracking-widest text-emerald-400 font-semibold leading-tight">Software Agrícola</span>
+<span class="text-sm font-bold text-slate-300 tracking-wider">V.2 PRO</span>
+</div>
+</a>
+<!-- Navigation Links from Wireframe -->
+<nav class="flex items-center gap-1 sm:gap-6" data-purpose="main-navigation">
+<a class="text-slate-300 hover:text-emerald-400 px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 border-b-2 border-transparent hover:border-emerald-400" href="#">
+          Inicio
+        </a>
+<a class="text-slate-300 hover:text-emerald-400 px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 border-b-2 border-transparent hover:border-emerald-400" href="#">
+          Cotizar
+        </a>
+<a class="text-slate-300 hover:text-emerald-400 px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 border-b-2 border-transparent hover:border-emerald-400" href="#">
+          Galería
+        </a>
+</nav>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainAuthContent -->
+<main class="flex-grow flex items-center justify-center py-10 sm:py-14 px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="w-full max-w-6xl">
+<!-- Context Header / Wireframe Title Reference -->
+<div class="text-center mb-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-3">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Acceso Centralizado V.2 PRO
+        </div>
+<h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+          Gestión y Cálculo de Invernaderos Inteligentes
+        </h1>
+<p class="text-sm text-slate-400 max-w-lg mx-auto mt-2">
+          Crea tu cuenta técnica o ingresa a tus proyectos agrícolas y cotizaciones en curso.
+        </p>
+</div>
+<!-- Auth Container: Two-Column Layout reflecting the wireframe structure -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- BEGIN: RegisterSection (Left Column in Wireframe) -->
+<section class="lg:col-span-7 bg-matrix-card/90 backdrop-blur-md border border-matrix-border rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden flex flex-col" data-purpose="registration-card">
+<!-- Corner decorative badge -->
+<div class="absolute top-0 right-0 w-28 h-28 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Register Header -->
+<div class="mb-6 pb-4 border-b border-matrix-border/80">
+<h2 class="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+<i class="fa-solid fa-user-plus text-emerald-400 text-xl"></i>
+              REGISTRARSE
+            </h2>
+<p class="text-xs sm:text-sm text-slate-400 mt-1">
+              Accede de inmediato a calculadoras de estructuras, módulos de cargas de viento y reportes de obra.
+            </p>
+</div>
+<!-- Registration Form -->
+<form class="space-y-4" data-purpose="registration-form" onsubmit="event.preventDefault();">
+<!-- Campo: Nombre completo -->
+<div>
+<label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1.5" for="reg-name">
+                Nombre completo
+              </label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 text-sm">
+<i class="fa-solid fa-user"></i>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-matrix-input border border-matrix-border text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500 transition-colors" id="reg-name" name="fullname" placeholder="Ing. Carlos Mendoza" required="" type="text"/>
+</div>
+</div>
+<!-- Campo: Correo -->
+<div>
+<label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1.5" for="reg-email">
+                Correo electrónico
+              </label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 text-sm">
+<i class="fa-solid fa-envelope"></i>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-matrix-input border border-matrix-border text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500 transition-colors" id="reg-email" name="email" placeholder="carlos.mendoza@agroempresa.com" required="" type="email"/>
+</div>
+</div>
+<!-- Fila con Teléfono y Ciudad en dispositivos medianos/grandes -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Campo: Teléfono -->
+<div>
+<label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1.5" for="reg-phone">
+                  Teléfono
+                </label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 text-sm">
+<i class="fa-solid fa-phone"></i>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-matrix-input border border-matrix-border text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500 transition-colors" id="reg-phone" name="phone" placeholder="+57 300 123 4567" type="tel"/>
+</div>
+</div>
+<!-- Campo: Ciudad -->
+<div>
+<label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1.5" for="reg-city">
+                  Ciudad
+                </label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 text-sm">
+<i class="fa-solid fa-location-dot"></i>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-matrix-input border border-matrix-border text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500 transition-colors" id="reg-city" name="city" placeholder="La Ceja, Rionegro, Bogotá..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Campo: Contraseña -->
+<div>
+<label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1.5" for="reg-password">
+                Contraseña
+              </label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 text-sm">
+<i class="fa-solid fa-lock"></i>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-matrix-input border border-matrix-border text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500 transition-colors" id="reg-password" name="password" placeholder="Mínimo 8 caracteres alfanuméricos" required="" type="password"/>
+</div>
+</div>
+<!-- Botón CREAR CUENTA -->
+<div class="pt-3">
+<button class="w-full py-3.5 px-6 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-base tracking-wide uppercase transition-all duration-200 transform active:scale-[0.99] shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 flex items-center justify-center gap-2" data-purpose="submit-register" type="submit">
+<span>CREAR CUENTA</span>
+<i class="fa-solid fa-arrow-right text-sm"></i>
+</button>
+</div>
+<!-- Terms notice -->
+<p class="text-center text-xs text-slate-500 pt-1">
+              Al registrarte aceptas las Condiciones de Servicio y la Política de Datos AgroTech.
+            </p>
+</form>
+</section>
+<!-- END: RegisterSection -->
+<!-- BEGIN: LoginSection (Right Column in Wireframe) -->
+<section class="lg:col-span-5 bg-matrix-surface/90 backdrop-blur-md border border-matrix-border rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col justify-between" data-purpose="login-card">
+<div>
+<!-- Login Header -->
+<div class="mb-6 pb-4 border-b border-matrix-border/80">
+<h2 class="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+<i class="fa-solid fa-right-to-bracket text-emerald-400 text-xl"></i>
+                INICIAR SESIÓN
+              </h2>
+<p class="text-xs sm:text-sm text-slate-400 mt-1">
+                Ingresa tus credenciales para acceder al panel de proyectos y cálculo estructural.
+              </p>
+</div>
+<!-- Login Form -->
+<form class="space-y-4" data-purpose="login-form" onsubmit="event.preventDefault();">
+<!-- Campo: Correo -->
+<div>
+<label class="block text-xs font-medium text-slate-300 uppercase tracking-wider mb-1.5" for="login-email">
+                  Correo
+                </label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 text-sm">
+<i class="fa-solid fa-at"></i>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-matrix-input border border-matrix-border text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500 transition-colors" id="login-email" name="login-email" placeholder="usuario@agroestructuras.com" required="" type="email"/>
+</div>
+</div>
+<!-- Campo: Contraseña con toggle para visualizar -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block text-xs font-medium text-slate-300 uppercase tracking-wider" for="login-password">
+                    Contraseña
+                  </label>
+</div>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500 text-sm">
+<i class="fa-solid fa-key"></i>
+</span>
+<input class="w-full pl-10 pr-10 py-2.5 rounded-lg bg-matrix-input border border-matrix-border text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/60 focus:border-emerald-500 transition-colors" id="login-password" name="login-password" placeholder="••••••••••••" required="" type="password"/>
+<button aria-label="Mostrar u ocultar contraseña" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-emerald-400 focus:outline-none transition-colors" data-purpose="toggle-password-visibility" id="toggle-password" type="button">
+<i class="fa-regular fa-eye" id="toggle-icon"></i>
+</button>
+</div>
+</div>
+<!-- Botón INGRESAR (conforme al botón central en el wireframe) -->
+<div class="pt-3">
+<button class="w-full py-3.5 px-6 rounded-lg bg-slate-200 hover:bg-white text-slate-900 font-bold text-base tracking-wide uppercase transition-all duration-200 shadow-md hover:shadow-slate-200/20 active:scale-[0.99] flex items-center justify-center gap-2 border border-slate-300" data-purpose="submit-login" type="submit">
+<i class="fa-solid fa-lock-open text-xs"></i>
+<span>INGRESAR</span>
+</button>
+</div>
+<!-- Enlace: ¿Olvidaste tu contraseña? -->
+<div class="text-center pt-2">
+<a class="text-xs sm:text-sm text-slate-400 hover:text-emerald-400 transition-colors duration-150 inline-block underline decoration-slate-600 underline-offset-4 hover:decoration-emerald-400" href="#">
+                  ¿Olvidaste tu contraseña?
+                </a>
+</div>
+</form>
+</div>
+<!-- Badges de Soporte y Certificación Técnica -->
+<div class="mt-8 pt-6 border-t border-matrix-border/60">
+<div class="flex items-center justify-between text-[11px] text-slate-400">
+<span class="flex items-center gap-1.5">
+<i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                Encriptación SSL 256-bit
+              </span>
+<span class="flex items-center gap-1.5">
+<i class="fa-solid fa-server text-emerald-400"></i>
+                Servidor AgroCloud Activo
+              </span>
+</div>
+</div>
+</section>
+<!-- END: LoginSection -->
+</div>
+</div>
+</main>
+<!-- END: MainAuthContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="w-full border-t border-matrix-border/80 bg-matrix-base py-6 text-center text-xs text-slate-400">
+<div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span>© 2024 AgroEstructuras - Software Agrícola V.2 PRO.</span>
+<span class="hidden sm:inline text-slate-600">|</span>
+<span class="text-slate-400">Diseño y Cálculo Estructural para el Campo</span>
+</div>
+<div class="flex items-center gap-4 text-slate-400">
+<a class="hover:text-emerald-400 transition-colors" href="#">Términos</a>
+<a class="hover:text-emerald-400 transition-colors" href="#">Privacidad</a>
+<a class="hover:text-emerald-400 transition-colors" href="#">Soporte Técnico</a>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<!-- BEGIN: InteractiveScripts -->
+<script data-purpose="password-visibility-toggle">
+    // Logic to toggle password visibility
+    const toggleButton = document.getElementById('toggle-password');
+    const passwordInput = document.getElementById('login-password');
+    const toggleIcon = document.getElementById('toggle-icon');
+
+    if (toggleButton && passwordInput && toggleIcon) {
+      toggleButton.addEventListener('click', function () {
+        const isPassword = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+        
+        // Switch eye icon states
+        if (isPassword) {
+          toggleIcon.classList.remove('fa-eye');
+          toggleIcon.classList.add('fa-eye-slash');
+        } else {
+          toggleIcon.classList.remove('fa-eye-slash');
+          toggleIcon.classList.add('fa-eye');
+        }
+      });
+    }
+  </script>
+<!-- END: InteractiveScripts -->
+</body></html>

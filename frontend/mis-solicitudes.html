@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis solicitudes | AgroEstructura V.2 PRO</title>
+<meta name="theme-color" content="#0b1326">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/tailwind.css">
+<link rel="stylesheet" href="css/app.css">
+<script type="importmap">{ "imports": { "three": "./js/vendor/three/three.module.js" } }</script>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary">
+<div id="shell"></div>
+
+<div class="lg:pl-64">
+<main class="relative w-full pt-16 bg-background min-h-screen">
+<div class="p-4 lg:p-6 flex flex-col gap-6 max-w-5xl mx-auto">
+
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+    <div class="flex items-center gap-3"><div class="w-1.5 h-8 bg-primary rounded-full"></div>
+      <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Mis solicitudes</h1></div>
+    <a href="nuevo-proyecto.html" class="self-start sm:self-auto inline-flex items-center gap-2 px-4 min-h-[44px] rounded-lg bg-primary hover:bg-spring-lime text-on-primary font-label-md text-label-md font-bold"><span class="material-symbols-outlined text-[18px]">add</span>Nueva solicitud</a>
+  </div>
+
+  <!-- Cómo funciona -->
+  <ol class="grid grid-cols-1 md:grid-cols-3 gap-3" aria-label="Cómo funciona">
+    <li class="bg-surface-card rounded-xl p-4 border border-border-grid flex gap-3"><span class="material-symbols-outlined text-primary">architecture</span><span><b class="text-on-surface">1. Diseñas y envías</b><span class="ayuda block">Configuras tu invernadero y nos envías la solicitud.</span></span></li>
+    <li class="bg-surface-card rounded-xl p-4 border border-border-grid flex gap-3"><span class="material-symbols-outlined text-wireframe-blue">engineering</span><span><b class="text-on-surface">2. Revisamos</b><span class="ayuda block">Calculamos materiales y precios con tu diseño.</span></span></li>
+    <li class="bg-surface-card rounded-xl p-4 border border-border-grid flex gap-3"><span class="material-symbols-outlined text-spring-lime">request_quote</span><span><b class="text-on-surface">3. Recibes tu cotización</b><span class="ayuda block">Aparece aquí y la puedes descargar en PDF.</span></span></li>
+  </ol>
+
+  <div id="lista" class="flex flex-col gap-4"></div>
+
+</div>
+</main>
+</div>
+
+<script src="js/calculo.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/simulador.js"></script>
+<script src="js/disenador.js"></script>
+<script src="js/pdf.js"></script>
+<script type="module" src="js/estructura3d.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/solicitudes.js"></script>
+</body>
+</html>

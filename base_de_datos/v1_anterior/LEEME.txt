@@ -1,0 +1,1 @@
+﻿Version 1 del modelo (2026-10): sitio con registro de usuarios y precios visibles. REEMPLAZADA por la v2 (modelo hibrido) de la carpeta superior.

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgroEstructuras - Modelo entidad-relación</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f4f5f7; margin: 0; padding: 24px; color: #222; }
+  h1 { text-align: center; margin: 0 0 4px; }
+  p.sub { text-align: center; color: #555; margin: 0 0 20px; }
+  .caja { background: #fff; border: 1px solid #ccc; border-radius: 8px; padding: 16px; overflow-x: auto; max-width: 1300px; margin: 0 auto 20px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
+  th { background: #e8efe8; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+</head>
+<body>
+<h1>AgroEstructuras</h1>
+<p class="sub">Modelo entidad-relación (MySQL)</p>
+
+<div class="caja">
+<pre class="mermaid">
+erDiagram
+  usuarios ||--o{ cotizaciones : "realiza"
+  tipos_trabajo ||--o{ cotizaciones : "define"
+  tipos_cubierta ||--o{ cotizaciones : "define"
+  tipos_estructura ||--o{ cotizaciones : "define"
+  disenos ||--o{ cotizaciones : "define"
+  plasticos ||--o{ cotizaciones : "usa"
+  tipos_cubierta ||--o{ plasticos : "agrupa"
+  cotizaciones ||--|{ detalle_cotizacion : "contiene"
+  materiales ||--o{ detalle_cotizacion : "aparece en"
+  disenos ||--o{ reglas_material : "requiere"
+  tipos_estructura ||--o{ reglas_material : "requiere"
+  materiales ||--o{ reglas_material : "se calcula en"
+  disenos ||--o{ tarifas_mano_obra : "tiene"
+  categorias_galeria ||--o{ galeria : "clasifica"
+
+  usuarios {
+    int id_usuario PK
+    varchar nombre
+    varchar correo UK
+    varchar telefono
+    varchar ciudad
+    varchar password_hash
+    enum rol
+    datetime fecha_registro
+  }
+  cotizaciones {
+    int id_cotizacion PK
+    int id_usuario FK
+    int id_tipo_trabajo FK
+    int id_tipo_cubierta FK
+    int id_tipo_estructura FK
+    int id_diseno FK
+    int id_plastico FK
+    decimal largo
+    decimal ancho
+    decimal altura
+    text observaciones
+    enum origen
+    decimal costo_materiales
+    decimal costo_mano_obra
+    decimal total
+    datetime fecha
+  }
+  detalle_cotizacion {
+    int id_detalle PK
+    int id_cotizacion FK
+    int id_material FK
+    decimal cantidad
+    decimal precio_unit
+    decimal subtotal
+  }
+  materiales {
+    int id_material PK
+    varchar nombre
+    varchar unidad
+    decimal precio_unit
+  }
+  reglas_material {
+    int id_regla PK
+    int id_diseno FK
+    int id_tipo_estructura FK
+    int id_material FK
+    decimal cantidad_por_m2
+  }
+  tarifas_mano_obra {
+    int id_tarifa PK
+    int id_diseno FK
+    decimal precio_m2
+  }
+  tipos_trabajo {
+    int id_tipo_trabajo PK
+    varchar nombre
+  }
+  tipos_cubierta {
+    int id_tipo_cubierta PK
+    varchar nombre
+  }
+  tipos_estructura {
+    int id_tipo_estructura PK
+    varchar nombre
+  }
+  disenos {
+    int id_diseno PK
+    varchar nombre
+    varchar descripcion
+  }
+  plasticos {
+    int id_plastico PK
+    int id_tipo_cubierta FK
+    varchar nombre
+    varchar calibre
+    tinyint porcentaje_sombra
+    decimal precio_m2
+  }
+  categorias_galeria {
+    int id_categoria PK
+    varchar nombre
+  }
+  galeria {
+    int id_foto PK
+    int id_categoria FK
+    varchar titulo
+    varchar descripcion
+    varchar ubicacion
+    varchar ruta_imagen
+    date fecha
+  }
+</pre>
+</div>
+
+<div class="caja">
+<h3 style="margin-top:0">Descripción de las entidades</h3>
+<table>
+<tr><th>Tabla</th><th>Para qué sirve</th></tr>
+<tr><td>usuarios</td><td>Clientes registrados y administradores.</td></tr>
+<tr><td>cotizaciones</td><td>Cada cotización: opciones elegidas, medidas, observaciones y totales. El campo <i>origen</i> indica si vino del formulario o del chat.</td></tr>
+<tr><td>detalle_cotizacion</td><td>Lista de materiales de cada cotización con cantidad, precio y subtotal. El precio queda guardado aunque después cambie.</td></tr>
+<tr><td>materiales</td><td>Catálogo de materiales con su unidad y precio.</td></tr>
+<tr><td>reglas_material</td><td>Cuánto material necesita cada diseño según la estructura, por m². Se edita desde el panel de administrador.</td></tr>
+<tr><td>tarifas_mano_obra</td><td>Precio de la mano de obra por m² según el diseño.</td></tr>
+<tr><td>tipos_trabajo, tipos_cubierta, tipos_estructura, disenos</td><td>Catálogos de las opciones del cotizador.</td></tr>
+<tr><td>plasticos</td><td>Plásticos (calibre) y mallas saran (% de sombra) con su precio por m².</td></tr>
+<tr><td>galeria, categorias_galeria</td><td>Fotos de trabajos realizados y sus categorías.</td></tr>
+</table>
+</div>
+
+<script>
+  mermaid.initialize({ startOnLoad: false, theme: "neutral", htmlLabels: false, er: { useMaxWidth: false } });
+  mermaid.run().then(() => {
+    const bar = document.createElement("div");
+    bar.style.cssText = "text-align:center;margin:0 0 16px";
+    bar.innerHTML = '<button id="png">⬇ Descargar PNG</button> <button id="svg">⬇ Descargar SVG</button>';
+    document.querySelector(".caja").before(bar);
+    bar.querySelectorAll("button").forEach(b => b.style.cssText = "font-size:16px;padding:8px 16px;margin:0 6px;cursor:pointer");
+    const svg = () => {
+      const s = document.querySelector(".mermaid svg").cloneNode(true);
+      const bb = document.querySelector(".mermaid svg").getBBox();
+      const vb = (document.querySelector(".mermaid svg").getAttribute("viewBox") || "").split(" ").map(Number);
+      const w = vb[2] || bb.width, h = vb[3] || bb.height;
+      s.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+      s.setAttribute("width", w); s.setAttribute("height", h); s.style.maxWidth = "none";
+      return { xml: new XMLSerializer().serializeToString(s), w, h };
+    };
+    const bajar = (href, nombre) => { const a = document.createElement("a"); a.href = href; a.download = nombre; a.click(); };
+    document.getElementById("svg").onclick = () => bajar("data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg().xml), "agroestructuras_er.svg");
+    document.getElementById("png").onclick = () => {
+      const { xml, w, h } = svg(), img = new Image();
+      img.onload = () => {
+        const c = document.createElement("canvas"), k = 2;
+        c.width = w * k; c.height = h * k;
+        const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, c.width, c.height);
+        x.drawImage(img, 0, 0, c.width, c.height);
+        bajar(c.toDataURL("image/png"), "agroestructuras_er.png");
+      };
+      img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(xml);
+    };
+  });
+</script>
+</body>
+</html>
