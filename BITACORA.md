@@ -158,3 +158,17 @@ Registro de avances del proyecto. Lo llevan el Claude de VS Code (Claude Code) y
 
 **Para Claude Code**
 - En el Centro principal, el indicador «Total cotizado este mes» se corta cuando el valor pasa de $ 100.000.000 (se vio con datos de prueba).
+
+---
+
+## 2026-11-25 21:40 · Proyecto en GitHub + demo para GitHub Pages (escrito por Claude del chat)
+
+**Hecho**
+- Todo el proyecto subido a https://github.com/naranjosantiago122-bit/AgroEstructuras (repositorio público que ya existía; se conservó su historial). No se subieron `backend/.env`, `.venv`, `respaldos/`, `backend/uploads/` ni `backend/correos_salida/` (ver `.gitignore`).
+- Nueva carpeta `demo/`: copia de `frontend/` que funciona SIN servidor para GitHub Pages. `demo/js/api-local.js` imita la API `/api` con localStorage (mismo cálculo que `backend/calculo.py`). Clave de administrador de la demo: `AGRO-DEMO`. Aviso verde arriba con «reiniciar datos».
+- `index.html` de la raíz abre `demo/index.html`. README actualizado con el enlace de Pages.
+- Probado de punta a punta (cliente registra y envía solicitud → dueño la cotiza y la libera → cliente la ve «Cotizada»), 0 errores de consola.
+
+**Para Claude Code**
+- Si cambias `frontend/`, la demo NO se actualiza sola: hay que volver a copiar los archivos a `demo/` (menos `js/datos.js`, que en la demo llama a `AgroDemoAPI`) y subir los cambios.
+- GitHub Pages: activar en Settings → Pages (rama main, carpeta raíz) si aún no está.
